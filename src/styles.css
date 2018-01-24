@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto|Poppins');
+*
+{
+  font-family: 'Poppins', sans-serif;
+}
+.coolfont
+{
+  font-family: 'Righteous', cursive;
+}
+h1
+{
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  font-size: 5em;
+}
+.black
+{
+  margin: -19px;
+  background: #141414;
+  color: white;
+  text-align: center;
+  align: center;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  font-size: 1.5em;
+  opacity: .9;
+}
+.grayspace
+{
+  margin: -19px;
+  background: #EEF;
+}
+.main
+{
+  padding: 2% 5% 2% 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: white;
+}
