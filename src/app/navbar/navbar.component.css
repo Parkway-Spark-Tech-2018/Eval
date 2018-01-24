@@ -1,0 +1,10 @@
+.nav-wrapper {
+  width: 100%;
+  background-color: #3E3F3A;
+}
+
+.navbar {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
