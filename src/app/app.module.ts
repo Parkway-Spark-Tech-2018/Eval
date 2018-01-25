@@ -14,13 +14,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { HeadingComponent } from './heading/heading.component';
 import { SearchComponent } from './search/search.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ReviewComponent } from './review/review.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'review', component: ReviewComponent}
 ];
 
 
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     HeadingComponent,
     SearchComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
