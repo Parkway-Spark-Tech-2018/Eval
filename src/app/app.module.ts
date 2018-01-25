@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
+
 import {RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 
@@ -15,7 +16,8 @@ import { HeadingComponent } from './heading/heading.component';
 //List of Pages for Web App
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 
