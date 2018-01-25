@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }     from '@angular/router';
 import { Observable }         from 'rxjs/Observable';
 
+/** Import models **/
+import {Result} from '../../models/Result';
+
 import * as fuzzysearch from 'fuzzysearch';
 
 import 'rxjs/add/operator/map';
@@ -25,7 +28,14 @@ export class SearchComponent implements OnInit {
     "App Development"
   ]
 
-  public results:string[] = [];
+  public teachers:string[] = [
+    "Mr. Palmer",
+    "Dr. Strange",
+    "Dr. Stanfill",
+    "Meme. Machine"
+  ]
+
+  public results:Result[] = [];
 
   constructor(private route: ActivatedRoute) {
 
@@ -33,18 +43,27 @@ export class SearchComponent implements OnInit {
 
   search(search_string) {
 
-    let search_results:string[] = [];
+    let search_results:Result[] = [];
 
     for (var course_idx in this.courses) {
 
       var course:string = this.courses[course_idx]
 
       if (fuzzysearch(search_string.toLowerCase(), course.toLowerCase()) == true) {
-        search_results.push(course);
-        console.log(course);
+
+        var course_result:Result = Result.createCourseResult(course);
+        search_results.push(course_result);
       }
 
-      console.log(course);
+    }
+
+    for (var teacher_idx in this.teachers) {
+        var teacher:string = this.teachers[teacher_idx]
+
+        if (fuzzysearch(search_string.toLowerCase(), teacher.toLowerCase()) == true) {
+          var teacher_result:Result = Result.createTeacherResult(teacher);
+          search_results.push(teacher_result);
+        }
     }
 
     console.log(search_results);
