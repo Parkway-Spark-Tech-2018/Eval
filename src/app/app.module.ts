@@ -12,12 +12,14 @@ import { AboutComponent } from './about/about.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { HeadingComponent } from './heading/heading.component';
+import { CourseComponent } from './course/course.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'course', component: CourseComponent}
 ];
 
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     ProfileComponent,
-    HeadingComponent
+    HeadingComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
