@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }     from '@angular/router';
 import { Observable }         from 'rxjs/Observable';
 
-
+import * as fuzzysearch from 'fuzzysearch';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -27,9 +27,28 @@ export class SearchComponent implements OnInit {
 
   public results:string[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+
+  }
 
   search(search_string) {
+
+    let search_results:string[] = [];
+
+    for (var course_idx in this.courses) {
+
+      var course:string = this.courses[course_idx]
+
+      if (fuzzysearch(search_string.toLowerCase(), course.toLowerCase()) == true) {
+        search_results.push(course);
+        console.log(course);
+      }
+
+      console.log(course);
+    }
+
+    console.log(search_results);
+    return search_results;
 
   }
 
@@ -39,6 +58,7 @@ export class SearchComponent implements OnInit {
       .queryParams
       .subscribe(params => {
         this.search_query = params['search_query'] || "None";
+        this.results = this.search(this.search_query);
       })
   }
 
