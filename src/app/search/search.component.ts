@@ -41,10 +41,25 @@ export class SearchComponent implements OnInit {
 
   }
 
-  search(search_string) {
+  search(search_string) { //Search algorithm
 
     let search_results:Result[] = [];
 
+    if (search_string == "") {
+
+      for (var course_idx in this.courses) {
+        var course:string = this.courses[course_idx];
+        var course_result:Result = Result.createCourseResult(course);
+        search_results.push(course_result);
+      }
+
+      for (var teacher_idx in this.teachers) {
+        var teacher:string = this.teachers[teacher_idx];
+        var teacher_result:Result = Result.createTeacherResult(teacher);
+        search_results.push(teacher_result);
+      }
+
+    }
     for (var course_idx in this.courses) {
 
       var course:string = this.courses[course_idx]
@@ -76,7 +91,7 @@ export class SearchComponent implements OnInit {
     let query_promise = this.route
       .queryParams
       .subscribe(params => {
-        this.search_query = params['search_query'] || "None";
+        this.search_query = params['search_query'] || "";
         this.results = this.search(this.search_query);
       })
   }
