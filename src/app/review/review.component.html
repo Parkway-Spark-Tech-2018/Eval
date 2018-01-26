@@ -1,4 +1,4 @@
-<h1>Leave a review for {{TeacherName}}</h1>
+<h1>Leave a review for the {{type}}, {{name}}</h1>
 
 <br>
 <div class = "row">
@@ -12,6 +12,7 @@
 
 <br>
 
-<a [routerLink]="['/profile']" [queryParams]="{teacher_name: TeacherName}" >Back</a>
+<a *ngIf = "type=='Teacher'" [routerLink]="['/profile']" [queryParams]="{teacher_name: name}" >Back</a>
+<a *ngIf = "type=='Course'" [routerLink]="['/course']" [queryParams]="{course_name: name}" >Back</a>
 
 <br>

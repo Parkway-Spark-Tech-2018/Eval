@@ -15,7 +15,9 @@ import {ReviewDatabase} from '../../database/ReviewDatabase';
 })
 export class ReviewComponent implements OnInit {
 
-  public TeacherName:any;
+  public name:string;
+  public type:string;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -25,21 +27,38 @@ export class ReviewComponent implements OnInit {
   ngOnInit() {
 
     var that = this;
-    this.getTeacherName().then (function (teacher_name) {
-      that.TeacherName = teacher_name;
+
+    this.getName().then (function (name) {
+      that.name = name;
+    })
+
+    this.getType().then (function (type) {
+      that.type = type;
     })
 
   }
 
   review(review_rating:number) {
 
-    let teacher_review:Review = Review.createTeacherReview(this.TeacherName, review_rating);
+    let review:Review;
+
+    if (this.type == "Teacher") {
+      review = Review.createTeacherReview(this.name, review_rating);
+    }else if (this.type == "Course") {
+      review = Review.createCourseReview(this.name, review_rating);
+    }
 
     let that = this;
 
-    ReviewDatabase.addReview(teacher_review).then (function (reviews) {
+    ReviewDatabase.addReview(review).then (function (reviews) {
       console.log(reviews);
-      that.goTeacherBack();
+
+      if (that.type == "Teacher") {
+        that.goTeacherBack();
+      }else if (that.type == "Course") {
+        that.goCourseBack();
+      }
+
     })
 
   }
@@ -47,7 +66,7 @@ export class ReviewComponent implements OnInit {
   goTeacherBack() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'teacher_name': this.TeacherName}
+      queryParams: {'teacher_name': this.name}
     }
 
     this.router.navigate(['/profile'], navigationExtras)
@@ -55,7 +74,18 @@ export class ReviewComponent implements OnInit {
 
   }
 
-  getTeacherName() {
+  goCourseBack() {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'course_name': this.name}
+    }
+
+    this.router.navigate(['/course'], navigationExtras)
+
+
+  }
+
+  getName() {
 
     let that = this;
 
@@ -63,7 +93,22 @@ export class ReviewComponent implements OnInit {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = <string>params['teacherName'] || null;
+        var teacherName = <string>params['name'] || null;
+        resolve(teacherName)
+      })
+    });
+
+    return query_promise
+  }
+
+  getType() {
+    let that = this;
+
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        var teacherName = <string>params['type'] || null;
         resolve(teacherName)
       })
     });

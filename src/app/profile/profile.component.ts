@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    console.log("meme");
+
   }
 
   ngOnInit() {
@@ -110,7 +110,9 @@ export class ProfileComponent implements OnInit {
   leave_review() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'teacherName': this.teacher_name}
+      queryParams: {'name': this.teacher_name,
+                    'type': 'Teacher'
+                    }
     }
 
     this.router.navigate(['/review'], navigationExtras);
