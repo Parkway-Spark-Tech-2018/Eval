@@ -35,11 +35,12 @@ export class ReviewComponent implements OnInit {
 
     let teacher_review:Review = Review.createTeacherReview(this.TeacherName, review_rating);
 
+    let that = this;
+
     ReviewDatabase.addReview(teacher_review).then (function (reviews) {
       console.log(reviews);
+      that.goTeacherBack();
     })
-
-    this.goTeacherBack();
 
   }
 
