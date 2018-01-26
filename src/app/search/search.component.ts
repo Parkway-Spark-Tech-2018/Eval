@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }     from '@angular/router';
 import { Observable }         from 'rxjs/Observable';
 
+/** Import Data api **/
+import {EvalApi} from '../../api/EvalApi';
+
 /** Import models **/
 import {Result} from '../../models/Result';
 
@@ -14,32 +17,24 @@ import 'rxjs/add/operator/toPromise';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  providers: [EvalApi],
 })
 export class SearchComponent implements OnInit {
 
   public search_query:string;
 
-  public courses:string[] = [
-    "Calculus",
-    "Memes",
-    "Business",
-    "Apples",
-    "App Development"
-  ]
+  public courses:string[] = []
 
-  public teachers:string[] = [
-    "Mr. Palmer",
-    "Dr. Strange",
-    "Dr. Stanfill",
-    "Meme. Machine"
-  ]
+  public teachers:string[] = []
 
   public results:Result[] = [];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private eval_api: EvalApi) {
+
 
   }
+
 
   search(search_string) { //Search algorithm
 
@@ -86,14 +81,38 @@ export class SearchComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  viewCourse(course:string) {
+    
+  }
 
+  viewTeacher(teacher:string) {
+
+  }
+
+  performSearch() { //Perform the search query
     let query_promise = this.route
       .queryParams
       .subscribe(params => {
         this.search_query = params['search_query'] || "";
         this.results = this.search(this.search_query);
       })
+  }
+
+  ngOnInit() {
+
+    let that = this;
+
+    //Get the teacher and courses
+    this.eval_api.getTeachers().then (function (data) {
+      that.teachers = <string[]> data;
+      return that.eval_api.getCourses()
+    }).then (function (data) {
+      that.courses = <string[]> data;
+    }).then (function () {
+      that.performSearch(); //Perform the search;
+    })
+
+
   }
 
 }
