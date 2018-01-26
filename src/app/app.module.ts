@@ -22,7 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: '/search', pathMatch: 'full'},
   {path: 'about', component: AboutComponent},
   {path: 'search', component: SearchComponent},
   {path: 'profile', component: ProfileComponent},
