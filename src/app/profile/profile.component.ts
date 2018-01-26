@@ -50,6 +50,11 @@ export class ProfileComponent implements OnInit {
   }
 
   BadPercentageString() {
+
+    if (this.good_percentage == 0) {
+      return "0%";
+    }
+
     return (100 - this.good_percentage) + "%";
   }
 
