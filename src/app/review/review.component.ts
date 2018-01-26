@@ -29,11 +29,11 @@ export class ReviewComponent implements OnInit {
     var that = this;
 
     this.getName().then (function (name) {
-      that.name = name;
+      that.name = <string>name;
     })
 
     this.getType().then (function (type) {
-      that.type = type;
+      that.type = <string>type;
     })
 
   }

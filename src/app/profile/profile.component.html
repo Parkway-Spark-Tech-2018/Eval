@@ -1,4 +1,7 @@
-
+<button (click) = "backToSearch()" class = "btn btn-primary">
+  <- Back
+</button>
+<br/>
 <div class = "row">
   <div class = "col">
     <img src = "../../assets/profile.jpg" align = "center" width = "80%" alt = "profile img here">
@@ -6,9 +9,8 @@
   <div class = "col">
     <h2 style = "text-align: center;">{{teacher_name}}</h2> <!--REFERENCE NAME OF TEACHER-->
     <div class = "row" style = "padding: 0% 10% 0% 10%">
-      <!--Like Bar--><div style = "margin-right: -40%; margin-bottom: -5px; background: #0B72C1" class = "col"> <!--GIVEN THE LIKE AND DISLIKE RATIOS, I BELIEVE I CAN COME UP WITH AN EQUATION TO DETERMINE THE MARGIN-->
-      </div>
-      <!--Dislike Bar--><div style = "margin-left: 40%; margin-bottom: -5px; background: #D30055" class = "col">
+      <div class = "progress">
+        <!--Put like/ dislike bar here-->
       </div>
     </div>
     <br/>
@@ -21,8 +23,9 @@
       <li>Classname</li>
     </ul>
     -->
-    
+
   </div>
+
 </div>
 <br>
 

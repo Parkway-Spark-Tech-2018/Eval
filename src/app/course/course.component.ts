@@ -46,6 +46,11 @@ export class CourseComponent implements OnInit {
 
   }
 
+  backToSearch()
+  {
+    this.router.navigate(['/search'])
+  }
+
   leave_review() {
 
     let navigationExtras: NavigationExtras = {

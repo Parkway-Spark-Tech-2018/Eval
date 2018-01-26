@@ -47,6 +47,11 @@ export class ProfileComponent implements OnInit {
     })
 
   }
+  backToSearch()
+  {
+    this.router.navigate(['/search'])
+  }
+
 
   GoodPercentageString() {
     return this.good_percentage + "%";

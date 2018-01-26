@@ -19,6 +19,7 @@ import { CourseComponent } from './course/course.component';
 
 // Import HttpClientModule from @angular/common/http
 import {HttpClientModule} from '@angular/common/http';
+import { RatingsComponent } from './ratings/ratings.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     SearchComponent,
     SearchBarComponent,
     ReviewComponent,
-    CourseComponent
+    CourseComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
