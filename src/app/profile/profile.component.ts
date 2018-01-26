@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     let that = this;
 
     this.getTeacherName().then (function (teacher_name) {
-      that.teacher_name = teacher_name;
+      that.teacher_name = <string>teacher_name;
     })
 
   }

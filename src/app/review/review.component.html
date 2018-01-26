@@ -1,1 +1,17 @@
 <h1>Leave a review for {{TeacherName}}</h1>
+
+<br>
+<div class = "row">
+  <div class = "col">
+    <button (click) = "review(+1)" class = "btn btn-success btn-block">+++</button>
+  </div>
+  <div class = "col">
+    <button (click) = "review(-1)" class = "btn btn-danger btn-block">---</button>
+  </div>
+</div>
+
+<br>
+
+<a [routerLink]="['/profile']" [queryParams]="{teacher_name: TeacherName}" >Back</a>
+
+<br>
