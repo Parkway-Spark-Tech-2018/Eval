@@ -20,6 +20,7 @@ export class CourseComponent implements OnInit {
   public amnt_good:number = 0;
 
   public good_percentage = 0;
+  public bad_percentage = 0;
 
   constructor(private route: ActivatedRoute,
   private router: Router) {
@@ -38,7 +39,9 @@ export class CourseComponent implements OnInit {
       that.reviews = that.filterCourseReviews(<Review[]> reviews);
       that.updateScore(that.reviews);
 
-      that.good_percentage = that.viewPercentage();
+      that.good_percentage = that.viewPercentage(that.amnt_good, (that.amnt_good + that.amnt_bad));
+      that.bad_percentage = that.viewPercentage(that.amnt_bad, (that.amnt_good + that.amnt_bad));
+
     })
 
   }
@@ -61,16 +64,18 @@ export class CourseComponent implements OnInit {
 
   BadPercentageString() {
 
-    if (this.good_percentage == 0) {
+    if (this.good_percentage == 0 && this.bad_percentage == 0) {
       return "0%";
+    }else if (this.good_percentage == 0) {
+      return this.bad_percentage + "%";
     }
 
     return (100 - this.good_percentage) + "%";
   }
 
 
-  viewPercentage() {
-    let percentage:number = Math.floor(100 * (this.amnt_good/(this.amnt_good + this.amnt_bad)));
+  viewPercentage(amnt:number, total:number) {
+    let percentage:number = Math.floor(100 * (amnt/total));
     return percentage;
   }
 
