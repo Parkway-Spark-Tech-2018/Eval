@@ -9,8 +9,7 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 })
 export class ProfileComponent implements OnInit {
 
-  public teacher_info:any;
-  public teacher_name:string = "Apples"
+  public teacher_name:string;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,6 +17,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
 
   leave_review() {

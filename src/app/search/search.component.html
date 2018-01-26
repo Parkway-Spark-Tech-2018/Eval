@@ -11,7 +11,25 @@
 
       <div class = "card-body">
         {{result.name}}
+
+        <br>
+        <br>
+
+        <!-- Return button if is a teacher -->
+        <button (click) = "viewTeacher(result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+          View
+        </button>
+
+        <!-- Return button if is a course -->
+
+        <button (click) = "viewCourse(result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+          View
+        </button>
+
+
       </div>
+
+
 
   </div>
 

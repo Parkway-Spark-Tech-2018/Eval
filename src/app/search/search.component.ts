@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute }     from '@angular/router';
+import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
 import { Observable }         from 'rxjs/Observable';
 
 /** Import Data api **/
@@ -30,11 +30,9 @@ export class SearchComponent implements OnInit {
 
   public results:Result[] = [];
 
-  constructor(private route: ActivatedRoute, private eval_api: EvalApi) {
-
+  constructor(private route: ActivatedRoute, private router: Router, private eval_api: EvalApi) {
 
   }
-
 
   search(search_string) { //Search algorithm
 
@@ -82,10 +80,22 @@ export class SearchComponent implements OnInit {
   }
 
   viewCourse(course:string) {
-    
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'course_name': course}
+    }
+
+    this.router.navigate(['/course'], navigationExtras)
+
   }
 
   viewTeacher(teacher:string) {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'teacher_name': teacher}
+    }
+
+    this.router.navigate(['/profile'], navigationExtras)
 
   }
 
