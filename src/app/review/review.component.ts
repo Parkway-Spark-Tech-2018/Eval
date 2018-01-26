@@ -4,6 +4,10 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 
 import {Review} from '../../models/Review';
 
+//Review Database
+
+import {ReviewDatabase} from '../../database/ReviewDatabase';
+
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
@@ -31,7 +35,9 @@ export class ReviewComponent implements OnInit {
 
     let teacher_review:Review = Review.createTeacherReview(this.TeacherName, review_rating);
 
-    console.log(teacher_review);
+    ReviewDatabase.addReview(teacher_review).then (function (reviews) {
+      console.log(reviews);
+    })
 
     this.goTeacherBack();
 
