@@ -2,11 +2,9 @@
 
   <form class = "row" #searchForm = "ngForm" (ngSubmit) = "search()">
 
-    <div class = "col-lg-10">
+    <div class = "input-group">
       <input [(ngModel)] = "search_string" class = "form-control" name = "search_string"/>
-    </div>
-    <div class = "col-lg-2">
-      <button [disabled] = "!searchForm.form.valid" class = "btn btn-block btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <button [disabled] = "!searchForm.form.valid" class = "btn btn btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
     </div>
 
   </form>
