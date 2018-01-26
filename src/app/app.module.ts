@@ -17,6 +17,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReviewComponent } from './review/review.component';
 import { CourseComponent } from './course/course.component';
 
+// Import HttpClientModule from @angular/common/http
+import {HttpClientModule} from '@angular/common/http';
+
 //List of Pages for Web App
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -48,7 +51,8 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: true} // <- For Debugging
     ),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

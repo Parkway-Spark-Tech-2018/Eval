@@ -9,7 +9,7 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 })
 export class ReviewComponent implements OnInit {
 
-  public TeacherName:string;
+  public TeacherName:any;
 
   constructor(
     private route: ActivatedRoute
@@ -22,7 +22,6 @@ export class ReviewComponent implements OnInit {
       that.TeacherName = teacher_name;
     })
 
-
   }
 
   getTeacherName() {
@@ -33,7 +32,7 @@ export class ReviewComponent implements OnInit {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = params['teacherName'] || null;
+        var teacherName = <string>params['teacherName'] || null;
         resolve(teacherName)
       })
     });
