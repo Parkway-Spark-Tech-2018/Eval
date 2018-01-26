@@ -15,6 +15,7 @@ import { HeadingComponent } from './heading/heading.component';
 import { SearchComponent } from './search/search.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReviewComponent } from './review/review.component';
+import { CourseComponent } from './course/course.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'search', component: SearchComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'review', component: ReviewComponent}
+  {path: 'review', component: ReviewComponent},
+  {path: 'course', component: CourseComponent}
 ];
 
 
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     HeadingComponent,
     SearchComponent,
     SearchBarComponent,
-    ReviewComponent
+    ReviewComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
