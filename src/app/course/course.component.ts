@@ -6,13 +6,13 @@ import {ReviewDatabase} from '../../database/ReviewDatabase';
 import {Review} from '../../models/Review';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-course',
+  templateUrl: './course.component.html',
+  styleUrls: ['./course.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class CourseComponent implements OnInit {
 
-  public teacher_name:string;
+  public course_name:string = "";
 
   public reviews:Review[] = [];
 
@@ -22,10 +22,8 @@ export class ProfileComponent implements OnInit {
   public good_percentage = 0;
   public bad_percentage = 0;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor(private route: ActivatedRoute,
+  private router: Router) {
 
   }
 
@@ -33,12 +31,12 @@ export class ProfileComponent implements OnInit {
 
     let that = this;
 
-    this.getTeacherName().then (function (teacher_name) {
-      that.teacher_name = <string>teacher_name;
+    this.getCourseName().then (function (course_name) {
+      that.course_name = <string>course_name;
 
       return ReviewDatabase.getReviews();
     }).then (function (reviews) {
-      that.reviews = that.filterTeacherReviews(<Review[]> reviews);
+      that.reviews = that.filterCourseReviews(<Review[]> reviews);
       that.updateScore(that.reviews);
 
       that.good_percentage = that.viewPercentage(that.amnt_good, (that.amnt_good + that.amnt_bad));
@@ -47,11 +45,23 @@ export class ProfileComponent implements OnInit {
     })
 
   }
+
   backToSearch()
   {
     this.router.navigate(['/search'])
   }
 
+  leave_review() {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'name': this.course_name,
+                    'type': 'Course'
+                    }
+    }
+
+    this.router.navigate(['/review'], navigationExtras);
+
+  }
 
   GoodPercentageString() {
     return this.good_percentage + "%";
@@ -90,42 +100,28 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  filterTeacherReviews(reviews: Review[]) {
-
-    let that = this;
-
-    return reviews.filter(function (review:Review) {
-        return (review.type == "Teacher" && review.name == that.teacher_name)
-    })
-
-  }
-
-  getTeacherName() {
-
+  getCourseName() {
     var that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        let teacher_name = params["teacher_name"] || null;
+        let teacher_name = params["course_name"] || null;
         resolve(teacher_name);
       })
     });
 
     return query_promise;
-
   }
 
-  leave_review() {
+  filterCourseReviews(reviews: Review[]) {
 
-    let navigationExtras: NavigationExtras = {
-      queryParams: {'name': this.teacher_name,
-                    'type': 'Teacher'
-                    }
-    }
+    let that = this;
 
-    this.router.navigate(['/review'], navigationExtras);
+    return reviews.filter(function (review:Review) {
+        return (review.type == "Course" && review.name == that.course_name)
+    })
 
   }
 

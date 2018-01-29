@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+  public courses = []
+  public teachers = []
+
+  public search_string:string = "";
+
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  
 }

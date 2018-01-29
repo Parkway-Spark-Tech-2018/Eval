@@ -1,36 +1,33 @@
 <button (click) = "backToSearch()" class = "btn btn-primary">
   <- Back
 </button>
-<br/>
 <div class = "row">
   <div class = "col">
-    <img src = "../../assets/profile.jpg" align = "center" width = "80%" alt = "profile img here">
+    <img src = "../../assets/course.jpg" align = "center" width = "80%" alt = "profile img here">
   </div>
   <div class = "col">
-    <h2 style = "text-align: center;">{{teacher_name}}</h2> <!--REFERENCE NAME OF TEACHER-->
+    <h2 style = "text-align: center;">{{course_name}}</h2> <!--REFERENCE NAME OF TEACHER-->
     <div class = "row" style = "padding: 0% 10% 0% 10%">
-      <div class = "progress">
-        <!--Put like/ dislike bar here-->
-      </div>
+      <!--Put like/ dislike bar here-->
     </div>
     <br/>
 
     <!--
-    <h4>Classes taught:</h4>
+    <h4>Teachers:</h4>
     <ul>
-      <li>Classname</li>
-      <li>Classname</li>
-      <li>Classname</li>
+      <li>Chris</li>
+      <li>Aaron</li>
+      <li>A. A. Ron</li>
     </ul>
+
     -->
-
   </div>
-
 </div>
-<br>
+<br/>
 
 <button (click) = "leave_review()" class = "btn btn-primary btn-block">Review</button>
-<br/>
+
+<br>
 <h3>Student Reviews</h3>
 
 <p>{{amnt_good}} Good Reviews</p>
