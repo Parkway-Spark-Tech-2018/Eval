@@ -32,7 +32,7 @@ export class CourseComponent implements OnInit {
     let that = this;
 
     this.getCourseName().then (function (course_name) {
-      that.course_name = course_name;
+      that.course_name = <string>course_name;
 
       return ReviewDatabase.getReviews();
     }).then (function (reviews) {
