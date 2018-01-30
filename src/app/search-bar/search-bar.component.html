@@ -3,7 +3,7 @@
   <form class = "row" #searchForm = "ngForm" (ngSubmit) = "search()">
 
     <div class = "input-group">
-      <input [(ngModel)] = "search_string" class = "form-control" name = "search_string"/>
+      <input [(ngModel)] = "search_string" placeholder = "Search teachers and courses..." class = "form-control" name = "search_string"/>
       <button [disabled] = "!searchForm.form.valid" class = "btn btn btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
     </div>
 
