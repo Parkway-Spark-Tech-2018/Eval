@@ -23,7 +23,8 @@ import { RatingsComponent } from './ratings/ratings.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/search', pathMatch: 'full'},
+  //{path: '', redirectTo: '/search', pathMatch: 'full'},
+  {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'search', component: SearchComponent},
   {path: 'profile', component: ProfileComponent},
