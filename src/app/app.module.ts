@@ -20,6 +20,7 @@ import { CourseComponent } from './course/course.component';
 // Import HttpClientModule from @angular/common/http
 import {HttpClientModule} from '@angular/common/http';
 import { RatingsComponent } from './ratings/ratings.component';
+import { LoginComponent } from './login/login.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'review', component: ReviewComponent},
-  {path: 'course', component: CourseComponent}
+  {path: 'course', component: CourseComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     SearchBarComponent,
     ReviewComponent,
     CourseComponent,
-    RatingsComponent
+    RatingsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
