@@ -22,6 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { RatingsComponent } from './ratings/ratings.component';
 import { LoginComponent } from './login/login.component';
 
+// Firebase module
+import {AngularFireModule} from 'angularfire2';
+
 //List of Pages for Web App
 const appRoutes: Routes = [
   //{path: '', redirectTo: '/search', pathMatch: 'full'},
@@ -34,6 +37,14 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent}
 ];
 
+const firebaseConfig = {
+    apiKey: "AIzaSyD2kGVPn63jJrCgutx6xe-Wz6G7y0g3Zcg",
+    authDomain: "eval-project-193719.firebaseapp.com",
+    databaseURL: "https://eval-project-193719.firebaseio.com",
+    projectId: "eval-project-193719",
+    storageBucket: "eval-project-193719.appspot.com",
+    messagingSenderId: "514918028527"
+}
 
 
 @NgModule({
@@ -59,6 +70,7 @@ const appRoutes: Routes = [
     ),
     FormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
