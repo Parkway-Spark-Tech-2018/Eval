@@ -18,60 +18,34 @@ export class LoginComponent implements OnInit {
 
   public logged_in: boolean;
 
-  constructor(private auth: AuthService, private zone: NgZone) { }
+  constructor(private auth: AuthService, private afAuth: AngularFireAuth, private zone: NgZone) { }
 
   ngOnInit() {
 
     this.logged_in = false;
 
+    this.auth.afAuth.authState.subscribe((auth) => {
+      if (auth == null) {
+        this.logged_in = false;
+        this.user_name = "";
+        this.email = ""
+      }else {
+        this.logged_in = true;
+        this.user_name = auth.displayName;
+        this.email = auth.email;
+      }
+    });
+
+
   }
 
   google_login() {
     var login = this.auth.loginWithGoogle();
-
-    let that = this;
-
-    login.then (function (data) {
-
-      that.change_login_status();
-
-      that.set_user(data.user.displayName, data.user.email)
-
-    })
-  }
-
-  set_user(username, email) {
-
-    let that = this;
-
-    this.zone.run(function () {
-      that.user_name = username
-      that.email = email;
-    });
-
-
-  }
-
-  change_login_status() {
-
-    let that = this;
-    this.zone.run(function () {
-      that.logged_in = !that.logged_in;
-    });
   }
 
   logout() {
     var logout = this.auth.logout();
 
-    let that = this;
-
-    logout.then (function (data) {
-
-      that.change_login_status();
-      that.set_user("", "")
-      that.logged_in = false;
-
-    })
   }
 
 }
