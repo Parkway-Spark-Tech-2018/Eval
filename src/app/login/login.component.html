@@ -1,10 +1,25 @@
 
 <h1 class = "text-center"> Login Below</h1>
 
-<div class = "text-center">
-  <button class = "btn btn-danger">
+<div *ngIf = "!logged_in" class = "text-center">
+  <button (click) = "google_login()" class = "btn btn-danger">
     Login with google
   </button>
 </div>
+
+<div *ngIf = "logged_in" class = "text-center">
+  <button (click) = "logout()" class = "btn btn-success">
+    Logout
+  </button>
+</div>
+
+<br>
+<div *ngIf = "logged_in">
+
+  <h2>User info below</h2>
+  <p><b>User name:</b> {{user_name}}</p>
+  <p><b>Email:</b> {{email}}</p>
+</div>
+
 
 <br>
