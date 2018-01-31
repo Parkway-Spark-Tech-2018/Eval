@@ -14,6 +14,20 @@ h1
   @import url('https://fonts.googleapis.com/css?family=Roboto');
   font-size: 2em;
 }
+#coolbutton
+{
+  color: white;
+  border-width: 5px;
+  border-color: white;
+  background: transparent;
+}
+#coolbutton:hover
+{
+  color: black;
+  border-width: 5px;
+  border-color: white;
+  background: white;
+}
 .black
 {
   margin: -19px;
@@ -30,6 +44,7 @@ h1
 }
 .grayspace
 {
+  margin-top: -20px;
   background: #FFF;
 }
 .main

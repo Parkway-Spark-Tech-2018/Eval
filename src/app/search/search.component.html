@@ -1,30 +1,38 @@
-<h1> Welcome to the Search component</h1>
+<h1>Searching teachers and courses...</h1>
 
 <div *ngFor = "let result of results">
 
 
   <div class = "card">
 
-      <div class = "card-header">
+      <div class = "card-header" style="color: white; background: #444">
         <b>{{result.type}}</b>
       </div>
 
       <div class = "card-body">
-        {{result.name}}
+        <div class = "row">
+          <div class = "col">
+            {{result.name}}
 
-        <br>
-        <br>
+            <br><br>
 
-        <!-- Return button if is a teacher -->
-        <button (click) = "viewTeacher(result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
-          View
-        </button>
-
-        <!-- Return button if is a course -->
-
-        <button (click) = "viewCourse(result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
-          View
-        </button>
+            <!-- Return button if is a teacher -->
+            <button (click) = "viewTeacher(result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+              View
+            </button>
+            <!-- Return button if is a course -->
+            <button (click) = "viewCourse(result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+              View
+            </button>
+          </div>
+          <div class = "col">
+            <p>This should fetch information about the course/teacher from the server.</p>
+          </div>
+          <div class = "col">
+            <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
+            <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
+          </div>
+        </div>
       </div>
   </div>
 
