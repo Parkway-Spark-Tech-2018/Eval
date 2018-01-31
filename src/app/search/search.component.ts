@@ -86,6 +86,7 @@ export class SearchComponent implements OnInit {
     }
 
     this.router.navigate(['/course'], navigationExtras)
+    window.location.reload();
 
   }
 
@@ -96,6 +97,7 @@ export class SearchComponent implements OnInit {
     }
 
     this.router.navigate(['/profile'], navigationExtras)
+    window.location.reload();
 
   }
 
