@@ -1,0 +1,2436 @@
+[
+  [
+    {
+      "Department Id": 1,
+      "Course Number": 37350,
+      "Course Name": "Introduction to Business",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37010,
+      "Course Name": "Introduction to Computer Technologies",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37111,
+      "Course Name": "Accounting 1 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37112,
+      "Course Name": "Accounting 1 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37121,
+      "Course Name": "Accounting 2 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37122,
+      "Course Name": "Accounting 2 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 38131,
+      "Course Name": "Honors Accounting 3 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 38132,
+      "Course Name": "Honors Accounting 3 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37280,
+      "Course Name": "Branding & Design Concepts",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37550,
+      "Course Name": "Business Management",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37490,
+      "Course Name": "Digital Animation",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37310,
+      "Course Name": "Introduction to Computer Science",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37320,
+      "Course Name": "Computer Application Design and Development",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 39321,
+      "Course Name": "AP Computer Science (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 39322,
+      "Course Name": "AP Computer Science (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 47751,
+      "Course Name": "Marketing 1 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 47752,
+      "Course Name": "Marketing 1 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 47761,
+      "Course Name": "Marketing 2 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 47762,
+      "Course Name": "Marketing 2 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37270,
+      "Course Name": "Microsoft Office",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37590,
+      "Course Name": "Multimedia",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37290,
+      "Course Name": "Multimedia 2: Digital Production",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37100,
+      "Course Name": "Personal Finance",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37570,
+      "Course Name": "Web Design 1",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37580,
+      "Course Name": "Web Design 2",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37661,
+      "Course Name": "Entrepreneurship: Virtual Enterprise International (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37662,
+      "Course Name": "Entrepreneurship: Virtual Enterprise International (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37701,
+      "Course Name": "Business, Marketing, and Information Technology Internship (One Block Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37702,
+      "Course Name": "Business, Marketing, and Information Technology Internship (One Block Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37741,
+      "Course Name": "Business, Marketing, and Information Technology Internship (Two Blocks Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 37742,
+      "Course Name": "Business, Marketing, and Information Technology Internship (Two Blocks Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 996001,
+      "Course Name": "Occupational and Research Internship (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 996002,
+      "Course Name": "Occupational and Research Internship (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117101,
+      "Course Name": "Algebra 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117102,
+      "Course Name": "Algebra 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 960501,
+      "Course Name": "Algebra 1 Lab (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 960502,
+      "Course Name": "Algebra 1 Lab (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 116201,
+      "Course Name": "Geometry B (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 116202,
+      "Course Name": "Geometry B (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117201,
+      "Course Name": "Geometry A (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117202,
+      "Course Name": "Geometry A (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118201,
+      "Course Name": "Honors Geometry (Sem 1)",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118202,
+      "Course Name": "Honors Geometry (Sem 2)",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117301,
+      "Course Name": "Algebra 2 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117302,
+      "Course Name": "Algebra 2 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117401,
+      "Course Name": "Algebra 2 with Trigonometry (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117402,
+      "Course Name": "Algebra 2 with Trigonometry (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118401,
+      "Course Name": "Honors Algebra 2/Trigonometry (Sem 1)",
+      "entry grade": 10,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118402,
+      "Course Name": "Honors Algebra 2/Trigonometry (Sem 2)",
+      "entry grade": 10,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117410,
+      "Course Name": "Trigonometry",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117900,
+      "Course Name": "Statistics",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117921,
+      "Course Name": "Finite Mathematics (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117922,
+      "Course Name": "Finite Mathematics (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117601,
+      "Course Name": "College Algebra (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117602,
+      "Course Name": "College Algebra (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117701,
+      "Course Name": "Pre-Calculus (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 117702,
+      "Course Name": "Pre-Calculus (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118701,
+      "Course Name": "Honors Pre-Calculus (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 118702,
+      "Course Name": "Honors Pre-Calculus (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119901,
+      "Course Name": "AP Statistics (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119902,
+      "Course Name": "AP Statistics (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119801,
+      "Course Name": "AP Calculus AB (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119802,
+      "Course Name": "AP Calculus AB (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119851,
+      "Course Name": "AP Calculus BC (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 2,
+      "Course Number": 119852,
+      "Course Name": "AP Calculus BC (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57011,
+      "Course Name": "English 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57012,
+      "Course Name": "English 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58011,
+      "Course Name": "Honors English 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58012,
+      "Course Name": "Honors English 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57021,
+      "Course Name": "English 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57022,
+      "Course Name": "English 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58021,
+      "Course Name": "Honors English 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58022,
+      "Course Name": "Honors English 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57031,
+      "Course Name": "English 3 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57032,
+      "Course Name": "English 3 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58031,
+      "Course Name": "AP English Language and Composition (Sem 1)",
+      "entry grade": 11,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 58032,
+      "Course Name": "AP English Language and Composition (Sem 2)",
+      "entry grade": 11,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57200,
+      "Course Name": "Composition",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57220,
+      "Course Name": "Fundamentals of Composition",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57050,
+      "Course Name": "English Literature",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57090,
+      "Course Name": "Contemporary World Literature",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57490,
+      "Course Name": "African-American Literature - A Survey Course",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 59041,
+      "Course Name": "AP English Literature and Composition (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 59042,
+      "Course Name": "AP English Literature and Composition (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57130,
+      "Course Name": "Creative Writing 1",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57190,
+      "Course Name": "Advanced Creative Writing",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57300,
+      "Course Name": "Beginning Journalism",
+      "entry grade": 9,
+      "max grade": 11,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57311,
+      "Course Name": "Journalism 1 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57312,
+      "Course Name": "Newspaper 1 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57321,
+      "Course Name": "Newspaper 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57322,
+      "Course Name": "Newspaper 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57331,
+      "Course Name": "Newspaper 3 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57332,
+      "Course Name": "Newspaper 3 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57341,
+      "Course Name": "Newspaper 4 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57342,
+      "Course Name": "Newspaper 4 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57411,
+      "Course Name": "Yearbook 1 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57412,
+      "Course Name": "Yearbook 1 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57421,
+      "Course Name": "Yearbook 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57422,
+      "Course Name": "Yearbook 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57431,
+      "Course Name": "Yearbook 3 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57432,
+      "Course Name": "Yearbook 3 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57441,
+      "Course Name": "Yearbook 4 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57442,
+      "Course Name": "Yearbook 4 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57700,
+      "Course Name": "Radio and Television Announcing",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 3,
+      "Course Number": 57650,
+      "Course Name": "Advanced Broadcasting",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137140,
+      "Course Name": "Biology 1: Cells and Variation",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 138140,
+      "Course Name": "Honors Biology 1: Cells and Variation",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137150,
+      "Course Name": "Biology 2: Evolution & Ecology",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 138150,
+      "Course Name": "Honors Biology 2: Evolution & Ecology",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137160,
+      "Course Name": "Biology 3: Biotechnology & Systems",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137450,
+      "Course Name": "Zoology",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137461,
+      "Course Name": "Human Anatomy & Physiology (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137462,
+      "Course Name": "Human Anatomy & Physiology (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137500,
+      "Course Name": "Environmental Science 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137510,
+      "Course Name": "Environmental Science 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137560,
+      "Course Name": "Astronomy & Space Science",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": "              137480c",
+      "Course Name": "Forensics Science - C",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137201,
+      "Course Name": "Chemistry (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137202,
+      "Course Name": "Chemistry (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 138201,
+      "Course Name": "Honors Chemistry (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 138202,
+      "Course Name": "Honors Chemistry (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137301,
+      "Course Name": "Physics (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 137302,
+      "Course Name": "Physics (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139411,
+      "Course Name": "AP Physics (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139412,
+      "Course Name": "AP Physics (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139151,
+      "Course Name": "AP Biology (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139152,
+      "Course Name": "AP Biology (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139251,
+      "Course Name": "AP Chemistry (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139252,
+      "Course Name": "AP Chemistry (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139321,
+      "Course Name": "AP Physics C: Mechanics",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139421,
+      "Course Name": "AP Physics 2 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 4,
+      "Course Number": 139422,
+      "Course Name": "AP Physics 2 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127610,
+      "Course Name": "General Music - Piano",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127620,
+      "Course Name": "General Music - Piano 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127630,
+      "Course Name": "General Music - Guitar ",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127640,
+      "Course Name": "General Music - Guitar 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127720,
+      "Course Name": "General Music - Introduction to Music Theory",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 129701,
+      "Course Name": "AP Music Theory (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 129702,
+      "Course Name": "AP Music Theory (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127770,
+      "Course Name": "General Music - Music Technology",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127511,
+      "Course Name": "Band - Concert Band (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127512,
+      "Course Name": "Band - Concert Band (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127521,
+      "Course Name": "Band - Jazz Lab (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127522,
+      "Course Name": "Band - Jazz Lab (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127581,
+      "Course Name": "Band - Symphonic Band (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127582,
+      "Course Name": "Band - Symphonic Band (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127411,
+      "Course Name": "Orchestra - Concert Orchestra (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127412,
+      "Course Name": "Orchestra - Concert Orchestra (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127421,
+      "Course Name": "Orchestra - Concert Orchestra 2 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127422,
+      "Course Name": "Orchestra - Concert Orchestra 2 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127441,
+      "Course Name": "Orchestra - Symphonic Orchestra (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127442,
+      "Course Name": "Orchestra - Symphonic Orchestra (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127001,
+      "Course Name": "Vocal - Chorus (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127002,
+      "Course Name": "Vocal - Chorus (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127041,
+      "Course Name": "Vocal - Concert Chorale (Sem 1)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127042,
+      "Course Name": "Vocal - Concert Chorale (Sem 2)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127061,
+      "Course Name": "Vocal - Chamber Choir (Sem 1)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127062,
+      "Course Name": "Vocal - Chamber Choir (Sem 2)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127151,
+      "Course Name": "Vocal - Show / Jazz Choir (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127152,
+      "Course Name": "Vocal - Show / Jazz Choir (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127171,
+      "Course Name": "Vocal - Concert Choir Mixed (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127172,
+      "Course Name": "Vocal - Concert Choir Mixed (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57630,
+      "Course Name": "Public Speaking",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57720,
+      "Course Name": "Theatre Arts",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57730,
+      "Course Name": "Improvisational Theatre",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57800,
+      "Course Name": "Actors' Studio l",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57810,
+      "Course Name": "Actors' Studio 2",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57760,
+      "Course Name": "Technical Theatre",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57820,
+      "Course Name": "Directing",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 127730,
+      "Course Name": "Studies in Musical Theatre",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 57830,
+      "Course Name": "Shakespeare Alive!",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27000,
+      "Course Name": "Design Arts",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27020,
+      "Course Name": "Design Arts 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27100,
+      "Course Name": "Drawing",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27130,
+      "Course Name": "Advanced Drawing Strategies",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27200,
+      "Course Name": "Ceramics",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27220,
+      "Course Name": "Ceramics 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27240,
+      "Course Name": "Sculpture",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27250,
+      "Course Name": "Advanced 3-D Studies",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27300,
+      "Course Name": "Photography",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27320,
+      "Course Name": "Photography 2",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27330,
+      "Course Name": "Photography 3",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27500,
+      "Course Name": "Painting",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27520,
+      "Course Name": "Painting 2",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27810,
+      "Course Name": "Digital Design",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27820,
+      "Course Name": "Digital Design 2",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 29781,
+      "Course Name": "AP Studio Art (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 29782,
+      "Course Name": "AP Studio Art (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 29831,
+      "Course Name": "AP 2D Design: Photography and Digital Media (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 29832,
+      "Course Name": "AP 2D Design: Photography and Digital Media (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 25950,
+      "Course Name": "Let’s Create Together",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 5,
+      "Course Number": 27950,
+      "Course Name": "Visual Arts Mentor",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97460,
+      "Course Name": "Career Management",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97420,
+      "Course Name": "Child Development 1",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97430,
+      "Course Name": "Child Development 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97210,
+      "Course Name": "Clothing 1",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97220,
+      "Course Name": "Clothing 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97950,
+      "Course Name": "Culinary Mentor",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97250,
+      "Course Name": "Fashion Merchandising",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97550,
+      "Course Name": "Housing and Interior Design",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97400,
+      "Course Name": "Human Relations",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97110,
+      "Course Name": "International Cuisine",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 95950,
+      "Course Name": "Let's Cook Together",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97010,
+      "Course Name": "ProStart 1",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97020,
+      "Course Name": "ProStart 2",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97051,
+      "Course Name": "ProStart 3 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97052,
+      "Course Name": "ProStart 3 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 6,
+      "Course Number": 97260,
+      "Course Name": "Textile Designs",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67011,
+      "Course Name": "French 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67012,
+      "Course Name": "French 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67021,
+      "Course Name": "French 2 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67022,
+      "Course Name": "French 2 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67031,
+      "Course Name": "French 3 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67032,
+      "Course Name": "French 3 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67041,
+      "Course Name": "French 4 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67042,
+      "Course Name": "French 4 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68051,
+      "Course Name": "Honors French 5 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68052,
+      "Course Name": "Honors French 5 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67111,
+      "Course Name": "German 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67112,
+      "Course Name": "German 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67121,
+      "Course Name": "German 2 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67122,
+      "Course Name": "German 2 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67131,
+      "Course Name": "German 3 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67132,
+      "Course Name": "German 3 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67141,
+      "Course Name": "German 4 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67142,
+      "Course Name": "German 4 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68151,
+      "Course Name": "Honors German 5 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68152,
+      "Course Name": "Honors German 5 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67211,
+      "Course Name": "Latin 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67212,
+      "Course Name": "Latin 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67221,
+      "Course Name": "Latin 2 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67222,
+      "Course Name": "Latin 2 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67231,
+      "Course Name": "Latin 3 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67232,
+      "Course Name": "Latin 3 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67241,
+      "Course Name": "Latin 4 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67242,
+      "Course Name": "Latin 4 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68251,
+      "Course Name": "Honors Latin 5 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68252,
+      "Course Name": "Honors Latin 5 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67311,
+      "Course Name": "Spanish 1 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67312,
+      "Course Name": "Spanish 1 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67321,
+      "Course Name": "Spanish 2 (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67322,
+      "Course Name": "Spanish 2 (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67331,
+      "Course Name": "Spanish 3 (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67332,
+      "Course Name": "Spanish 3 (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67341,
+      "Course Name": "Spanish 4 (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 67342,
+      "Course Name": "Spanish 4 (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68351,
+      "Course Name": "Honors Spanish 5 (Sem 1)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 7,
+      "Course Number": 68352,
+      "Course Name": "Honors Spanish 5 (Sem 2)",
+      "entry grade": 12,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157001,
+      "Course Name": "Modern United States History (Sem 1)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157002,
+      "Course Name": "Modern United States History (Sem 2)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 158001,
+      "Course Name": "Honors Modern United States History (Sem 1)",
+      "entry grade": 9,
+      "max grade": 9,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157011,
+      "Course Name": "World History: The Modern Era (Sem 1)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157012,
+      "Course Name": "World History: The Modern Era (Sem 2)",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159011,
+      "Course Name": "AP World History (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159012,
+      "Course Name": "AP World History (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157100,
+      "Course Name": "United States Government",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159121,
+      "Course Name": "AP United States Government & Politics (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159122,
+      "Course Name": "AP United States Government & Politics (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159111,
+      "Course Name": "AP United States Government & Comparative Politics (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159112,
+      "Course Name": "AP United States Government & Comparative Politics (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157350,
+      "Course Name": "History of St. Louis",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157370,
+      "Course Name": "Media in America ",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157750,
+      "Course Name": "Crime and Law",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157760,
+      "Course Name": "Contemporary Issues",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157840,
+      "Course Name": "Philosophy and Ethics",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157700,
+      "Course Name": "Economics",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157780,
+      "Course Name": "Anthropology",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 158340,
+      "Course Name": "Colonial America - Honors",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157790,
+      "Course Name": "Sociology",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157800,
+      "Course Name": "Psychology",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 157810,
+      "Course Name": "Social Psychology",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159510,
+      "Course Name": "AP Human Geography",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159801,
+      "Course Name": "AP Psychology (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159802,
+      "Course Name": "AP Psychology (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159301,
+      "Course Name": "AP United States History (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 8,
+      "Course Number": 159302,
+      "Course Name": "AP United States History (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 77100,
+      "Course Name": "Health & Wellness",
+      "entry grade": 10,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87110,
+      "Course Name": "Physical Fitness Concepts",
+      "entry grade": 9,
+      "max grade": 10,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87120,
+      "Course Name": "Athletic and Skill-Related Fitness",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87140,
+      "Course Name": "Competitive Sports and Games",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87150,
+      "Course Name": "Lifetime and Recreational Sports",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87200,
+      "Course Name": "Strength and Conditioning",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87300,
+      "Course Name": "Adventure Pursuits",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87400,
+      "Course Name": "Walking and Low Impact Physical Activities",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87820,
+      "Course Name": "Aquatic Experiences / Scuba",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87830,
+      "Course Name": "Lifeguard Training",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87840,
+      "Course Name": "Aquatic Fitness / Learning to Swim",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87960,
+      "Course Name": "Movement 2 Music",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 84950,
+      "Course Name": "Let's Move Together",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 11,
+      "Course Number": 87950,
+      "Course Name": "P.E. Mentor",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107070,
+      "Course Name": "Drafting",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107121,
+      "Course Name": "Design and Technology",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107132,
+      "Course Name": "Design and Technology 2",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107500,
+      "Course Name": "Construction Technology",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107510,
+      "Course Name": "Advanced Construction Technology",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 107680,
+      "Course Name": "Robotics Technology 1",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108711,
+      "Course Name": "Honors Introduction to Engineering Design (Sem 1)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108712,
+      "Course Name": "Honors Introduction to Engineering Design (Sem 2)",
+      "entry grade": 9,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108221,
+      "Course Name": "Honors Environmental Engineering (Sem 1)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108222,
+      "Course Name": "Honors Environmental Engineering (Sem 2)",
+      "entry grade": 11,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108751,
+      "Course Name": "Honors Principles of Engineering (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108752,
+      "Course Name": "Honors Principles of Engineering (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108201,
+      "Course Name": "Honors Civil Engineering and Architecture (Sem 1)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    },
+    {
+      "Department Id": 1,
+      "Course Number": 108202,
+      "Course Name": "Honors Civil Engineering and Architecture (Sem 2)",
+      "entry grade": 10,
+      "max grade": 12,
+      "Credit Value": 1
+    }
+  ]
+]
