@@ -17,8 +17,12 @@
 <div *ngIf = "logged_in">
 
   <h2>User info below</h2>
-  <p><b>User name:</b> {{user_name}}</p>
-  <p><b>Email:</b> {{email}}</p>
+  <p><b>User name:</b> {{user.user_name}}</p>
+  <p><b>Email:</b> {{user.email}}</p>
+
+  <!-- Use button below for testing -->
+  <!--<button (click) = "view_user()" class = "btn btn-success">View User</button>-->
+
 </div>
 
 
