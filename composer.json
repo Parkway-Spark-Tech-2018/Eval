@@ -10,10 +10,12 @@
         "symfony/lts": "^4@dev",
         "symfony/maker-bundle": "^1.0",
         "symfony/orm-pack": "^1.0",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "tebazil/db-seeder": "^0.0.0"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.0"
+        "symfony/dotenv": "^4.0",
+        "symfony/web-server-bundle": "^4.0"
     },
     "config": {
         "preferred-install": {

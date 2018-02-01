@@ -56,6 +56,9 @@
     "doctrine/orm": {
         "version": "v2.6.0"
     },
+    "fzaninotto/faker": {
+        "version": "v1.7.1"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -155,6 +158,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
+    "symfony/process": {
+        "version": "v4.0.4"
+    },
     "symfony/routing": {
         "version": "4.0",
         "recipe": {
@@ -164,8 +170,20 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
+    "symfony/web-server-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "c72d107d077f1654428edaed69415d0228c1aefe"
+        }
+    },
     "symfony/yaml": {
         "version": "v4.0.4"
+    },
+    "tebazil/db-seeder": {
+        "version": "0.0.0"
     },
     "zendframework/zend-code": {
         "version": "3.3.0"
