@@ -62,6 +62,15 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "7b6cbc842f8cd3d550815247d12294f6f304a8c4"
+        }
+    },
     "ocramius/package-versions": {
         "version": "1.2.0"
     },
@@ -79,6 +88,15 @@
     },
     "psr/simple-cache": {
         "version": "1.0.0"
+    },
+    "sensio/framework-extra-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
+        }
     },
     "symfony/cache": {
         "version": "v4.0.4"
