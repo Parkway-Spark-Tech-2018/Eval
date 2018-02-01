@@ -1,6 +1,6 @@
 
 <h1 class = "text-center"> Login Below</h1>
-
+<h2 *ngIf = "tryAgain">Oops!  You did not login with a parkwayschools account.  Please try again.</h2>
 <div *ngIf = "!logged_in" class = "text-center">
   <button (click) = "google_login()" class = "btn btn-danger">
     Login with google
