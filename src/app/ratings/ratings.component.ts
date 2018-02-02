@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {OnChanges, SimpleChanges, SimpleChanges} from '@angular/core';
+import {OnChanges, SimpleChanges} from '@angular/core';
 
 import {Input} from '@angular/core';
 
