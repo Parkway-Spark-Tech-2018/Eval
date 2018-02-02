@@ -1,6 +1,4 @@
-[
-  [
-    {
+  [{
       "Department Id": 1,
       "Course Number": 37350,
       "Course Name": "Introduction to Business",
@@ -2433,4 +2431,3 @@
       "Credit Value": 1
     }
   ]
-]
