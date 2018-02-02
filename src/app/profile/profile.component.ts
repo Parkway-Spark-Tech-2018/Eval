@@ -5,12 +5,20 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 import {ReviewDatabase} from '../../database/ReviewDatabase';
 import {Review} from '../../models/Review';
 
+import {Teacher} from '../../models/Teacher';
+
+/** Import the api **/
+import {EvalApi} from '../../api/EvalApi';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  providers: [EvalApi]
 })
 export class ProfileComponent implements OnInit {
+
+  public teacher:Teacher;
 
   public teacher_name:string;
 
@@ -24,7 +32,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private api: EvalApi
   ) {
 
   }
@@ -33,10 +42,10 @@ export class ProfileComponent implements OnInit {
 
     let that = this;
 
-    this.getTeacherName().then (function (teacher_name) {
-      that.teacher_name = <string>teacher_name;
 
-      return ReviewDatabase.getReviews();
+    this.getTeacher().then (function (teacher:Teacher) {
+        that.teacher = teacher;
+        return ReviewDatabase.getReviews();
     }).then (function (reviews) {
       that.reviews = that.filterTeacherReviews(<Review[]> reviews);
       that.updateScore(that.reviews);
@@ -95,7 +104,7 @@ export class ProfileComponent implements OnInit {
     let that = this;
 
     return reviews.filter(function (review:Review) {
-        return (review.type == "Teacher" && review.name == that.teacher_name)
+        return (review.type == "Teacher" && review.name == that.teacher.name)
     })
 
   }
@@ -117,10 +126,37 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  getTeacher() {
+
+    let that = this;
+
+    let teacher_promise = new Promise(function (resolve, reject) {
+      let teacher_name:string = "";
+
+      that.getTeacherName().then (function (name:string) {
+        teacher_name = name;
+        return that.api.getTeachers();
+      }).then (function (teachers:Teacher[]) {
+
+        let teacher:Teacher = teachers.find(function (teacher:Teacher) {
+          return teacher.name == teacher_name;
+        })
+
+        resolve(teacher);
+
+      }).catch(function (err) {
+        reject(err);
+      })
+    })
+
+    return teacher_promise;
+
+  }
+
   leave_review() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'name': this.teacher_name,
+      queryParams: {'name': this.teacher.name,
                     'type': 'Teacher'
                     }
     }

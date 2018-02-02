@@ -5,12 +5,16 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 import {ReviewDatabase} from '../../database/ReviewDatabase';
 import {Review} from '../../models/Review';
 
+import {Course} from '../../models/Course';
+
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+
+  public course:Course;
 
   public course_name:string = "";
 
@@ -113,6 +117,10 @@ export class CourseComponent implements OnInit {
     });
 
     return query_promise;
+  }
+
+  getCourse() {
+    
   }
 
   filterCourseReviews(reviews: Review[]) {
