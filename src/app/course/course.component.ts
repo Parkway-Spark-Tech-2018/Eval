@@ -22,12 +22,6 @@ export class CourseComponent implements OnInit {
 
   public reviews:Review[] = [];
 
-  public amnt_bad:number = 0;
-  public amnt_good:number = 0;
-
-  public good_percentage = 0;
-  public bad_percentage = 0;
-
   constructor(private route: ActivatedRoute,
   private router: Router,
   private api: EvalApi) {
@@ -44,10 +38,6 @@ export class CourseComponent implements OnInit {
       return ReviewDatabase.getReviews();
     }).then (function (reviews) {
       that.reviews = that.filterCourseReviews(<Review[]> reviews);
-      that.updateScore(that.reviews);
-
-      that.good_percentage = that.viewPercentage(that.amnt_good, (that.amnt_good + that.amnt_bad));
-      that.bad_percentage = that.viewPercentage(that.amnt_bad, (that.amnt_good + that.amnt_bad));
 
     })
 
@@ -67,43 +57,6 @@ export class CourseComponent implements OnInit {
     }
 
     this.router.navigate(['/review'], navigationExtras);
-
-  }
-
-  GoodPercentageString() {
-    return this.good_percentage + "%";
-  }
-
-  BadPercentageString() {
-
-    if (this.good_percentage == 0 && this.bad_percentage == 0) {
-      return "0%";
-    }else if (this.good_percentage == 0) {
-      return this.bad_percentage + "%";
-    }
-
-    return (100 - this.good_percentage) + "%";
-  }
-
-
-  viewPercentage(amnt:number, total:number) {
-    let percentage:number = Math.floor(100 * (amnt/total));
-    return percentage;
-  }
-
-  updateScore(reviews: Review[]) {
-
-    let that = this;
-
-    reviews.forEach(function (review:Review) {
-
-      if (review.review_amnt > 0) {
-        that.amnt_good += 1;
-      }else if (review.review_amnt < 0) {
-        that.amnt_bad += 1;
-      }
-
-    })
 
   }
 
