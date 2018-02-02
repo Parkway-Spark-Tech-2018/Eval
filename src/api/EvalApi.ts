@@ -5,6 +5,9 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
+import {Teacher} from '../models/Teacher';
+import {Course} from '../models/Course';
+
 @Injectable()
 export class EvalApi {
 
@@ -19,7 +22,12 @@ export class EvalApi {
         .toPromise()
         .then(
           res => {
-            resolve(res);
+            console.log(res);
+            let teachers:Teacher[] = (<any[]>res).map(function (item){
+              return <Teacher>{name: item, description: null};
+            })
+
+            resolve(teachers);
           }
         ).catch (function (error) {
           reject(error);
@@ -37,7 +45,13 @@ export class EvalApi {
         .toPromise()
         .then(
           res => {
-            resolve(res);
+            console.log(res);
+
+            let courses:Course[] = (<any[]>res).map(function (item) {
+              return <Course>{name: item, description: null}
+            })
+
+            resolve(courses);
           }
         ).catch (function (error) {
           reject(error);

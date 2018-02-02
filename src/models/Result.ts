@@ -1,19 +1,22 @@
+import {Course} from './Course'
+import {Teacher} from './Teacher'
+
 export class Result {
 
   public type:string;
-  public name:string;
+  public result: Course | Teacher;
 
-  constructor(type:string, name:string) {
-    this.name = name;
+  constructor(type:string, result:Course | Teacher) {
+    this.result = result;
     this.type = type;
   }
 
-  static createCourseResult(name) {
-    return new Result("Course", name);
+  static createCourseResult(course:Course) {
+    return new Result("Course", course);
   }
 
-  static createTeacherResult(name) {
-    return new Result("Teacher", name)
+  static createTeacherResult(teacher:Teacher) {
+    return new Result("Teacher", teacher)
   }
 
 

@@ -1,6 +1,30 @@
 <h1>Search for teachers and courses to review!</h1>
 
-<div *ngFor = "let result of results">
+<div class = "row">
+
+  <div class = "col-md-6" *ngIf= "filter_mode != 'all'">
+    <button (click) = "resetFilter()" class = "btn btn-block btn-dark">
+      All
+    </button>
+  </div>
+
+  <div class = "col-md-6" *ngIf= "filter_mode != 'teachers'">
+    <button (click) = "filterTeachers()" class = "btn btn-block btn-warning">
+      Teachers
+    </button>
+  </div>
+
+  <div class = "col-md-6" *ngIf= "filter_mode != 'courses'">
+    <button (click) = "filterCourses()" class = "btn btn-block btn-danger">
+      Courses
+    </button>
+  </div>
+
+</div>
+
+<br>
+
+<div *ngFor = "let result of selected_results">
 
 
   <div class = "card">
@@ -12,16 +36,16 @@
       <div class = "card-body">
         <div class = "row">
           <div class = "col">
-            {{result.name}}
+            {{result.result.name}}
 
             <br><br>
 
             <!-- Return button if is a teacher -->
-            <button (click) = "viewTeacher(result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+            <button (click) = "viewTeacher(result.result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
               View
             </button>
             <!-- Return button if is a course -->
-            <button (click) = "viewCourse(result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+            <button (click) = "viewCourse(result.result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
               View
             </button>
           </div>

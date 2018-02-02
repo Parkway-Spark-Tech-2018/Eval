@@ -9,6 +9,9 @@ import {EvalApi} from '../../api/EvalApi';
 /** Import models **/
 import {Result} from '../../models/Result';
 
+import {Course} from '../../models/Course';
+import {Teacher} from '../../models/Teacher';
+
 import * as fuzzysearch from 'fuzzysearch';
 
 import 'rxjs/add/operator/map';
@@ -24,11 +27,18 @@ export class SearchComponent implements OnInit {
 
   public search_query:string;
 
-  public courses:string[] = []
+  public courses:Course[] = []
 
-  public teachers:string[] = []
+  public teachers:Teacher[] = []
+
+  public filter_mode:string = "all";
 
   public results:Result[] = [];
+
+  public course_results:Result[] = [];
+  public teacher_results:Result[] = [];
+
+  public selected_results:Result[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private eval_api: EvalApi) {
 
@@ -38,26 +48,11 @@ export class SearchComponent implements OnInit {
 
     let search_results:Result[] = [];
 
-    if (search_string == "") {
-
-      for (var course_idx in this.courses) {
-        var course:string = this.courses[course_idx];
-        var course_result:Result = Result.createCourseResult(course);
-        search_results.push(course_result);
-      }
-
-      for (var teacher_idx in this.teachers) {
-        var teacher:string = this.teachers[teacher_idx];
-        var teacher_result:Result = Result.createTeacherResult(teacher);
-        search_results.push(teacher_result);
-      }
-
-    }
     for (var course_idx in this.courses) {
 
-      var course:string = this.courses[course_idx]
+      var course:Course = <Course>this.courses[course_idx]
 
-      if (fuzzysearch(search_string.toLowerCase(), course.toLowerCase()) == true) {
+      if (fuzzysearch(search_string.toLowerCase(), course.name.toLowerCase()) == true) {
 
         var course_result:Result = Result.createCourseResult(course);
         search_results.push(course_result);
@@ -66,15 +61,14 @@ export class SearchComponent implements OnInit {
     }
 
     for (var teacher_idx in this.teachers) {
-        var teacher:string = this.teachers[teacher_idx]
+        var teacher:Teacher = <Teacher>this.teachers[teacher_idx]
 
-        if (fuzzysearch(search_string.toLowerCase(), teacher.toLowerCase()) == true) {
+        if (fuzzysearch(search_string.toLowerCase(), teacher.name.toLowerCase()) == true) {
           var teacher_result:Result = Result.createTeacherResult(teacher);
           search_results.push(teacher_result);
         }
     }
 
-    console.log(search_results);
     return search_results;
 
   }
@@ -107,7 +101,59 @@ export class SearchComponent implements OnInit {
       .subscribe(params => {
         this.search_query = params['search_query'] || "";
         this.results = this.search(this.search_query);
+
+        console.log(this.results);
+
+        /** Teacher Filters **/
+        this.teacher_results = this.results.filter(function (item) {
+          return item.type == "Teacher";
+        })
+
+        /** Courses Filter **/
+
+        this.course_results = this.results.filter(function (item) {
+          return item.type == "Course";
+        })
+
+        /** Selected Results **/
+
+        this.selected_results = this.results;
+
+
       })
+  }
+
+  /** Filtering results **/
+  resetFilter() {
+    this.filter_mode = "all"
+    this.updateFilter();
+  }
+
+  filterCourses() {
+    this.filter_mode = "courses";
+    this.updateFilter();
+  }
+
+  filterTeachers() {
+    this.filter_mode = "teachers";
+    this.updateFilter();
+  }
+
+  /** Updating the results **/
+  updateFilter() {
+
+    switch(this.filter_mode) {
+      case "all":
+        this.selected_results = this.results;
+        break;
+      case "teachers":
+        this.selected_results = this.teacher_results;
+        break;
+      case "courses":
+        this.selected_results = this.course_results;
+        break;
+    }
+
   }
 
   ngOnInit() {
@@ -116,10 +162,10 @@ export class SearchComponent implements OnInit {
 
     //Get the teacher and courses
     this.eval_api.getTeachers().then (function (data) {
-      that.teachers = <string[]> data;
+      that.teachers = <Teacher[]> data;
       return that.eval_api.getCourses()
     }).then (function (data) {
-      that.courses = <string[]> data;
+      that.courses = <Course[]> data;
     }).then (function () {
       that.performSearch(); //Perform the search;
     })
