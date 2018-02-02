@@ -33,12 +33,6 @@
 <br/>
 <h3>Student Reviews</h3>
 
-<p>{{amnt_good}} Good Reviews</p>
-<p>{{amnt_bad}} Bad Reviews</p>
-
-<div class = "progress">
-  <div class = "progress-bar bg-success" role = "progressbar" [ngStyle]="{width: GoodPercentageString()}" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class = "progress-bar bg-danger" role = "progressbar" [ngStyle]="{width: BadPercentageString()}" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+<app-rating [reviews] = "reviews"></app-rating>
 
 <br>
