@@ -1,7 +1,9 @@
 <?php
 
-  $pdo = new PDO('mysql:localhost', 'root', 'test');
-  $seeder = new \tebazil\dbseeder\Seeder($pdo);
+  include("seedings_lib.php");
+
+  $conn = (include("seed_conn.php"));
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
   $teachers_json = file_get_contents("teachers.json");
   $teachers = json_decode($teachers_json, true)["Sheet1"];
@@ -16,10 +18,17 @@
 
   //print_r($courses);
 
-  //print_r($departments);
+  foreach ($departments as $department) {
+    addDepartment($conn, $department);
+  }
 
+  /*
+  foreach ($teachers as $teacher) {
+    addTeacher($conn, $teacher);
+  }
+  */
 
-
-
+  //viewTeachers($conn);
+  viewDepartments($conn);
 
  ?>
