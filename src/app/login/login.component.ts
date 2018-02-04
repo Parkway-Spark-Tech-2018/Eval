@@ -27,7 +27,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    this.user = new EvalUser()
+    let that = this;
+
+    this.auth.getUser().then (function (user: EvalUser) {
+
+      if (user == null) {
+        that.logged_in = false
+        that.user = new EvalUser();
+      }else {
+        that.user = user;
+        that.logged_in = true;
+      }
+
+    })
 
     this.logged_in = false;
     this.tryAgain = false;
@@ -77,7 +89,7 @@ export class LoginComponent implements OnInit {
       }
 
       this.auth.logged_in = this.logged_in;
-      this.auth.user = this.user;
+      this.auth.setUser(this.user);
 
     });
 
@@ -91,12 +103,6 @@ export class LoginComponent implements OnInit {
   logout() {
     var logout = this.auth.logout();
 
-  }
-
-  view_user(){
-    let user:EvalUser = this.auth.getUser();
-
-    alert(JSON.stringify(user));
   }
 
 }
