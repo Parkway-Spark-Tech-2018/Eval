@@ -21,6 +21,29 @@
     }
   }
 
+  function addCourse($conn, $course) {
+    try {
+      $conn->beginTransaction();
+      $insertsql = $conn->prepare("INSERT INTO eval_db.Course (Course_Name, Course_Description, Department_Id, Entry_Grade, Exit_Grade, Credit) VALUES (:name, 'none', :department_id, :entry_grade, :exit_grade, :credit)");
+
+      $insertsql->bindValue(":name", $course["Course Name"]);
+      $insertsql->bindValue(":department_id", $course["Department Id"]);
+      $insertsql->bindValue(":entry_grade", $course["entry grade"]);
+      $insertsql->bindValue(":exit_grade", $course["max grade"]);
+      $insertsql->bindValue(":credit", $course["Credit Value"]);
+
+      $insertsql->execute();
+
+      $conn->commit();
+
+    } catch (Exception $e) {
+      $conn->rollBack();
+      echo $e->getMessage();
+    }
+
+  }
+
+
   function addTeacher($conn, $teacher) {
     try {
       $conn->beginTransaction();
@@ -42,6 +65,21 @@
       echo $e->getMessage();
     }
 
+  }
+
+
+  function viewCourses($conn) {
+    try {
+        $stmt = $conn->prepare("SELECT * FROM eval_db.Course");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        print_r ($stmt->fetchAll());
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
   }
 
   function viewTeachers($conn) {

@@ -26,7 +26,12 @@
     addTeacher($conn, $teacher);
   }
 
+  foreach ($courses as $course) {
+    addCourse($conn, $course);
+  }
+
   viewTeachers($conn);
   viewDepartments($conn);
+  viewCourses($conn);
 
  ?>
