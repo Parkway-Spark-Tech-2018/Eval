@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
     let that = this;
 
-    this.auth.getUser().then (function (user) {
+    this.auth.getUser().then (function (user:EvalUser) {
       if (user == null) {
         that.user = null;
       }else {
