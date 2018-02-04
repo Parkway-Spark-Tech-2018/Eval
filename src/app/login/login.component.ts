@@ -48,11 +48,7 @@ export class LoginComponent implements OnInit {
     this.auth.afAuth.authState.subscribe((auth) => {
       if (auth == null) {
         this.logged_in = false;
-        this.user.user_name = "";
-        this.user.email = "";
-        this.user.id = "";
-        // Peter added this next line:
-          this.user.type = 0;
+        this.user = null;
       }else {
         this.logged_in = true;
         this.user.user_name = auth.displayName;

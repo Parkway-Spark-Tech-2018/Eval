@@ -30,7 +30,7 @@ export class AuthService {
         if (user == null) {
           resolve(null);
         }else {
-          resolve(null);
+          resolve(user);
         }
 
       }).catch (function (err) {
@@ -66,7 +66,9 @@ export class AuthService {
   }
 
   logout() {
-    return this.afAuth.auth.signOut();
+
+    return this.afAuth.auth.signOut();    
+
   }
 
 
