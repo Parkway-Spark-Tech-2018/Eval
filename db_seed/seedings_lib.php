@@ -34,7 +34,6 @@
       $insertsql->bindValue(":department_id", $teacher["Department Id"]);
 
       $insertsql->execute();
-      print_r ($insertsql->fetchAll());
 
       $conn->commit();
 
@@ -47,23 +46,32 @@
 
   function viewTeachers($conn) {
 
-    $sql = "SELECT * FROM eval_db.Staff";
-    $result = $conn->query($sql);
+    try {
+        $stmt = $conn->prepare("SELECT * FROM eval_db.Staff");
+        $stmt->execute();
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            print_r ($row);
-        }
-    } else {
-        echo "0 results";
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        print_r ($stmt->fetchAll());
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 
   }
 
   function viewDepartments($conn) {
-    $sql = "SELECT * FROM eval_db.Department";
-    $result = $conn->query($sql);
+    try {
+        $stmt = $conn->prepare("SELECT * FROM eval_db.Department");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        print_r ($stmt->fetchAll());
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 
   }
 

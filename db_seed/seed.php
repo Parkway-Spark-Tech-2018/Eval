@@ -22,13 +22,11 @@
     addDepartment($conn, $department);
   }
 
-  /*
   foreach ($teachers as $teacher) {
     addTeacher($conn, $teacher);
   }
-  */
 
-  //viewTeachers($conn);
+  viewTeachers($conn);
   viewDepartments($conn);
 
  ?>
