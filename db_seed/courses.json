@@ -1,5 +1,5 @@
   [{
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37350,
       "Course Name": "Introduction to Business",
       "entry grade": 9,
@@ -7,7 +7,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37010,
       "Course Name": "Introduction to Computer Technologies",
       "entry grade": 9,
@@ -15,7 +15,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37111,
       "Course Name": "Accounting 1 (Sem 1)",
       "entry grade": 10,
@@ -23,7 +23,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37112,
       "Course Name": "Accounting 1 (Sem 2)",
       "entry grade": 10,
@@ -31,7 +31,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37121,
       "Course Name": "Accounting 2 (Sem 1)",
       "entry grade": 11,
@@ -39,7 +39,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37122,
       "Course Name": "Accounting 2 (Sem 2)",
       "entry grade": 11,
@@ -47,7 +47,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 38131,
       "Course Name": "Honors Accounting 3 (Sem 1)",
       "entry grade": 12,
@@ -55,7 +55,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 38132,
       "Course Name": "Honors Accounting 3 (Sem 2)",
       "entry grade": 12,
@@ -63,7 +63,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37280,
       "Course Name": "Branding & Design Concepts",
       "entry grade": 9,
@@ -71,7 +71,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37550,
       "Course Name": "Business Management",
       "entry grade": 11,
@@ -79,7 +79,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37490,
       "Course Name": "Digital Animation",
       "entry grade": 10,
@@ -87,7 +87,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37310,
       "Course Name": "Introduction to Computer Science",
       "entry grade": 10,
@@ -95,7 +95,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37320,
       "Course Name": "Computer Application Design and Development",
       "entry grade": 10,
@@ -103,7 +103,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 39321,
       "Course Name": "AP Computer Science (Sem 1)",
       "entry grade": 11,
@@ -111,7 +111,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 39322,
       "Course Name": "AP Computer Science (Sem 2)",
       "entry grade": 11,
@@ -119,7 +119,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 47751,
       "Course Name": "Marketing 1 (Sem 1)",
       "entry grade": 10,
@@ -127,7 +127,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 47752,
       "Course Name": "Marketing 1 (Sem 2)",
       "entry grade": 10,
@@ -135,7 +135,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 47761,
       "Course Name": "Marketing 2 (Sem 1)",
       "entry grade": 11,
@@ -143,7 +143,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 47762,
       "Course Name": "Marketing 2 (Sem 2)",
       "entry grade": 11,
@@ -151,7 +151,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37270,
       "Course Name": "Microsoft Office",
       "entry grade": 10,
@@ -159,7 +159,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37590,
       "Course Name": "Multimedia",
       "entry grade": 10,
@@ -167,7 +167,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37290,
       "Course Name": "Multimedia 2: Digital Production",
       "entry grade": 10,
@@ -175,7 +175,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37100,
       "Course Name": "Personal Finance",
       "entry grade": 10,
@@ -183,7 +183,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37570,
       "Course Name": "Web Design 1",
       "entry grade": 10,
@@ -191,7 +191,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37580,
       "Course Name": "Web Design 2",
       "entry grade": 10,
@@ -199,7 +199,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37661,
       "Course Name": "Entrepreneurship: Virtual Enterprise International (Sem 1)",
       "entry grade": 10,
@@ -207,7 +207,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37662,
       "Course Name": "Entrepreneurship: Virtual Enterprise International (Sem 2)",
       "entry grade": 10,
@@ -215,7 +215,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37701,
       "Course Name": "Business, Marketing, and Information Technology Internship (One Block Sem 1)",
       "entry grade": 12,
@@ -223,7 +223,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37702,
       "Course Name": "Business, Marketing, and Information Technology Internship (One Block Sem 2)",
       "entry grade": 12,
@@ -231,7 +231,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37741,
       "Course Name": "Business, Marketing, and Information Technology Internship (Two Blocks Sem 1)",
       "entry grade": 12,
@@ -239,7 +239,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 37742,
       "Course Name": "Business, Marketing, and Information Technology Internship (Two Blocks Sem 2)",
       "entry grade": 12,
@@ -247,7 +247,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 996001,
       "Course Name": "Occupational and Research Internship (Sem 1)",
       "entry grade": 12,
@@ -255,7 +255,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 996002,
       "Course Name": "Occupational and Research Internship (Sem 2)",
       "entry grade": 12,
@@ -2319,7 +2319,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107070,
       "Course Name": "Drafting",
       "entry grade": 9,
@@ -2327,7 +2327,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107121,
       "Course Name": "Design and Technology",
       "entry grade": 9,
@@ -2335,7 +2335,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107132,
       "Course Name": "Design and Technology 2",
       "entry grade": 9,
@@ -2343,7 +2343,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107500,
       "Course Name": "Construction Technology",
       "entry grade": 9,
@@ -2351,7 +2351,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107510,
       "Course Name": "Advanced Construction Technology",
       "entry grade": 9,
@@ -2359,7 +2359,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 107680,
       "Course Name": "Robotics Technology 1",
       "entry grade": 9,
@@ -2367,7 +2367,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108711,
       "Course Name": "Honors Introduction to Engineering Design (Sem 1)",
       "entry grade": 9,
@@ -2375,7 +2375,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108712,
       "Course Name": "Honors Introduction to Engineering Design (Sem 2)",
       "entry grade": 9,
@@ -2383,7 +2383,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108221,
       "Course Name": "Honors Environmental Engineering (Sem 1)",
       "entry grade": 11,
@@ -2391,7 +2391,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108222,
       "Course Name": "Honors Environmental Engineering (Sem 2)",
       "entry grade": 11,
@@ -2399,7 +2399,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108751,
       "Course Name": "Honors Principles of Engineering (Sem 1)",
       "entry grade": 10,
@@ -2407,7 +2407,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108752,
       "Course Name": "Honors Principles of Engineering (Sem 2)",
       "entry grade": 10,
@@ -2415,7 +2415,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108201,
       "Course Name": "Honors Civil Engineering and Architecture (Sem 1)",
       "entry grade": 10,
@@ -2423,7 +2423,7 @@
       "Credit Value": 1
     },
     {
-      "Department Id": 1,
+      "Department Id": 12,
       "Course Number": 108202,
       "Course Name": "Honors Civil Engineering and Architecture (Sem 2)",
       "entry grade": 10,
