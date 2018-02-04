@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 
 import {EvalUser} from '../../models/EvalUser';
 
+// local_db
 import * as localForage from 'localforage';
 
 @Injectable()

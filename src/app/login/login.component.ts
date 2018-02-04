@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
     let that = this;
 
+    /** Get the user if stored in the local database **/
     this.auth.getUser().then (function (user: EvalUser) {
 
       if (user == null) {
@@ -88,7 +89,8 @@ export class LoginComponent implements OnInit {
         // End of code by Peter^^^
       }
 
-      this.auth.logged_in = this.logged_in;
+
+      /** update the local_db of the user for other pages **/
       this.auth.setUser(this.user);
 
     });
