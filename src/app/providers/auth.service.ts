@@ -11,7 +11,7 @@ export class AuthService {
   public logged_in:boolean;
   public user:EvalUser;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth) {
     this.logged_in = false;
   }
 
