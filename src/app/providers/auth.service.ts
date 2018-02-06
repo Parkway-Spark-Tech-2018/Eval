@@ -5,13 +5,15 @@ import * as firebase from 'firebase/app';
 
 import {EvalUser} from '../../models/EvalUser';
 
+// local_db
+import * as localForage from 'localforage';
+
 @Injectable()
 export class AuthService {
 
   public logged_in:boolean;
-  public user:EvalUser;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth) {
     this.logged_in = false;
   }
 
@@ -19,12 +21,43 @@ export class AuthService {
     return this.logged_in;
   }
 
-  getUser() {
-    if (this.logged_in == true) {
-      return this.user;
-    }else {
-      return null;
-    }
+  getUser() { //Get the user async
+
+    var user_promise = new Promise(function (resolve, reject) {
+
+      localForage.getItem('user').then (function (user) {
+
+        if (user == null) {
+          resolve(null);
+        }else {
+          resolve(user);
+        }
+
+      }).catch (function (err) {
+        reject(err);
+      })
+
+
+    })
+
+    return user_promise;
+
+  }
+
+  setUser(user: EvalUser) { //Set the new user
+
+    var user_promise = new Promise (function (resolve, reject) {
+
+      localForage.setItem('user', user).then (function (user) {
+        resolve(<EvalUser>user);
+      }).catch (function (err) {
+        reject(err);
+      })
+
+    })
+
+    return user_promise;
+
   }
 
   loginWithGoogle() {
@@ -33,7 +66,9 @@ export class AuthService {
   }
 
   logout() {
+
     return this.afAuth.auth.signOut();
+
   }
 
 

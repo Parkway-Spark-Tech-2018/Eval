@@ -17,14 +17,13 @@ h1
 #coolbutton
 {
   color: white;
-  border-width: 5px;
+  border-width: 2px;
   border-color: white;
   background: transparent;
 }
 #coolbutton:hover
 {
   color: black;
-  border-width: 5px;
   border-color: white;
   background: white;
 }

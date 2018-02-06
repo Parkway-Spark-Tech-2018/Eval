@@ -15,7 +15,7 @@ import {EvalUser} from '../../models/EvalUser';
 })
 export class LoginComponent implements OnInit {
 
-  public user:EvalUser;
+  public user:EvalUser = new EvalUser();
 
   public user_name: string = ""
   public email: string = ""
@@ -23,11 +23,24 @@ export class LoginComponent implements OnInit {
   public logged_in: boolean;
   public tryAgain: boolean;
 
-  constructor(private auth: AuthService, private afAuth: AngularFireAuth, private zone: NgZone) { }
+  constructor(public auth: AuthService, private afAuth: AngularFireAuth, private zone: NgZone) { }
 
   ngOnInit() {
 
-    this.user = new EvalUser()
+    let that = this;
+
+    /** Get the user if stored in the local database **/
+    this.auth.getUser().then (function (user: EvalUser) {
+
+      if (user == null) {
+        that.logged_in = false
+        that.user = new EvalUser();
+      }else {
+        that.user = user;
+        that.logged_in = true;
+      }
+
+    })
 
     this.logged_in = false;
     this.tryAgain = false;
@@ -35,11 +48,7 @@ export class LoginComponent implements OnInit {
     this.auth.afAuth.authState.subscribe((auth) => {
       if (auth == null) {
         this.logged_in = false;
-        this.user.user_name = "";
-        this.user.email = "";
-        this.user.id = "";
-        // Peter added this next line:
-          this.user.type = 0;
+        this.user = null;
       }else {
         this.logged_in = true;
         this.user.user_name = auth.displayName;
@@ -76,8 +85,9 @@ export class LoginComponent implements OnInit {
         // End of code by Peter^^^
       }
 
-      this.auth.logged_in = this.logged_in;
-      this.auth.user = this.user;
+
+      /** update the local_db of the user for other pages **/
+      this.auth.setUser(this.user);
 
     });
 
@@ -91,12 +101,6 @@ export class LoginComponent implements OnInit {
   logout() {
     var logout = this.auth.logout();
 
-  }
-
-  view_user(){
-    let user:EvalUser = this.auth.getUser();
-
-    alert(JSON.stringify(user));
   }
 
 }
