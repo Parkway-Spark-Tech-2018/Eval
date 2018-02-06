@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../providers/auth.service";
 import { Router} from "@angular/router";
 import {AngularFireAuth} from 'angularfire2/auth';
-
-
 import {EvalUser} from '../../models/EvalUser';
 
 
@@ -36,7 +34,7 @@ export class HomeComponent implements OnInit {
         if (that.user.type == 1) //Student
         {
           console.log('Well you are a sudent, so, going to search page.')
-          that.router.navigate(['/search']);
+          that.router.navigate(['/student']);
         }
         if (that.user.type == 2) //Teacher
         {

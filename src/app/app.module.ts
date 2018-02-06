@@ -16,6 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReviewComponent } from './review/review.component';
 import { CourseComponent } from './course/course.component';
+import { StudentComponent } from './student/student.component';
 
 // Import HttpClientModule from @angular/common/http
 import {HttpClientModule} from '@angular/common/http';
@@ -24,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 
 // Firebase module
 import {AngularFireModule} from 'angularfire2';
+
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'review', component: ReviewComponent},
   {path: 'course', component: CourseComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'student', component: StudentComponent}
 ];
 
 const firebaseConfig = {
@@ -59,7 +62,8 @@ const firebaseConfig = {
     ReviewComponent,
     CourseComponent,
     RatingsComponent,
-    LoginComponent
+    LoginComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
