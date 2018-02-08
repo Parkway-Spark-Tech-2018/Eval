@@ -1,7 +1,11 @@
-index:
+teacher_index:
     path: /
     controller: App\Controller\TeacherController::index
 
-show:
+teacher_show:
   path: /api/showTeachers
   controller: App\Controller\TeacherController::show
+
+course_show:
+  path: /api/showCourses
+  controller: App\Controller\CourseController::show

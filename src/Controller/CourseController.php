@@ -7,19 +7,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class TeacherController extends Controller
+class CourseController extends Controller
 {
 
     public function index()
     {
-        return new Response('Welcome to your new controller!');
+        return new Response('Welcome to your course controller!');
     }
 
     public function show()
     {
       $conn = $this->getDoctrine()->getEntityManager()->getConnection();
 
-      $sql = 'SELECT * FROM Staff';
+      $sql = 'SELECT * FROM Course';
 
       $stmt = $conn->prepare($sql);
       $stmt->execute();
@@ -29,5 +29,4 @@ class TeacherController extends Controller
       return new JsonResponse($results);
 
     }
-
 }
