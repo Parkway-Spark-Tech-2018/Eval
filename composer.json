@@ -17,8 +17,7 @@
         "tebazil/db-seeder": "*"
     },
     "require-dev": {
-        "symfony/web-server-bundle": "^4.0",
-        "heroku/heroku-buildpack-php": "^130.0"
+        "symfony/web-server-bundle": "^4.0"
     },
     "config": {
         "preferred-install": {
