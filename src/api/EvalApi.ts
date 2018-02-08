@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
 import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
 
+import endpoint from './Endpoint';
+
 @Injectable()
 export class EvalApi {
 
@@ -16,7 +18,6 @@ export class EvalApi {
   }
 
   getTeachers() {
-
     let teacher_promise = new Promise((resolve, reject) => {
       this.http.get('/assets/data/teachers.json')
         .toPromise()
