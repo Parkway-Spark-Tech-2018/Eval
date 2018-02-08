@@ -15,6 +15,7 @@ import {EvalUser} from '../../models/EvalUser';
 export class StudentComponent implements OnInit {
 
   public name:string = '';
+  public user:EvalUser;
 
   constructor(private auth: AuthService, private router: Router) {
 

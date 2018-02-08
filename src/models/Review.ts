@@ -6,6 +6,8 @@ export class Review {
   public review_amnt:number;
   public name:string;
 
+
+
   constructor(type:string, name:string, review_amnt:number) {
 
     this.type = type;
