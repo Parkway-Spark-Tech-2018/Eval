@@ -12,7 +12,7 @@ class TeacherController extends Controller
 
     public function index()
     {
-        return new Response('Welcome to your new controller!');
+        return new Response('Welcome to your new controller meme!');
     }
 
     public function show()
