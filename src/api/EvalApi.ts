@@ -19,7 +19,7 @@ export class EvalApi {
 
   getTeachers() {
     let teacher_promise = new Promise((resolve, reject) => {
-      this.http.get('/assets/data/teachers.json')
+      this.http.get('/assets/data/getTeachers')
         .toPromise()
         .then(
           res => {
@@ -42,7 +42,7 @@ export class EvalApi {
   getCourses() {
 
     let courses_promise = new Promise((resolve, reject) => {
-      this.http.get('/assets/data/courses.json')
+      this.http.get('/assets/data/getCourses')
         .toPromise()
         .then(
           res => {
