@@ -9,3 +9,7 @@ teacher_show:
 course_show:
   path: /api/showCourses
   controller: App\Controller\CourseController::show
+
+get_department:
+  path: /api/getDepartment/{id}
+  controller: App\Controller\DepartmentController:get
