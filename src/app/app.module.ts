@@ -68,7 +68,7 @@ const firebaseConfig = {
     CourseComponent,
     RatingsComponent,
     LoginComponent,
-    TeacherUserComponent
+    TeacherUserComponent,
     StudentComponent,
     FormComponent
   ],

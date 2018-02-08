@@ -1,3 +1,3 @@
-var endpoint = "meh";
+var endpoint = "/assets/data";
 
 export default endpoint;
