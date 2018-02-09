@@ -34,7 +34,14 @@ export class EvalApi {
               }
 
             }).map(function (item){
-                return <Teacher>{name: item["First_Name"], description: null};
+                return <Teacher>{name: item["First_Name"] + " " + item["Last_Name"],
+                                 description: null,
+                                 prefix: item["Prefix"],
+                                 is_admin: <number>item["Is_Admin"],
+                                 image: item["Image"],
+                                 department_id: <number>item["Department_Id"],
+                                 email: item["Email"],
+                                 id: item["Staff_Id"] };
             })
 
             console.log(teachers)
