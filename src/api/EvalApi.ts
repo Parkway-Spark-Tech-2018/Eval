@@ -43,8 +43,7 @@ export class EvalApi {
                                  email: item["Email"],
                                  id: item["Staff_Id"] };
             })
-
-            console.log(teachers)
+            
             resolve(teachers);
           }
         ).catch (function (error) {
@@ -64,7 +63,7 @@ export class EvalApi {
         .then(
           res => {
             let courses:Course[] = (<any[]>res).map(function (item) {
-              return <Course>{name: item["Course_Name"], description: null}
+              return <Course>{name: item["Course_Name"], description: null, id: <number>item["Course_Id"], image: item["Course_Image"], department_id: <number>item["Department_Id"], entry_grade: <number>item["Entry_Grade"], exit_grade: <number>item["Exit_Grade"], credit: <number>item["Credit"]}
             })
 
             resolve(courses);
