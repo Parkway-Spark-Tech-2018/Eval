@@ -43,13 +43,23 @@ export class EvalApi {
                                  email: item["Email"],
                                  id: item["Staff_Id"] };
             })
-            
+
             resolve(teachers);
           }
         ).catch (function (error) {
           reject(error);
         })
     });
+
+    return teacher_promise;
+
+  }
+
+  getTeacherById(id:number){
+
+    var teacher_promise = new Promise(function (resolve, reject) {
+
+    })
 
     return teacher_promise;
 
@@ -75,6 +85,16 @@ export class EvalApi {
 
     return courses_promise;
 
+
+  }
+
+  getCourseById() {
+
+    var course_promise = new Promise(function (resolve, reject) {
+      
+    })
+
+    return course_promise;
 
   }
 
