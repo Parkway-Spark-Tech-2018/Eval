@@ -38,8 +38,18 @@ class DepartmentController extends Controller
 
         return new JsonResponse($err_message);
       }
+    }
 
+    public function show() {
+      $conn = $this->getDoctrine()->getEntityManager()->getConnection();
 
+      $sql = 'SELECT * FROM Department';
 
+      $stmt = $conn->prepare($sql);
+      $stmt->execute();
+
+      $results = $stmt->fetchAll();
+
+      return new JsonResponse($results);
     }
 }
