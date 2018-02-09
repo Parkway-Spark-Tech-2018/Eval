@@ -105,7 +105,7 @@ export class CourseComponent implements OnInit {
     let that = this;
 
     return reviews.filter(function (review:Review) {
-        return (review.type == "Course" && review.name == that.course.name)
+        return (review.type == "Course" && review.reviewer_name == that.course.name)
     })
 
   }

@@ -70,9 +70,9 @@ export class RatingsComponent implements OnInit {
 
     reviews.forEach(function (review:Review) {
 
-      if (review.review_amnt > 0) {
+      if (review.thumbs === true) {
         that.amnt_good += 1;
-      }else if (review.review_amnt < 0) {
+      }else if (review.thumbs === false) {
         that.amnt_bad += 1;
       }
 

@@ -23,23 +23,34 @@
 </div>
 
 <br>
-
-<div *ngFor = "let result of selected_results">
-
-
-  <div class = "card">
-
-      <div class = "card-header" style="color: white; background: #444">
-        <b>{{result.type}}: {{getDepartment(result.result.department_id)}}</b>
-      </div>
-
-      <div class = "card-body">
+<div *ngFor = "let initial of departments">
+  <div *ngFor = "let var of [1]">
+    <div class = "card">
+      <div class = "card-header" style="color: black; background: dark-red">
         <div class = "row">
           <div class = "col">
-            {{result.result.name}}
-
+            <b>{{getDepartment(initial.id)}}</b>
+          </div>
+          <div style = "text-align: right;" class = "col">
+            <button (click)="var = 2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf var === 2>
+      <div *ngFor = "let result of selected_results">
+        <div *ngIf = "initial.id === result.result.department_id">
+          <div class = "card">
+            <!--Header-->
+            <div class = "card-header" style="color: white; background: #444">
+              <b>{{result.type}}: {{getDepartment(result.result.department_id)}}</b>
+            </div>
+            
+            <div class = "card-body">
+              <div class = "row">
+                <div class = "col">
+                  {{result.result.name}}
             <br><br>
-
             <!-- Return button if is a teacher -->
             <button (click) = "viewTeacher(result.result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
               View
@@ -58,8 +69,11 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
+  </div>
+  </div>
   </div>
 
   <br>
 
-</div>

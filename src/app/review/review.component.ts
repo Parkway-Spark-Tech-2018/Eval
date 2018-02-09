@@ -38,14 +38,14 @@ export class ReviewComponent implements OnInit {
 
   }
 
-  review(review_rating:number) {
+  review(review_rating:boolean, review_explanation) {
 
     let review:Review;
 
     if (this.type == "Teacher") {
-      review = Review.createTeacherReview(this.name, review_rating);
+      review = Review.createTeacherReview(this.name, review_rating, review_explanation);
     }else if (this.type == "Course") {
-      review = Review.createCourseReview(this.name, review_rating);
+      review = Review.createCourseReview(this.name, review_rating, review_explanation);
     }
 
     let that = this;

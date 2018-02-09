@@ -8,7 +8,7 @@ export class Review {
   public thumbs:boolean;
   public explanation:string;
 
-  public user:EvalUser;
+  //public user:EvalUser;
 
   constructor(type:string, review_name:string, reviewer_name:string, thumbs:boolean, explanation:string) {
 
@@ -22,13 +22,13 @@ export class Review {
 
   static createTeacherReview(teacher_name:string, thumbs, explanation) {
 
-    return new Review("Teacher", teacher_name, this.user.user_name, thumbs, explanation);
+    return new Review("Teacher", teacher_name, "Peter"/*this.user.user_name*/, thumbs, explanation);
 
   }
 
   static createCourseReview(course_name:string, thumbs, explanation) {
 
-    return new Review("Course", course_name, this.user.user_name, thumbs, explanation);
+    return new Review("Course", course_name, "Peter"/*this.user.user_name*/, thumbs, explanation);
 
   }
 

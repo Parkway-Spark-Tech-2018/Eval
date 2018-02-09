@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
     let that = this;
 
     return reviews.filter(function (review:Review) {
-        return (review.type == "Teacher" && review.name == that.teacher.name)
+        return (review.type == "Teacher" && review.review_name == that.teacher.name)
     })
 
   }
