@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center display-4">Hello, Mr./Ms./Mrs. ________</h1>
+        <h1 class="text-center display-4">Hello, <span *ngIf = "display_prefix">{{user_teacher.prefix}}</span> {{user_teacher.last_name}}</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center">Department: ________</h1>
+        <h1 class="text-center">Department: {{department.name}}</h1>
       </div>
     </div>
   </div>

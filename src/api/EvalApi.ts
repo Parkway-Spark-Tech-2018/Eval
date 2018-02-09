@@ -35,6 +35,8 @@ export class EvalApi {
 
             }).map(function (item){
                 return <Teacher>{name: item["First_Name"] + " " + item["Last_Name"],
+                                 first_name: item["First_Name"],
+                                 last_name: item["Last_Name"],
                                  description: null,
                                  prefix: item["Prefix"],
                                  is_admin: <number>item["Is_Admin"],
@@ -136,9 +138,37 @@ export class EvalApi {
             let departments:Department[] = (<any>res).map (function (item) {
               return <Department>{id: item.Department_Id, name: item.Department_Name, description: item.Department_Description}
             })
+
+            resolve(departments);
           }
-        )
+        ).catch (function (err) {
+          reject (err);
+        })
     })
+
+
+    return departments_promise;
+  }
+
+  getDepartmentById(id:number) {
+
+    let that = this;
+
+    let department_promise = new Promise(function (resolve, reject) {
+
+      that.getDepartments().then (function (departments:Department[]) {
+        var department:Department = departments.find(function (department:Department) {
+          return department.id == id;
+        });
+
+        resolve(department);
+      }).catch (function (error) {
+        reject(error);
+      })
+
+    })
+
+    return department_promise;
 
   }
 
