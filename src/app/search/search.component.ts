@@ -11,6 +11,7 @@ import {Result} from '../../models/Result';
 
 import {Course} from '../../models/Course';
 import {Teacher} from '../../models/Teacher';
+import {Department} from '../../models/Department';
 
 import * as fuzzysearch from 'fuzzysearch';
 
@@ -39,6 +40,8 @@ export class SearchComponent implements OnInit {
   public teacher_results:Result[] = [];
 
   public selected_results:Result[] = [];
+
+  public departments:Department[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private eval_api: EvalApi) {
 
@@ -156,6 +159,15 @@ export class SearchComponent implements OnInit {
 
   }
 
+  getDepartment(department_id:number) {
+
+    var department = this.departments.find(function (department:Department) {
+      return department.id == department_id;
+    })
+
+    return department.name;
+  }
+
   ngOnInit() {
 
     let that = this;
@@ -170,6 +182,10 @@ export class SearchComponent implements OnInit {
       that.performSearch(); //Perform the search;
     })
 
+
+    this.eval_api.getDepartments().then (function (departments:Departments[]) {
+      that.departments = departments
+    })
 
   }
 
