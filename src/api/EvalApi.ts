@@ -57,7 +57,21 @@ export class EvalApi {
 
   getTeacherById(id:number){
 
+    let that = this;
+
     var teacher_promise = new Promise(function (resolve, reject) {
+
+      that.getTeachers().then (function (teachers: Teacher[]) {
+
+        var teacher:Teacher = teachers.find(function (teacher:Teacher) {
+          return teacher.id == id;
+        })
+
+        resolve(teacher);
+
+      }).catch (function (err) {
+        reject(err);
+      })
 
     })
 
@@ -88,10 +102,24 @@ export class EvalApi {
 
   }
 
-  getCourseById() {
+  getCourseById(id:number) {
+
+    let that = this;
 
     var course_promise = new Promise(function (resolve, reject) {
-      
+
+      that.getCourses().then (function (courses:Course[]) {
+
+        var course = courses.find(function (course:Course) {
+          return course.id == id;
+        });
+
+        resolve(course);
+
+      }).catch (function (err) {
+        reject(err);
+      })
+
     })
 
     return course_promise;

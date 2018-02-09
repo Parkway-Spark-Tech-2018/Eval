@@ -170,7 +170,6 @@ export class SearchComponent implements OnInit {
       that.performSearch(); //Perform the search;
     })
 
-
   }
 
 }
