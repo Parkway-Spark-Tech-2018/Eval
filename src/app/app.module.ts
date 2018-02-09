@@ -40,7 +40,7 @@ const appRoutes: Routes = [
   {path: 'review', component: ReviewComponent},
   {path: 'course', component: CourseComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'user/teacher', component: TeacherUserComponent}
+  {path: 'user/teacher', component: TeacherUserComponent},
   {path: 'student', component: StudentComponent},
   {path: 'form', component: FormComponent}
 ];

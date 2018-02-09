@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
+import {Department} from '../models/Department';
 
 import endpoint from './Endpoint';
 
@@ -19,15 +20,24 @@ export class EvalApi {
 
   getTeachers() {
     let teacher_promise = new Promise((resolve, reject) => {
-      this.http.get(endpoint + '/getTeachers')
+      this.http.get(endpoint + '/showTeachers')
         .toPromise()
         .then(
           res => {
-            console.log(res);
-            let teachers:Teacher[] = (<any[]>res).map(function (item){
-              return <Teacher>{name: item, description: null};
+
+            let teachers:Teacher[] = (<any[]>res).filter(function (item) {
+
+              if (item["Staff_Id"] == "1") {
+                return false;
+              }else {
+                return true;
+              }
+
+            }).map(function (item){
+                return <Teacher>{name: item["First_Name"], description: null};
             })
 
+            console.log(teachers)
             resolve(teachers);
           }
         ).catch (function (error) {
@@ -42,14 +52,12 @@ export class EvalApi {
   getCourses() {
 
     let courses_promise = new Promise((resolve, reject) => {
-      this.http.get(endpoint + '/getCourses')
+      this.http.get(endpoint + '/showCourses')
         .toPromise()
         .then(
           res => {
-            console.log(res);
-
             let courses:Course[] = (<any[]>res).map(function (item) {
-              return <Course>{name: item, description: null}
+              return <Course>{name: item["Course_Name"], description: null}
             })
 
             resolve(courses);
@@ -66,8 +74,17 @@ export class EvalApi {
 
   getDepartments() {
 
-    
-
+    let departments_promise = new Promise((resolve, reject) => {
+      this.http.get(endpoint + '/showDepartments')
+        .toPromise()
+        .then (
+          res => {
+            let departments:Department[] = (<any>res).map (function (item) {
+              return <Department>{id: item.Department_Id, name: item.Department_Name, description: item.Department_Description}
+            })
+          }
+        )
+    })
 
   }
 
