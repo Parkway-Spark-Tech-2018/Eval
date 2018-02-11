@@ -28,7 +28,6 @@ import { LoginComponent } from './login/login.component';
 import {AngularFireModule} from 'angularfire2';
 import { FormComponent } from './form/form.component';
 import { TeacherUserComponent } from './teacher-user/teacher-user.component';
-import { FormComponent } from './form/form.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -73,8 +72,7 @@ const firebaseConfig = {
     StudentComponent,
     FormComponent,
     TeacherUserComponent,
-    StudentComponent,
-    FormComponent
+    StudentComponent
   ],
   imports: [
     BrowserModule,

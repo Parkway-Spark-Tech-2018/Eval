@@ -68,6 +68,9 @@ export class RatingsComponent implements OnInit {
     this.amnt_good = 0;
     this.amnt_bad = 0;
 
+    //FIXME
+
+    /**
     reviews.forEach(function (review:Review) {
 
       if (review.review_amnt > 0) {
@@ -77,6 +80,7 @@ export class RatingsComponent implements OnInit {
       }
 
     })
+    **/
 
   }
 

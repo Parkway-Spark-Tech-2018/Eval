@@ -1,20 +1,18 @@
-<h1>Reviewing {{courseOrTeacher}}<strong>Mr. Nalbandian</strong></h1>
+<label>Reviewing <strong>{{courseOrTeacher}}Mr. Nalbandian</strong></label>
+<form name = "review-form">
+  <label>Did you like or dislike this {{review_type.toLowerCase()}}?</label>
+  <div class="form-group">
+    <select [(ngModel)] = "new_review.thumbs" name = "boolean-select" class="form-control" required>
+      <option value="null" [selected]="isSelected"> Please choose one </option>
+      <option value="true">liked</option>
+      <option value="false">disliked</option>
+    </select>
+  </div>
 
-  <h3><label>I </label><select style = "margin: 10px;padding: 30px">
-    <option value="Y">liked</option>
-    <option value="N">disliked</option>
-  </select> the class</h3>
+  <label>Why?: </label>
+  <div class = "form-group">
+    <textarea [(ngModel)] = "new_review.comment" class = "form-control" required name = "comment"></textarea>
+  </div>
 
-
-  <h3><label>Why?</label></h3>
-  <textarea rows="4" cols="100"></textarea>
-  <br/>
-<div class="form-group">
-  <label>Reviewing <strong>{{courseOrTeacher}}Mr. Nalbandian</strong></label>
-  <select class="form-control" required>
-    <option value="Y">liked</option>
-    <option value="N">disliked</option>
-  </select>
-</div>
-
-
+  <button (click) = "formSubmit()" type = "submit" class = "btn btn-success">Submit</button>
+</form>

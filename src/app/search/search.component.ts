@@ -183,7 +183,7 @@ export class SearchComponent implements OnInit {
     })
 
 
-    this.eval_api.getDepartments().then (function (departments:Departments[]) {
+    this.eval_api.getDepartments().then (function (departments:Department[]) {
       that.departments = departments
     })
 

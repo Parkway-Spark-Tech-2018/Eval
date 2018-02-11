@@ -4,6 +4,7 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 
 import {Review} from '../../models/Review';
 
+//FIXME
 //Review Database
 
 import {ReviewDatabase} from '../../database/ReviewDatabase';
@@ -18,16 +19,20 @@ export class ReviewComponent implements OnInit {
   public name:string;
   public type:string;
 
+  /**
 
   constructor(
     private route: ActivatedRoute,
     private router: Router
   ) { }
+  **/
 
   ngOnInit() {
 
     var that = this;
 
+    //FIXME
+    /**
     this.getName().then (function (name) {
       that.name = <string>name;
     })
@@ -35,9 +40,10 @@ export class ReviewComponent implements OnInit {
     this.getType().then (function (type) {
       that.type = <string>type;
     })
+    **/
 
   }
-
+  /**
   review(review_rating:number) {
 
     let review:Review;
@@ -115,5 +121,5 @@ export class ReviewComponent implements OnInit {
 
     return query_promise
   }
-
+  **/
 }

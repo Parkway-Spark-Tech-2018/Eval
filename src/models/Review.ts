@@ -1,34 +1,35 @@
-import {EvalUser} from '../models/EvalUser';
+import {Teacher} from './Teacher';
+import {Course} from './Course';
 
 export class Review {
 
   public type:string;
-  public review_name:string;
-  public reviewer_name:string;
+  public subject: Teacher | Course;
+
   public thumbs:boolean;
-  public explanation:string;
+  public comment:string;
 
-  public user:EvalUser;
+  constructor() {}
 
-  constructor(type:string, review_name:string, reviewer_name:string, thumbs:boolean, explanation:string) {
+  static createTeacherReview(subject:Teacher, thumbs: boolean, comment:string) {
 
-    this.type = type;
-    this.review_name = review_name;
-    this.reviewer_name = reviewer_name;
-    this.thumbs = thumbs;
-    this.explanation = explanation;
-
-  }
-
-  static createTeacherReview(teacher_name:string, thumbs, explanation) {
-
-    return new Review("Teacher", teacher_name, this.user.user_name, thumbs, explanation);
+    return <Review> {
+      type: "Teacher",
+      subject: subject,
+      thumbs: thumbs,
+      comment: comment
+    };
 
   }
 
-  static createCourseReview(course_name:string, thumbs, explanation) {
+  static createCourseReview(subject: Course, thumbs:boolean, comment:string) {
 
-    return new Review("Course", course_name, this.user.user_name, thumbs, explanation);
+    return <Review> {
+      type: "Course",
+      subject: subject,
+      thumbs: thumbs,
+      comment: comment
+    };
 
   }
 

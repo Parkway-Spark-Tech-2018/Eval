@@ -55,10 +55,15 @@ export class ProfileComponent implements OnInit {
 
     let that = this;
 
+    //FIXME
+    return [];
+
+    /**
     return reviews.filter(function (review:Review) {
         return (review.type == "Teacher" && review.name == that.teacher.name)
     })
-
+    **/
+    
   }
 
   getTeacherName() {

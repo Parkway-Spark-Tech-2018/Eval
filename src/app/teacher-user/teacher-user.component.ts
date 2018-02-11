@@ -23,13 +23,13 @@ export class TeacherUserComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
     private eval_api: EvalApi) { }
 
   ngOnInit() {
 
 
-    this.teacher_id = this.route.snapshot.paramMap.get('id');
+    this.teacher_id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.retrieveInfo(this.teacher_id)
 
@@ -51,7 +51,7 @@ export class TeacherUserComponent implements OnInit {
 
       return that.eval_api.getDepartmentById(that.user_teacher.department_id);
 
-    }).then (function (department) {
+    }).then (function (department: Department) {
       that.department = department;
     }).catch (function (err) {
       console.log (err);

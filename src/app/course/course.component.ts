@@ -104,9 +104,16 @@ export class CourseComponent implements OnInit {
 
     let that = this;
 
+    //FIXME
+    return [];
+
+    /**
     return reviews.filter(function (review:Review) {
         return (review.type == "Course" && review.name == that.course.name)
     })
+    **/
+
+
 
   }
 
