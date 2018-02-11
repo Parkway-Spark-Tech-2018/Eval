@@ -37,8 +37,9 @@ export class ProfileComponent implements OnInit {
     this.getTeacher().then (function (teacher:Teacher) {
         that.teacher = teacher;
         return ReviewDatabase.getReviews();
-    }).then (function (reviews) {
+    }).then (function (reviews:Review[]) {
       that.reviews = that.filterTeacherReviews(<Review[]> reviews);
+      console.log(that.reviews);
     })
 
   }
@@ -54,14 +55,13 @@ export class ProfileComponent implements OnInit {
 
     let that = this;
 
-    //FIXME
-    return [];
-
-    /**
     return reviews.filter(function (review:Review) {
-        return (review.type == "Teacher" && review.name == that.teacher.name)
+        if (review.subject == undefined || review.type == undefined) {
+          return false;
+        }
+
+        return (review.type == "Teacher" && review.subject.id == that.teacher.id)
     })
-    **/
 
   }
 

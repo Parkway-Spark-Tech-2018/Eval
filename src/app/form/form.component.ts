@@ -99,7 +99,15 @@ export class FormComponent implements OnInit {
     if (String(this.new_review.thumbs) == "null") {
       alert ("Please select a option for the first question!")
     }else {
-      alert(JSON.stringify(this.new_review))
+      console.log(JSON.stringify(this.new_review))
+
+      let that = this;
+
+      ReviewDatabase.addReview(this.new_review).then (function (reviews:Review[]) {
+
+        that.goBack();
+
+      })
     }
 
   }

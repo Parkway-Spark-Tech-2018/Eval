@@ -38,7 +38,7 @@ export class CourseComponent implements OnInit {
       return ReviewDatabase.getReviews();
     }).then (function (reviews) {
       that.reviews = that.filterCourseReviews(<Review[]> reviews);
-
+      console.log(that.reviews);
     })
 
   }
@@ -101,16 +101,13 @@ export class CourseComponent implements OnInit {
 
     let that = this;
 
-    //FIXME
-    return [];
-
-    /**
     return reviews.filter(function (review:Review) {
-        return (review.type == "Course" && review.name == that.course.name)
+      if (review.subject == undefined || review.type == undefined) {
+        return false;
+      }
+
+      return (review.type == "Course" && review.subject.id == that.course.id)
     })
-    **/
-
-
 
   }
 
