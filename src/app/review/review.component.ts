@@ -1,78 +1,131 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
+import {Teacher} from '../../models/Teacher';
+import {Course} from '../../models/Course';
 
 import {Review} from '../../models/Review';
 
-//FIXME
-//Review Database
+import {EvalApi} from '../../api/EvalApi';
+
+import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
 
 import {ReviewDatabase} from '../../database/ReviewDatabase';
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
-  styleUrls: ['./review.component.css']
+  styleUrls: ['./review.component.css'],
+  providers: [EvalApi]
 })
 export class ReviewComponent implements OnInit {
 
-  public name:string;
-  public type:string;
+  subject_id: number;
+  subject: Course | Teacher;
 
-  /**
+  review_type:string;
+  new_review:Review = new Review();
+
+  thumbs:boolean = null;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router
+    private eval_api: EvalApi,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
-  **/
 
-  ngOnInit() {
-
-    var that = this;
-
-    //FIXME
-    /**
-    this.getName().then (function (name) {
-      that.name = <string>name;
-    })
-
-    this.getType().then (function (type) {
-      that.type = <string>type;
-    })
-    **/
-
-  }
-  /**
-  review(review_rating:number) {
-
-    let review:Review;
-
-    if (this.type == "Teacher") {
-      review = Review.createTeacherReview(this.name, review_rating);
-    }else if (this.type == "Course") {
-      review = Review.createCourseReview(this.name, review_rating);
-    }
+  getSubject(type:string, subject_id:number) {
 
     let that = this;
 
-    ReviewDatabase.addReview(review).then (function (reviews) {
-      console.log(reviews);
+    var subject_promise = new Promise(function (resolve, reject) {
+      if (type == "Course") {
 
-      if (that.type == "Teacher") {
-        that.goTeacherBack();
-      }else if (that.type == "Course") {
-        that.goCourseBack();
+        that.eval_api.getCourseById(subject_id).then (function (course:Course) {
+
+          resolve(course);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+
+      }else if (type == "Teacher") {
+
+        that.eval_api.getTeacherById(subject_id).then (function (teacher:Teacher) {
+
+          resolve(teacher);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+      }
+    });
+
+    return subject_promise;
+
+  }
+
+  ngOnInit() {
+    
+    let that = this;
+
+    this.getSubjectId().then (function (id:number) {
+      that.subject_id = id;
+      return that.getType();
+    }).then (function (type:string) {
+      that.review_type = type;
+      return that.getSubject(that.review_type, that.subject_id);
+    }).then (function (subject: Course | Teacher) {
+      that.subject = subject;
+    }).then (function (){
+      switch (that.review_type) {
+        case "Course":
+          that.new_review = Review.createCourseReview(<Course>that.subject, null, "")
+          break;
+        case "Teacher":
+          that.new_review = Review.createTeacherReview(<Teacher>that.subject, null, "")
+          break;
       }
 
+
     })
+
+  }
+
+  formSubmit() {
+
+    if (String(this.new_review.thumbs) == "null") {
+      alert ("Please select a option for the first question!")
+    }else {
+      console.log(JSON.stringify(this.new_review))
+
+      let that = this;
+
+      ReviewDatabase.addReview(this.new_review).then (function (reviews:Review[]) {
+
+        that.goBack();
+
+      })
+    }
+
+  }
+
+  goBack() {
+
+    switch (this.review_type){
+      case "Course":
+        this.goCourseBack();
+        break;
+      case "Teacher":
+        this.goTeacherBack();
+        break;
+    }
 
   }
 
   goTeacherBack() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'teacher_name': this.name}
+      queryParams: {'teacher_id': this.subject_id}
     }
 
     this.router.navigate(['/profile'], navigationExtras)
@@ -83,7 +136,7 @@ export class ReviewComponent implements OnInit {
   goCourseBack() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'course_name': this.name}
+      queryParams: {'course_id': this.subject_id}
     }
 
     this.router.navigate(['/course'], navigationExtras)
@@ -91,16 +144,15 @@ export class ReviewComponent implements OnInit {
 
   }
 
-  getName() {
-
+  getSubjectId() {
     let that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = <string>params['name'] || null;
-        resolve(teacherName)
+        var id = <number>params['id'] || null;
+        resolve(id)
       })
     });
 
@@ -114,12 +166,11 @@ export class ReviewComponent implements OnInit {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = <string>params['type'] || null;
-        resolve(teacherName)
+        var type = <string>params['type'] || null;
+        resolve(type)
       })
     });
 
     return query_promise
   }
-  **/
 }

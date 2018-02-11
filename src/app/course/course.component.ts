@@ -56,7 +56,7 @@ export class CourseComponent implements OnInit {
                     }
     }
 
-    this.router.navigate(['/form'], navigationExtras);
+    this.router.navigate(['/review'], navigationExtras);
 
   }
 

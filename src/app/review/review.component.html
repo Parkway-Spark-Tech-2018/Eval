@@ -1,18 +1,19 @@
-<h1>Leave a review for the {{type}}, {{name}}</h1>
-
-<br>
-<div class = "row">
-  <div class = "col">
-    <button (click) = "review(+1)" class = "btn btn-success btn-block">+++</button>
+<label>Reviewing <strong>{{subject.name}}</strong></label>
+<form name = "review-form">
+  <label>Did you like or dislike this {{review_type.toLowerCase()}}?</label>
+  <div class="form-group">
+    <select [(ngModel)] = "new_review.thumbs" name = "boolean-select" class="form-control" required>
+      <option value="null" [selected]="isSelected"> Please choose one </option>
+      <option value="true">liked</option>
+      <option value="false">disliked</option>
+    </select>
   </div>
-  <div class = "col">
-    <button (click) = "review(-1)" class = "btn btn-danger btn-block">---</button>
+
+  <label>Why?: </label>
+  <div class = "form-group">
+    <textarea [(ngModel)] = "new_review.comment" class = "form-control" required name = "comment"></textarea>
   </div>
-</div>
 
-<br>
-
-<a *ngIf = "type=='Teacher'" [routerLink]="['/profile']" [queryParams]="{teacher_name: name}" >Back</a>
-<a *ngIf = "type=='Course'" [routerLink]="['/course']" [queryParams]="{course_name: name}" >Back</a>
-
-<br>
+  <button (click) = "goBack()" class = "btn btn-danger">Cancel</button>
+  <button (click) = "formSubmit()" type = "submit" class = "btn btn-success">Submit</button>
+</form>

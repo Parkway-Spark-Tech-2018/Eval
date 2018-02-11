@@ -113,7 +113,7 @@ export class ProfileComponent implements OnInit {
                     }
     }
 
-    this.router.navigate(['/form'], navigationExtras);
+    this.router.navigate(['/review'], navigationExtras);
 
   }
 
