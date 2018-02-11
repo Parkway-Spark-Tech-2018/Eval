@@ -19,8 +19,6 @@ import {EvalApi} from '../../api/EvalApi';
 export class ProfileComponent implements OnInit {
 
   public teacher:Teacher;
-  public id:number;
-
   public reviews:Review[] = [];
 
   constructor(
@@ -93,7 +91,6 @@ export class ProfileComponent implements OnInit {
 
       that.getTeacherId().then (function (id:number) {
         teacher_id = id;
-        that.id = id;
         return that.api.getTeacherById(teacher_id);
       }).then (function (teacher:Teacher) {
 
@@ -111,12 +108,12 @@ export class ProfileComponent implements OnInit {
   leave_review() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'name': this.teacher.name,
+      queryParams: {'id': this.teacher.id,
                     'type': 'Teacher'
                     }
     }
 
-    this.router.navigate(['/review'], navigationExtras);
+    this.router.navigate(['/form'], navigationExtras);
 
   }
 

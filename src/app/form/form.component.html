@@ -1,4 +1,4 @@
-<label>Reviewing <strong>{{courseOrTeacher}}Mr. Nalbandian</strong></label>
+<label>Reviewing <strong>{{subject.name}}</strong></label>
 <form name = "review-form">
   <label>Did you like or dislike this {{review_type.toLowerCase()}}?</label>
   <div class="form-group">
@@ -14,5 +14,6 @@
     <textarea [(ngModel)] = "new_review.comment" class = "form-control" required name = "comment"></textarea>
   </div>
 
+  <button (click) = "goBack()" class = "btn btn-danger">Cancel</button>
   <button (click) = "formSubmit()" type = "submit" class = "btn btn-success">Submit</button>
 </form>

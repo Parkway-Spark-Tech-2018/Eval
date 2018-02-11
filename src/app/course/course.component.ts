@@ -19,7 +19,6 @@ import {EvalApi} from '../../api/EvalApi';
 export class CourseComponent implements OnInit {
 
   public course:Course;
-  public id:number;
 
   public reviews:Review[] = [];
 
@@ -52,12 +51,12 @@ export class CourseComponent implements OnInit {
   leave_review() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'name': this.course.name,
+      queryParams: {'id': this.course.id,
                     'type': 'Course'
                     }
     }
 
-    this.router.navigate(['/review'], navigationExtras);
+    this.router.navigate(['/form'], navigationExtras);
 
   }
 
@@ -84,7 +83,6 @@ export class CourseComponent implements OnInit {
 
       that.getCourseId().then (function (id:number) {
         course_id = id;
-        that.id = id;
 
         return that.api.getCourseById(course_id);
       }).then (function (course:Course) {

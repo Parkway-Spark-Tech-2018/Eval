@@ -19,16 +19,18 @@ import {ReviewDatabase} from '../../database/ReviewDatabase';
 })
 export class FormComponent implements OnInit {
 
-  subject_id: number = 4;
+  subject_id: number;
   subject: Course | Teacher;
 
-  review_type:string = "Course";
+  review_type:string;
   new_review:Review = new Review();
 
   thumbs:boolean = null;
 
   constructor(
     private eval_api: EvalApi
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   getSubject(type:string, subject_id:number) {
@@ -64,9 +66,18 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
 
+    this.subject_id = this.route.snapshot.paramMap.get('id');
+    this.review_type = this.route.snapshot.paramMap.get('type');
+
     let that = this;
 
-    this.getSubject(this.review_type, this.subject_id).then (function (subject: Course | Teacher) {
+    this.getSubjectId().then (function (id:number) {
+      that.subject_id = id;
+      return that.getType();
+    }).then (function (type:string) {
+      that.review_type = type;
+      return that.getSubject(that.review_type, that.subject_id);
+    }).then (function (subject: Course | Teacher) {
       that.subject = subject;
     }).then (function (){
       switch (that.review_type) {
@@ -120,11 +131,23 @@ export class FormComponent implements OnInit {
   }
   **/
 
-  /**
+  goBack() {
+
+    switch (this.review_type){
+      case "Course":
+        this.goCourseBack();
+        break;
+      case "Teacher":
+        this.goTeacherBack();
+        break;
+    }
+
+  }
+
   goTeacherBack() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'teacher_name': this.name}
+      queryParams: {'teacher_id': this.subject_id}
     }
 
     this.router.navigate(['/profile'], navigationExtras)
@@ -135,7 +158,7 @@ export class FormComponent implements OnInit {
   goCourseBack() {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'course_name': this.name}
+      queryParams: {'course_id': this.subject_id}
     }
 
     this.router.navigate(['/course'], navigationExtras)
@@ -143,16 +166,15 @@ export class FormComponent implements OnInit {
 
   }
 
-  getName() {
-
+  getSubjectId() {
     let that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = <string>params['name'] || null;
-        resolve(teacherName)
+        var id = <number>params['id'] || null;
+        resolve(id)
       })
     });
 
@@ -166,13 +188,12 @@ export class FormComponent implements OnInit {
       that.route
       .queryParams
       .subscribe(params => {
-        var teacherName = <string>params['type'] || null;
-        resolve(teacherName)
+        var type = <string>params['type'] || null;
+        resolve(type)
       })
     });
 
     return query_promise
   }
-  **/
 
 }
