@@ -76,10 +76,10 @@ export class SearchComponent implements OnInit {
 
   }
 
-  viewCourse(course:string) {
+  viewCourse(id:number) {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'course_name': course}
+      queryParams: {'course_id': id}
     }
 
     this.router.navigate(['/course'], navigationExtras)
@@ -87,10 +87,10 @@ export class SearchComponent implements OnInit {
 
   }
 
-  viewTeacher(teacher:string) {
+  viewTeacher(id:number) {
 
     let navigationExtras: NavigationExtras = {
-      queryParams: {'teacher_name': teacher}
+      queryParams: {'teacher_id': id}
     }
 
     this.router.navigate(['/profile'], navigationExtras)

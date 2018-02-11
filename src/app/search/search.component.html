@@ -41,11 +41,11 @@
             <br><br>
 
             <!-- Return button if is a teacher -->
-            <button (click) = "viewTeacher(result.result.name)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+            <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
               View
             </button>
             <!-- Return button if is a course -->
-            <button (click) = "viewCourse(result.result.name)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+            <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
               View
             </button>
           </div>

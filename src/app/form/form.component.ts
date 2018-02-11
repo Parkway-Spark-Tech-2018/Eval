@@ -7,6 +7,10 @@ import {Review} from '../../models/Review';
 
 import {EvalApi} from '../../api/EvalApi';
 
+import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
+
+import {ReviewDatabase} from '../../database/ReviewDatabase';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -88,5 +92,87 @@ export class FormComponent implements OnInit {
     }
 
   }
+
+  /**
+  review(review_rating:number) {
+
+    let review:Review;
+
+    if (this.type == "Teacher") {
+      review = Review.createTeacherReview(this.name, review_rating);
+    }else if (this.type == "Course") {
+      review = Review.createCourseReview(this.name, review_rating);
+    }
+
+    let that = this;
+
+    ReviewDatabase.addReview(review).then (function (reviews) {
+      console.log(reviews);
+
+      if (that.type == "Teacher") {
+        that.goTeacherBack();
+      }else if (that.type == "Course") {
+        that.goCourseBack();
+      }
+
+    })
+
+  }
+  **/
+
+  /**
+  goTeacherBack() {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'teacher_name': this.name}
+    }
+
+    this.router.navigate(['/profile'], navigationExtras)
+
+
+  }
+
+  goCourseBack() {
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'course_name': this.name}
+    }
+
+    this.router.navigate(['/course'], navigationExtras)
+
+
+  }
+
+  getName() {
+
+    let that = this;
+
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        var teacherName = <string>params['name'] || null;
+        resolve(teacherName)
+      })
+    });
+
+    return query_promise
+  }
+
+  getType() {
+    let that = this;
+
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        var teacherName = <string>params['type'] || null;
+        resolve(teacherName)
+      })
+    });
+
+    return query_promise
+  }
+  **/
 
 }

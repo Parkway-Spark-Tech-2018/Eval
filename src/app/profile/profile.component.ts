@@ -19,6 +19,7 @@ import {EvalApi} from '../../api/EvalApi';
 export class ProfileComponent implements OnInit {
 
   public teacher:Teacher;
+  public id:number;
 
   public reviews:Review[] = [];
 
@@ -63,10 +64,10 @@ export class ProfileComponent implements OnInit {
         return (review.type == "Teacher" && review.name == that.teacher.name)
     })
     **/
-    
+
   }
 
-  getTeacherName() {
+  getTeacherID() {
 
     var that = this;
 
@@ -74,8 +75,8 @@ export class ProfileComponent implements OnInit {
       that.route
       .queryParams
       .subscribe(params => {
-        let teacher_name = params["teacher_name"] || null;
-        resolve(teacher_name);
+        let teacher_id = params["teacher_id"] || null;
+        resolve(teacher_id);
       })
     });
 
@@ -88,16 +89,12 @@ export class ProfileComponent implements OnInit {
     let that = this;
 
     let teacher_promise = new Promise(function (resolve, reject) {
-      let teacher_name:string = "";
+      let teacher_id:number = 1;
 
-      that.getTeacherName().then (function (name:string) {
-        teacher_name = name;
-        return that.api.getTeachers();
-      }).then (function (teachers:Teacher[]) {
-
-        let teacher:Teacher = teachers.find(function (teacher:Teacher) {
-          return teacher.name == teacher_name;
-        })
+      that.getTeacherID().then (function (id:number) {
+        teacher_id = id;
+        return that.api.getTeacherById(teacher_id);
+      }).then (function (teacher:Teacher) {
 
         resolve(teacher);
 
