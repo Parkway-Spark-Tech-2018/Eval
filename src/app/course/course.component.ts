@@ -19,6 +19,7 @@ import {EvalApi} from '../../api/EvalApi';
 export class CourseComponent implements OnInit {
 
   public course:Course;
+  public id:number;
 
   public reviews:Review[] = [];
 
@@ -60,15 +61,15 @@ export class CourseComponent implements OnInit {
 
   }
 
-  getCourseName() {
+  getCourseId() {
     var that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        let course_name = params["course_name"] || null;
-        resolve(course_name);
+        let course_id = params["course_id"] || null;
+        resolve(course_id);
       })
     });
 
@@ -79,16 +80,14 @@ export class CourseComponent implements OnInit {
     let that = this;
 
     let course_promise = new Promise(function (resolve, reject) {
-      let course_name:string = "";
+      let course_id:number = 0;
 
-      that.getCourseName().then (function (name:string) {
-        course_name = name;
-        return that.api.getCourses();
-      }).then (function (courses:Course[]) {
+      that.getCourseId().then (function (id:number) {
+        course_id = id;
+        that.id = id;
 
-        let course:Course = courses.find(function (course:Course) {
-          return course.name == course_name;
-        })
+        return that.api.getCourseById(course_id);
+      }).then (function (course:Course) {
 
         resolve(course);
 

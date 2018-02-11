@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  getTeacherID() {
+  getTeacherId() {
 
     var that = this;
 
@@ -91,8 +91,9 @@ export class ProfileComponent implements OnInit {
     let teacher_promise = new Promise(function (resolve, reject) {
       let teacher_id:number = 1;
 
-      that.getTeacherID().then (function (id:number) {
+      that.getTeacherId().then (function (id:number) {
         teacher_id = id;
+        that.id = id;
         return that.api.getTeacherById(teacher_id);
       }).then (function (teacher:Teacher) {
 
