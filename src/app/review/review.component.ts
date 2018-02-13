@@ -65,7 +65,7 @@ export class ReviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     let that = this;
 
     this.getSubjectId().then (function (id:number) {

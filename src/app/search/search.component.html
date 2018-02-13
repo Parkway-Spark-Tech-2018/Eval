@@ -23,15 +23,27 @@
 </div>
 
 <br>
+<div *ngFor = "let initial of departments">
+    <div class = "card">
+      <div class = "card-header" style="color: black; background: dark-red">
+        <div class = "row">
+          <div class = "col">
+            <b>{{getDepartment(initial.id)}}</b>
+          </div>
+          <div style = "text-align: right;" class = "col">
 
-<div *ngFor = "let result of selected_results">
+
+            <!--THIS SHOULD WORK IF THIS THING BENEATH IT IS GRAYED OUT, BUT IT DOESN'T-->
+            <button (click)="show[initial.id] = !show[initial.id]">OOF</button>
 
 
-  <div class = "card">
-
-      <div class = "card-header" style="color: white; background: #444">
-        <b>{{result.type}}: {{getDepartment(result.result.department_id)}}</b>
+          </div>
+        </div>
       </div>
+    </div>
+    <div *ngIf = "show[initial.id]">
+      <div *ngFor = "let result of selected_results">
+        <div *ngIf = "initial.id === result.result.department_id">
 
       <div class = "card-body">
         <div class = "row">
@@ -61,5 +73,3 @@
   </div>
 
   <br>
-
-</div>
