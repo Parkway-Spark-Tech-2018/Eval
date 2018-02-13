@@ -26,11 +26,13 @@ import 'rxjs/add/operator/toPromise';
 })
 export class SearchComponent implements OnInit {
 
+  public show:boolean[] = [];
+
   public search_query:string;
 
-  public courses:Course[] = []
+  public courses:Course[] = [];
 
-  public teachers:Teacher[] = []
+  public teachers:Teacher[] = [];
 
   public filter_mode:string = "all";
 
@@ -183,9 +185,14 @@ export class SearchComponent implements OnInit {
     })
 
 
-    this.eval_api.getDepartments().then (function (departments:this.Departments[]) {
+    this.eval_api.getDepartments().then (function (departments:Department[]) {
       that.departments = departments
     })
+
+    for (const dep of this.departments)
+    {
+      this.show.push(false);
+    }
 
   }
 
