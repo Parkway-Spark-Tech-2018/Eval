@@ -29,3 +29,7 @@ show_schedules:
 show_reviews:
   path: /api/showReviews
   controller: App\Controller\ReviewController::show
+
+new_review:
+  path: /api/newReview
+  controller: App\Controller\ReviewController::new
