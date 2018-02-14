@@ -35,7 +35,7 @@ export class CourseComponent implements OnInit {
     this.getCourse().then (function (course:Course) {
       that.course = course;
 
-      return ReviewDatabase.getReviews();
+      return that.api.getReviews();
     }).then (function (reviews) {
       that.reviews = that.filterCourseReviews(<Review[]> reviews);
       console.log(that.reviews);

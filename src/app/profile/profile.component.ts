@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
     this.getTeacher().then (function (teacher:Teacher) {
         that.teacher = teacher;
-        return ReviewDatabase.getReviews();
+        return that.api.getReviews();
     }).then (function (reviews:Review[]) {
       that.reviews = that.filterTeacherReviews(<Review[]> reviews);
       console.log(that.reviews);

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {EvalApi} from '../../api/EvalApi';
 import {Teacher} from '../../models/Teacher';
 import {Department} from '../../models/Department';
+import {Review} from '../../models/Review';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -20,6 +21,8 @@ export class TeacherUserComponent implements OnInit {
   public user_teacher:Teacher;
   public department:Department;
   public display_prefix:boolean = false;
+
+  public reviews:Review[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -53,6 +56,9 @@ export class TeacherUserComponent implements OnInit {
 
     }).then (function (department: Department) {
       that.department = department;
+      return that.eval_api.getReviewsByTeacherId(that.teacher_id);
+    }).then (function (reviews: Review[]) {
+      that.reviews = reviews;
     }).catch (function (err) {
       console.log (err);
     })

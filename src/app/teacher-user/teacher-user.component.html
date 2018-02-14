@@ -32,29 +32,12 @@
       <div class="col-md-6">
         <h1 class="">Reviews</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a class = "list-group-item" *ngFor = "let review of reviews">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">John Doe</h5>
-              <small>3 days ago</small>
+                <h3 class="mb-1">{{review.comment}}</h3>
             </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>4 Stars</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Tina Lopez</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">5 Stars</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Mark Edwards</h5>
-              <small class="text-muted">4 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">4 Stars</small>
+            <small *ngIf = "review.thumbs == 'true'"><b>liked</b></small>
+            <small *ngIf = "review.thumbs != 'true'"><b>disliked</b></small>
           </a>
         </div>
       </div>

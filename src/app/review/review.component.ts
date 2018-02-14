@@ -100,7 +100,7 @@ export class ReviewComponent implements OnInit {
 
       let that = this;
 
-      ReviewDatabase.addReview(this.new_review).then (function (reviews:Review[]) {
+      this.eval_api.createReview(this.new_review).then (function (reviews:Review[]) {
 
         that.goBack();
 

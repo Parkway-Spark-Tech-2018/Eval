@@ -9,6 +9,11 @@ import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
 import {Department} from '../models/Department';
 
+/** Review Stuff **/
+import {Review} from '../models/Review';
+import {ReviewDatabase} from '../database/ReviewDatabase';
+
+
 import endpoint from './Endpoint';
 
 @Injectable()
@@ -170,6 +175,67 @@ export class EvalApi {
 
     return department_promise;
 
+  }
+
+  // TODO Replace with API Call
+  getReviews() {
+    return ReviewDatabase.getReviews();
+  }
+
+  getReviewsByTeacherId(id:number) {
+
+    let that = this;
+
+    var review_promise = new Promise (function (resolve, reject) {
+
+      that.getReviews().then (function (reviews:Review[]) {
+
+        var filtered_reviews = reviews.filter(function (review:Review) {
+          if (review.type == "Teacher" && review.subject != undefined) {
+            return review.subject.id == id;
+          }else {
+            return false;
+          }
+        })
+        resolve(filtered_reviews);
+      }).catch (function (err) {
+        reject(err);
+      })
+
+    })
+
+    return review_promise;
+
+  }
+
+  getReviewsByCourseId(id:number) {
+
+    let that = this;
+
+    var review_promise = new Promise (function (resolve, reject) {
+      that.getReviews().then (function (reviews:Review[]) {
+        var filtered_reviews = reviews.filter(function (review:Review) {
+          if (review.type == "Course" && review.subject != undefined) {
+            return review.subject.id == id;
+          }else {
+            return false;
+          }
+        });
+
+        resolve(filtered_reviews);
+      }).catch (function (err) {
+        reject(err);
+      })
+    })
+
+    return review_promise;
+
+  }
+
+
+  //TODO Replace with API Call
+  createReview(review:Review) {
+    return ReviewDatabase.addReview(review);
   }
 
 }
