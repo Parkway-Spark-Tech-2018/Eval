@@ -12,4 +12,12 @@ course_show:
 
 get_department:
   path: /api/getDepartment/{id}
-  controller: App\Controller\DepartmentController:get
+  controller: App\Controller\DepartmentController::get
+
+show_departments:
+  path: /api/showDepartments
+  controller: App\Controller\DepartmentController::show
+
+show_sessions:
+  path: /api/showSessions
+  controller: App\Controller\SessionController::show
