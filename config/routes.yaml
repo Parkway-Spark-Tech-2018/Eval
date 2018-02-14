@@ -21,3 +21,11 @@ show_departments:
 show_sessions:
   path: /api/showSessions
   controller: App\Controller\SessionController::show
+
+show_schedules:
+  path: /api/showSchedules
+  controller: App\Controller\ScheduleController::show
+
+show_reviews:
+  path: /api/showReviews
+  controller: App\Controller\ReviewController::show

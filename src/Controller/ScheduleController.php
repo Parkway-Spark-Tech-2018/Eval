@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class ReviewController extends Controller
+class ScheduleController extends Controller
 {
 
     public function index()
@@ -15,11 +15,12 @@ class ReviewController extends Controller
         return new Response('Welcome to your new controller!');
     }
 
-    public function show() {
+    public function show()
+    {
 
       $conn = $this->getDoctrine()->getEntityManager()->getConnection();
 
-      $sql = 'SELECT * FROM GenReview';
+      $sql = 'SELECT * FROM Student_Schedule';
 
       $stmt = $conn->prepare($sql);
       $stmt->execute();
