@@ -135,8 +135,26 @@ export class EvalApi {
 
   getTeachersFromSessions (sessions:Session) {
 
-    var teachers_promise = new Promise(function (resolve, reject) {
+    let that = this;
 
+    var teachers_promise = new Promise(function (resolve, reject) {
+      that.getTeachers().then (function (teachers: Teacher[]) {
+
+        var session_teachers:Teacher[] = [];
+
+        sessions.forEach(function (session:Session) {
+          var teacher:Teacher = teachers.find(function (teacher:Teacher) {
+            return teacher.id == session.staff_id;
+          })
+
+          session_teachers.push(teacher);
+        })
+
+        resolve(session_teachers);
+
+      }).catch (function (err) {
+        reject(err);
+      })
     });
 
     return teachers_promise;
