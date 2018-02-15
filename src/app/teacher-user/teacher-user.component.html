@@ -18,14 +18,8 @@
       <div class="col-md-6 teacher-courses">
         <h1 class="">You Teach</h1>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Calculus AB
-            <span class="badge badge-primary badge-pill">56</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">Calculus BC&nbsp;
-            <span class="badge badge-primary badge-pill">46</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">College Algebra&nbsp;
-            <span class="badge badge-primary badge-pill">52</span>
+
+          <li *ngFor = "let course of courses;" class="list-group-item d-flex justify-content-between align-items-center"> {{course.name}}
           </li>
         </ul>
       </div>

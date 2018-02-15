@@ -187,12 +187,31 @@ export class EvalApi {
 
     return courses_promise;
 
-
   }
 
   getCoursesFromSessions(sessions:Session[]) {
 
+    let that = this;
+
     var courses_promise = new Promise(function (resolve, reject) {
+
+      that.getCourses().then (function (courses: Course[]) {
+
+        var session_courses:Course[] = [];
+
+        sessions.forEach(function (session:Session) {
+          var course:Course = courses.find(function (course:Course) {
+            return course.id == session.course_id;
+          })
+
+          session_courses.push(course);
+        })
+
+        resolve(session_courses);
+
+      }).catch (function (err) {
+        reject(err);
+      })
 
     });
 

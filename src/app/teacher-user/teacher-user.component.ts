@@ -7,6 +7,7 @@ import {Teacher} from '../../models/Teacher';
 import {Department} from '../../models/Department';
 import {Review} from '../../models/Review';
 import {Session} from '../../models/Session';
+import {Course} from '../../models/Course';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -23,6 +24,7 @@ export class TeacherUserComponent implements OnInit {
   public department:Department;
   public display_prefix:boolean = false;
   public sessions:Session[] = [];
+  public courses:Course[] = [];
 
   public reviews:Review[] = [];
 
@@ -38,8 +40,20 @@ export class TeacherUserComponent implements OnInit {
 
     this.retrieveInfo(this.teacher_id)
 
-    this.eval_api.getSessionsByTeacher(this.teacher_id).then (function (sessions:Sessions) {
+    let that = this;
+
+    this.eval_api.getSessions().then (function (sessions:Session[]) {
+      console.log("all sessions");
+      console.log(sessions);
+    })
+
+    this.eval_api.getSessionsByTeacher(this.teacher_id).then (function (sessions:Session[]) {
       that.sessions = sessions;
+
+      return that.eval_api.getCoursesFromSessions(that.sessions);
+    }).then (function (courses:Course[]) {
+      console.log("Courses");
+      that.courses = courses;
     })
 
   }
