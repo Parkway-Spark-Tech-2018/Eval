@@ -38,6 +38,9 @@
   </div>
   <div *ngIf = "show[initial.id]">
     <div *ngFor = "let result of selected_results">
+      <div style = "margin-bottom: -21px" *ngIf = "initial.id !== result.result.department_id">
+
+      </div>
       <div *ngIf = "initial.id === result.result.department_id">
         <div class = "card-body">
           <div class = "row">
