@@ -55,6 +55,8 @@ export class LoginComponent implements OnInit {
         this.user.email = auth.email;
         this.user.id = auth.uid;
 
+        //For TESTING PURPOSES ONLY
+
         //Peter added this code
         if (!this.user.email.endsWith('@parkwayschools.net'))
         {
