@@ -52,7 +52,7 @@ export class CourseComponent implements OnInit {
     }).then (function (teachers: Teacher[]) {
       console.log(teachers);
       that.teachers = teachers;
-    }
+    });
 
   }
 
