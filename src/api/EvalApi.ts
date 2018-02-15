@@ -133,7 +133,7 @@ export class EvalApi {
 
   }
 
-  getTeachersFromSessions (sessions:Session) {
+  getTeachersFromSessions (sessions:Session[]) {
 
     let that = this;
 

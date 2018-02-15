@@ -8,6 +8,12 @@
   </div>
   <div class = "col">
     <h2 style = "text-align: center;">{{teacher.name}}</h2> <!--REFERENCE NAME OF TEACHER-->
+    <h3>Teachs:</h3>
+    <ul>
+      <li *ngFor = "let course of courses">{{course.name}}</li>
+    </ul>
+
+
     <div class = "row" style = "padding: 0% 10% 0% 10%">
       <div class = "progress">
         <!--Put like/ dislike bar here-->

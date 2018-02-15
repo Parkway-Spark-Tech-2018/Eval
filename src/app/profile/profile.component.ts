@@ -6,6 +6,8 @@ import {ReviewDatabase} from '../../database/ReviewDatabase';
 import {Review} from '../../models/Review';
 
 import {Teacher} from '../../models/Teacher';
+import {Course} from '../../models/Course';
+import {Session} from '../../models/Session';
 
 /** Import the api **/
 import {EvalApi} from '../../api/EvalApi';
@@ -20,6 +22,8 @@ export class ProfileComponent implements OnInit {
 
   public teacher:Teacher;
   public reviews:Review[] = [];
+  public courses:Course[] = [];
+  public sessions:Session[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +44,13 @@ export class ProfileComponent implements OnInit {
     }).then (function (reviews:Review[]) {
       that.reviews = that.filterTeacherReviews(<Review[]> reviews);
       console.log(that.reviews);
+      return that.api.getSessionsByTeacher(that.teacher.id);
+    }).then (function (sessions:Session[]) {
+      return that.api.getCoursesFromSessions(sessions);
+    }).then (function (courses:Course[]) {
+      console.log("Courses");
+      console.log(courses);
+      that.courses = courses;
     })
 
   }
