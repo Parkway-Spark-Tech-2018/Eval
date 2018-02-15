@@ -26,8 +26,13 @@ export class CourseComponent implements OnInit {
   public teachers:Teacher[] = [];
   public reviews:Review[] = [];
 
-  constructor(private route: ActivatedRoute,
-  private router: Router,
+  constructor(private route: ActivatedRoute,@Component({
+      selector: 'app-course',
+      templateUrl: './course.component.html',
+      styleUrls: ['./course.component.css'],
+      providers: [EvalApi]
+
+      private router: Router,
   private api: EvalApi) {
 
   }
