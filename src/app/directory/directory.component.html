@@ -1,7 +1,7 @@
 <h1>Directory for teachers and courses to review!</h1>
 
+<!--OLD CODE
 <div class = "row">
-
   <div class = "col-md-6" *ngIf= "filter_mode != 'all'">
     <button (click) = "resetFilter()" class = "btn btn-block btn-dark">
       All
@@ -19,19 +19,46 @@
       Courses
     </button>
   </div>
+</div>
+-->
 
+<div class = "row">
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Teachers</strong></h3>
+    <!--Reminder: ng-checked = "true"-->
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "teacherchecked" checked data-toggle="toggle"
+               [checked]="teacherchecked"
+               (click)="updateTeacher()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Courses</strong></h3>
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "coureseschecked" checked data-toggle="toggle"
+               [checked]="courseschecked"
+               (click)="updateCourses()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
 </div>
 
 <br>
 <div *ngFor = "let initial of departments">
   <div class = "card">
-    <div class = "card-header" style="color: black; background: dark-red">
+    <div class = "card-header" (click)="show[initial.id] = !show[initial.id]" style="color: white; background-color: #993333;">
       <div class = "row">
         <div class = "col">
           <b>{{getDepartment(initial.id)}}</b>
         </div>
-        <div style = "text-align: right;" class = "col">
-          <button (click)="show[initial.id] = !show[initial.id]">OOF</button>
+        <div style = "text-align: right;" class = "col" style = "color: black;">
+          <p *ngIf = "show[initial.id]">Click to collapse!</p>
+          <p *ngIf = "!show[initial.id]">Click to expand!</p>
         </div>
       </div>
     </div>
@@ -41,7 +68,11 @@
       <div style = "margin-bottom: -21px" *ngIf = "initial.id !== result.result.department_id">
       </div>
       <div *ngIf = "initial.id === result.result.department_id">
-        <div class = "card-body">
+        <div class = "card-header" style = "color: white; background-color: #333; padding-bottom: 0px;" >
+          <p *ngIf = "result.type === 'Teacher'">Type: Teacher</p>
+          <p *ngIf = "result.type === 'Course'">Type: Course</p>
+        </div>
+        <div class = "card-body" style = "border-color: #DDD; border-style: solid; border-width: 1px; border-radius: 5px;">
           <div class = "row">
             <div class = "col">
               {{result.result.name}}
