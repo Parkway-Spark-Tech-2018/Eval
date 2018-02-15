@@ -24,10 +24,10 @@
 
 <br>
 <div *ngFor = "let result of selected_results">
-  <div class = "card-header">
-    <p></p>
+  <div class = "card-header" id = "cardItemHeader">
+    <p>{{result.type}}</p>
   </div>
-  <div class = "card-body">
+  <div class = "card-body" id = "cardItem">
     <div class = "row">
       <div class = "col">
         {{result.result.name}}
