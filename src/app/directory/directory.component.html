@@ -52,15 +52,11 @@
 <div *ngFor = "let initial of departments">
   <div class = "card">
     <div class = "card-header" (click)="show[initial.id] = !show[initial.id]" id = "cardSuperHeader">
-      <div class = "row">
-        <div class = "col">
-          <b>{{getDepartment(initial.id)}}</b>
-        </div>
-        <div style = "text-align: right;" class = "col" style = "color: black;">
+      <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+        <!--<div style = "text-align: right;" class = "col" style = "color: black;">
           <p *ngIf = "show[initial.id]">Click to collapse!</p>
           <p *ngIf = "!show[initial.id]">Click to expand!</p>
-        </div>
-      </div>
+        </div>-->
     </div>
   </div>
   <div *ngIf = "show[initial.id]">
@@ -69,8 +65,7 @@
       </div>
       <div *ngIf = "initial.id === result.result.department_id">
         <div class = "card-header" id = "cardItemHeader">
-          <p *ngIf = "result.type === 'Teacher'">Type: Teacher</p>
-          <p *ngIf = "result.type === 'Course'">Type: Course</p>
+          <p>{{result.type}}</p>
         </div>
         <div class = "card-body" id = "cardItem">
           <div class = "row">

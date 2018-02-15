@@ -19,6 +19,12 @@ h1
   color: white;
   background-color: #993333;
 }
+#cardSuperHeader:hover
+{
+  transition: all .2s ease-in;
+  background-color: #EEE;
+  color: black;
+}
 #cardItemHeader
 {
   color: white;
