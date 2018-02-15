@@ -47,6 +47,14 @@ export class EvalApi {
 
   }
 
+  getSessionsByTeacher(teacher_id:number) {
+
+  }
+
+  getSessionsByCourse(course_id:number) {
+    
+  }
+
   getTeachers() {
     let teacher_promise = new Promise((resolve, reject) => {
       this.http.get(endpoint + '/showTeachers')
