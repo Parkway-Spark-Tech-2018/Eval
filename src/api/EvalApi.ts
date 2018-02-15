@@ -56,10 +56,42 @@ export class EvalApi {
 
   getSessionsByTeacher(teacher_id:number) {
 
+    let that = this;
+
+    var sessions_promise = new Promise(function (resolve, reject) {
+
+      that.getSessions().then (function (sessions:Session[]) {
+        var teacher_sessions:Session[] = sessions.filter(function (session:Session) {
+          return session["staff_id"] == teacher_id;
+        });
+
+        resolve(teacher_sessions);
+      }).catch (function (err) {
+        reject(err);
+      })
+    })
+
+    return sessions_promise;
+
   }
 
   getSessionsByCourse(course_id:number) {
+    let that = this;
 
+    var sessions_promise = new Promise(function (resolve, reject) {
+
+      that.getSessions().then (function (sessions:Session[]) {
+        var course_sessions:Session[] = sessions.filter(function (session:Session) {
+          return session["course_id"] == course_id;
+        });
+
+        resolve(course_sessions);
+      }).catch (function (err) {
+        reject(err);
+      })
+    })
+
+    return sessions_promise;
   }
 
   getTeachers() {
@@ -98,6 +130,16 @@ export class EvalApi {
     });
 
     return teacher_promise;
+
+  }
+
+  getTeachersFromSessions (sessions:Session) {
+
+    var teachers_promise = new Promise(function (resolve, reject) {
+
+    });
+
+    return teachers_promise;
 
   }
 
@@ -145,6 +187,16 @@ export class EvalApi {
 
     return courses_promise;
 
+
+  }
+
+  getCoursesFromSessions(sessions:Session[]) {
+
+    var courses_promise = new Promise(function (resolve, reject) {
+
+    });
+
+    return courses_promise;
 
   }
 

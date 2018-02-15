@@ -38,8 +38,8 @@ export class TeacherUserComponent implements OnInit {
 
     this.retrieveInfo(this.teacher_id)
 
-    this.eval_api.getSessions().then (function (sessions:Sessions) {
-      console.log(sessions);
+    this.eval_api.getSessionsByTeacher(this.teacher_id).then (function (sessions:Sessions) {
+      that.sessions = sessions;
     })
 
   }
