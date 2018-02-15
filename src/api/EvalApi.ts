@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
 import {Department} from '../models/Department';
+import {Session} from '../models/Session';
 
 /** Review Stuff **/
 import {Review} from '../models/Review';
@@ -20,6 +21,29 @@ import endpoint from './Endpoint';
 export class EvalApi {
 
   constructor(private http:HttpClient) {
+
+  }
+
+  getSessions() {
+
+    let sessions_promise = new Promise((resolve, reject) => {
+      this.http.get(endpoint + '/showSessions')
+        .toPromise()
+        .then(
+          res => {
+            let sessions:Session[] = (<any[]>res).map(function (item) {
+              return <Session>{id: item["Session_Id"], hour: item["Session_Hour"], course_id: Number(item["Course_Id"]), school_id: Number(item["School_Id"]), staff_id: Number(item["Staff_Id"]), staff_id2: Number(item["Staff_Id2"], staff_id3: Number(item["Staff_Id3"]))}
+            })
+
+            resolve(sessions);
+          }
+        ).catch (function (error) {
+          reject(error);
+        })
+    });
+
+    return courses_promise;
+
 
   }
 
