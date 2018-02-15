@@ -6,6 +6,8 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {NgZone} from '@angular/core';
 
 import {EvalUser} from '../../models/EvalUser';
+import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,11 @@ export class LoginComponent implements OnInit {
   public logged_in: boolean;
   public tryAgain: boolean;
 
-  constructor(public auth: AuthService, private afAuth: AngularFireAuth, private zone: NgZone) { }
+  constructor(public auth: AuthService,
+              private afAuth: AngularFireAuth,
+              private zone: NgZone,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -56,6 +62,9 @@ export class LoginComponent implements OnInit {
         this.user.id = auth.uid;
 
         //For TESTING PURPOSES ONLY
+        if (this.user.email == "mikipux7@gmail.com") {
+          this.redirect_test_teacher();
+        }
 
         //Peter added this code
         if (!this.user.email.endsWith('@parkwayschools.net'))
@@ -94,6 +103,11 @@ export class LoginComponent implements OnInit {
     });
 
 
+  }
+
+  //FOR TESTING ONLY
+  redirect_test_teacher() {
+    this.router.navigate(['/user/teacher/2']);
   }
 
   google_login() {
