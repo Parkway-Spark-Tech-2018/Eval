@@ -1,6 +1,32 @@
 <h1>Search for teachers and courses to review!</h1>
 
 <div class = "row">
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Teachers</strong></h3>
+    <!--Reminder: ng-checked = "true"-->
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "teacherchecked" checked data-toggle="toggle"
+               [checked]="teacherchecked"
+               (click)="updateTeacher()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Courses</strong></h3>
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "coureseschecked" checked data-toggle="toggle"
+               [checked]="courseschecked"
+               (click)="updateCourses()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+<!--Michael's Ugly old code
+<div class = "row">
 
   <div class = "col-md-6" *ngIf= "filter_mode != 'all'">
     <button (click) = "resetFilter()" class = "btn btn-block btn-dark">
@@ -20,7 +46,7 @@
     </button>
   </div>
 
-</div>
+</div>-->
 
 <br>
 <div *ngFor = "let result of selected_results">

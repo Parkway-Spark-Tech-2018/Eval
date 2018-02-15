@@ -26,6 +26,10 @@ import 'rxjs/add/operator/toPromise';
 })
 export class SearchComponent implements OnInit {
 
+  //aded
+  public teacherchecked:boolean = true;
+  public courseschecked:boolean = true;
+
   public show:boolean[] = [];
 
   public search_query:string;
@@ -124,6 +128,9 @@ export class SearchComponent implements OnInit {
 
         this.selected_results = this.results;
 
+        //OOOH I ADDED THIS TOO
+        this.updateFilter();
+
 
       })
   }
@@ -160,6 +167,86 @@ export class SearchComponent implements OnInit {
     }
 
   }
+  //PETER ADDED THIS CODE
+
+  filterAddTeachers() {
+    if (this.filter_mode === "courses")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "teachers";
+    }
+    this.updateFilter();
+  }
+  filterRemoveTeachers() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "courses";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+
+  filterAddCourses() {
+    if (this.filter_mode === "teachers")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "courses";
+    }
+    this.updateFilter();
+  }
+  filterRemoveCourses() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "teachers";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+  updateTeacher()
+  {
+    this.teacherchecked = !this.teacherchecked;
+    if (this.teacherchecked === true)
+    {
+      this.filterAddTeachers();
+    }
+    else
+    {
+      this.filterRemoveTeachers();
+      if (this.courseschecked == false)
+      {
+        this.updateCourses();
+      }
+    }
+  }
+  updateCourses()
+  {
+    this.courseschecked = !this.courseschecked;
+    if (this.courseschecked === true)
+    {
+      this.filterAddCourses();
+    }
+    else
+    {
+      this.filterRemoveCourses();
+      if (this.teacherchecked == false)
+      {
+        this.updateTeacher();
+      }
+    }
+  }
+  //END OF ADDED CODE
 
   getDepartment(department_id:number) {
 
