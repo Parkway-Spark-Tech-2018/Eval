@@ -6,6 +6,7 @@ import {EvalApi} from '../../api/EvalApi';
 import {Teacher} from '../../models/Teacher';
 import {Department} from '../../models/Department';
 import {Review} from '../../models/Review';
+import {Session} from '../../models/Session';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -21,6 +22,7 @@ export class TeacherUserComponent implements OnInit {
   public user_teacher:Teacher;
   public department:Department;
   public display_prefix:boolean = false;
+  public sessions:Session[] = [];
 
   public reviews:Review[] = [];
 
@@ -35,6 +37,10 @@ export class TeacherUserComponent implements OnInit {
     this.teacher_id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.retrieveInfo(this.teacher_id)
+
+    this.eval_api.getSessions().then (function (sessions:Sessions) {
+      console.log(sessions);
+    })
 
   }
 
