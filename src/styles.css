@@ -14,6 +14,24 @@ h1
   @import url('https://fonts.googleapis.com/css?family=Roboto');
   font-size: 2em;
 }
+#cardSuperHeader
+{
+  color: white;
+  background-color: #993333;
+}
+#cardItemHeader
+{
+  color: white;
+  background-color: #333;
+  padding-bottom: 0px;
+}
+#cardItem
+{
+  border-color: #DDD;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
 #coolbutton
 {
   color: white;
