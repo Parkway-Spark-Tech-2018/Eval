@@ -23,53 +23,32 @@
 </div>
 
 <br>
-<div *ngFor = "let initial of departments">
-    <div class = "card">
-      <div class = "card-header" style="color: black; background: dark-red">
-        <div class = "row">
-          <div class = "col">
-            <b>{{getDepartment(initial.id)}}</b>
-          </div>
-          <div style = "text-align: right;" class = "col">
-
-
-            <!--THIS SHOULD WORK IF THIS THING BENEATH IT IS GRAYED OUT, BUT IT DOESN'T-->
-            <button (click)="show[initial.id] = !show[initial.id]">OOF</button>
-
-
-          </div>
-        </div>
+<div *ngFor = "let result of selected_results">
+  <div class = "card-header">
+    <p></p>
+  </div>
+  <div class = "card-body">
+    <div class = "row">
+      <div class = "col">
+        {{result.result.name}}
+        <br><br>
+        <!-- Return button if is a teacher -->
+        <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+          View
+        </button>
+        <!-- Return button if is a course -->
+        <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+          View
+        </button>
+      </div>
+      <div class = "col">
+        <p>This should fetch information about the course/teacher from the server.</p>
+      </div>
+      <div class = "col">
+        <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
+        <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
       </div>
     </div>
-    <div *ngIf = "show[initial.id]">
-      <div *ngFor = "let result of selected_results">
-        <div *ngIf = "initial.id === result.result.department_id">
-
-      <div class = "card-body">
-        <div class = "row">
-          <div class = "col">
-            {{result.result.name}}
-
-            <br><br>
-
-            <!-- Return button if is a teacher -->
-            <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
-              View
-            </button>
-            <!-- Return button if is a course -->
-            <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
-              View
-            </button>
-          </div>
-          <div class = "col">
-            <p>This should fetch information about the course/teacher from the server.</p>
-          </div>
-          <div class = "col">
-            <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
-            <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
-          </div>
-        </div>
-      </div>
   </div>
-
+</div>
   <br>
