@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class ReviewController extends Controller
 {
 
@@ -48,12 +49,47 @@ class ReviewController extends Controller
       if ($method == "POST") {
         $form_data = json_decode(file_get_contents('php://input'), true);
 
+
         ## TODO Implement Review Creation here pls
 
+        if (isset($form_data["approval"]) && isset($form_data["explanation"]) && isset($form_data["review_type"]) && isset($form_data["Subject_Id"])){
+          $approval = $form_data["approval"];
+          $explanation = $form_data["explanation"];
+          $review_type = $form_data["review_type"];
+          $subject_id = $form_data["Subject_Id"];
 
-        ##
+          $conn = $this->getDoctrine()->getEntityManager()->getConnection();
 
-        return new JsonResponse($form_data);
+          try {
+            $conn->beginTransaction();
+
+            $sql = 'INSERT INTO GenReview (Approval, Explanation, Subject_Id, review_type) VALUES
+              (:approval, :explanation, :subject_id, :review_type)';
+
+            $insertsql = $conn->prepare($sql);
+            $insertsql->bindValue(':approval', $approval);
+            $insertsql->bindValue(':explanation', $explanation);
+            $insertsql->bindValue(':review_type', $review_type);
+            $insertsql->bindValue(':subject_id', $subject_id);
+
+            $insertsql->execute();
+
+            $conn->commit();
+
+            return $this->show();
+
+          }catch (Exception $e) {
+            $conn->rollBack();
+            echo $e->getMessage();
+
+            return new JsonResponse($err);
+
+          }
+
+        }else {
+          return new JsonResponse($err);
+        }
+
       }else {
         return new JsonResponse($err);
       }
