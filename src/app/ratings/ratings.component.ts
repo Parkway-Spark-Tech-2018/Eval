@@ -70,17 +70,15 @@ export class RatingsComponent implements OnInit {
 
     //FIXME
 
-    /**
     reviews.forEach(function (review:Review) {
 
-      if (review.thumbs === true) {
+      if (review.thumbs == true) {
         that.amnt_good += 1;
-      }else if (review.thumbs === false) {
+      }else if (review.thumbs == false) {
         that.amnt_bad += 1;
       }
 
     })
-    **/
 
   }
 
