@@ -1,0 +1,95 @@
+<h1>Directory for teachers and courses to review!</h1>
+
+<!--OLD CODE
+<div class = "row">
+  <div class = "col-md-6" *ngIf= "filter_mode != 'all'">
+    <button (click) = "resetFilter()" class = "btn btn-block btn-dark">
+      All
+    </button>
+  </div>
+
+  <div class = "col-md-6" *ngIf= "filter_mode != 'teachers'">
+    <button (click) = "filterTeachers()" class = "btn btn-block btn-warning">
+      Teachers
+    </button>
+  </div>
+
+  <div class = "col-md-6" *ngIf= "filter_mode != 'courses'">
+    <button (click) = "filterCourses()" class = "btn btn-block btn-danger">
+      Courses
+    </button>
+  </div>
+</div>
+-->
+
+<div class = "row">
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Teachers</strong></h3>
+    <!--Reminder: ng-checked = "true"-->
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "teacherchecked" checked data-toggle="toggle"
+               [checked]="teacherchecked"
+               (click)="updateTeacher()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div class = "col" style = "text-align: center">
+    <h3><strong>View Courses</strong></h3>
+    <div class="checkbox">
+      <label class = "switch">
+        <input type="checkbox" value = "coureseschecked" checked data-toggle="toggle"
+               [checked]="courseschecked"
+               (click)="updateCourses()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<br>
+<div *ngFor = "let initial of departments">
+  <div class = "card">
+    <div class = "card-header" (click)="show[initial.id] = !show[initial.id]" id = "cardSuperHeader">
+      <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+        <!--<div style = "text-align: right;" class = "col" style = "color: black;">
+          <p *ngIf = "show[initial.id]">Click to collapse!</p>
+          <p *ngIf = "!show[initial.id]">Click to expand!</p>
+        </div>-->
+    </div>
+  </div>
+  <div *ngIf = "show[initial.id]">
+    <div *ngFor = "let result of selected_results">
+      <div style = "margin-bottom: -21px" *ngIf = "initial.id !== result.result.department_id">
+      </div>
+      <div *ngIf = "initial.id === result.result.department_id">
+        <div class = "card-header" id = "cardItemHeader">
+          <p>{{result.type}}</p>
+        </div>
+        <div class = "card-body" id = "cardItem">
+          <div class = "row">
+            <div class = "col">
+              {{result.result.name}}
+              <br><br>
+              <!-- Return button if is a teacher -->
+              <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
+                View
+              </button>
+              <!-- Return button if is a course -->
+              <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
+                View
+              </button>
+            </div>
+            <div class = "col">
+              <p>This should fetch information about the course/teacher from the server.</p>
+            </div>
+            <div class = "col">
+              <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
+              <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>

@@ -20,15 +20,16 @@ import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  templateUrl: './directory.component.html',
+  styleUrls: ['./directory.component.css'],
   providers: [EvalApi],
 })
-export class SearchComponent implements OnInit {
+export class DirectoryComponent implements OnInit {
 
-  //aded
-  public teacherchecked:boolean = true;
-  public courseschecked:boolean = true;
+  //I just added this code as well
+  public teacherchecked: boolean = true;
+  public courseschecked: boolean = true;
+  //End of added code
 
   public show:boolean[] = [];
 
@@ -70,12 +71,12 @@ export class SearchComponent implements OnInit {
     }
 
     for (var teacher_idx in this.teachers) {
-        var teacher:Teacher = <Teacher>this.teachers[teacher_idx]
+      var teacher:Teacher = <Teacher>this.teachers[teacher_idx]
 
-        if (fuzzysearch(search_string.toLowerCase(), teacher.name.toLowerCase()) == true) {
-          var teacher_result:Result = Result.createTeacherResult(teacher);
-          search_results.push(teacher_result);
-        }
+      if (fuzzysearch(search_string.toLowerCase(), teacher.name.toLowerCase()) == true) {
+        var teacher_result:Result = Result.createTeacherResult(teacher);
+        search_results.push(teacher_result);
+      }
     }
 
     return search_results;
@@ -128,9 +129,6 @@ export class SearchComponent implements OnInit {
 
         this.selected_results = this.results;
 
-        //OOOH I ADDED THIS TOO
-        this.updateFilter();
-
 
       })
   }
@@ -151,22 +149,6 @@ export class SearchComponent implements OnInit {
     this.updateFilter();
   }
 
-  /** Updating the results **/
-  updateFilter() {
-
-    switch(this.filter_mode) {
-      case "all":
-        this.selected_results = this.results;
-        break;
-      case "teachers":
-        this.selected_results = this.teacher_results;
-        break;
-      case "courses":
-        this.selected_results = this.course_results;
-        break;
-    }
-
-  }
   //PETER ADDED THIS CODE
 
   filterAddTeachers() {
@@ -247,6 +229,24 @@ export class SearchComponent implements OnInit {
     }
   }
   //END OF ADDED CODE
+  /** Updating the results **/
+  updateFilter() {
+
+    switch(this.filter_mode) {
+      case "all":
+        this.selected_results = this.results;
+        break;
+      case "teachers":
+        this.selected_results = this.teacher_results;
+        break;
+      case "courses":
+        this.selected_results = this.course_results;
+        break;
+      case "none":
+        this.selected_results = [];
+    }
+
+  }
 
   getDepartment(department_id:number) {
 
@@ -278,9 +278,8 @@ export class SearchComponent implements OnInit {
 
     for (const dep of this.departments)
     {
-      this.show.push(false);
+      this.show.push(true);
     }
 
   }
-
 }
