@@ -3,6 +3,6 @@
 var endpoint = "https://eval-spark-server.herokuapp.com/index.php/api";
 
 /** Deployed on localhost **/
-// var endpoint = "https://localhost:8000/api";
+//var endpoint = "http://localhost:8000/api";
 
 export default endpoint;

@@ -26,15 +26,9 @@ export class CourseComponent implements OnInit {
   public teachers:Teacher[] = [];
   public reviews:Review[] = [];
 
-  constructor(private route: ActivatedRoute,@Component({
-      selector: 'app-course',
-      templateUrl: './course.component.html',
-      styleUrls: ['./course.component.css'],
-      providers: [EvalApi]
-
+  constructor(private route: ActivatedRoute,
       private router: Router,
-  private api: EvalApi) {
-
+      private api: EvalApi) {
   }
 
   ngOnInit() {
@@ -67,6 +61,7 @@ export class CourseComponent implements OnInit {
   }
 
   leave_review() {
+
 
     let navigationExtras: NavigationExtras = {
       queryParams: {'id': this.course.id,
