@@ -477,13 +477,7 @@ export class EvalApi {
       that.http.post(endpoint + '/newReview', payload, httpOptions)
         .toPromise()
         .then (function (res) {
-
-          that.getReviews().then (function (reviews:Review[]) {
-            resolve(reviews);
-          }).catch (function (err) {
-            reject(err);
-          })
-
+          resolve({"status": "success"})
         }).catch (function (err) {
           reject(err);
         })
