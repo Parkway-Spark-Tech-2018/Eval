@@ -62,14 +62,6 @@ export class TeacherUserComponent implements OnInit {
 
     let that = this;
 
-    /** FIXME Testing code **/
-    this.eval_api.getReviews().then (function (reviews:Review[]) {
-      console.log("ALL DA REVIEWS");
-      console.log(reviews);
-    })
-
-    /** TESTING CODE **/
-
     this.eval_api.getTeacherById(teacher_id).then (function (teacher:Teacher) {
       that.user_teacher = teacher;
 

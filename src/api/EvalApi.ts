@@ -385,8 +385,6 @@ export class EvalApi {
 
     return reviews_promise;
 
-
-    //return ReviewDatabase.getReviews();
   }
 
   getReviewsByTeacherId(id:number) {
