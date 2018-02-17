@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -305,7 +306,6 @@ export class EvalApi {
 
   }
 
-  // TODO Replace with API Call
   getReviews() {
 
     let that = this;
@@ -440,7 +440,60 @@ export class EvalApi {
 
   //TODO Replace with API Call
   createReview(review:Review) {
-    return ReviewDatabase.addReview(review);
+
+    let that = this;
+
+    var reviews_promise = new Promise(function (resolve, reject) {
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      }
+
+      var approval:number = null;
+      var subject_id:number = review.subject.id;
+      switch (review.thumbs.toString()) {
+        case "true":
+          approval = 1;
+          break;
+        case "false":
+          approval = 0;
+          break;
+        default:
+          approval = null;
+          break;
+      }
+
+      var payload:any = {
+        "approval": approval,
+        "explanation": review.comment,
+        "Subject_Id": subject_id,
+        "review_type": review.type
+      };
+
+      console.log (payload);
+
+      that.http.post(endpoint + '/newReview', payload, httpOptions)
+        .toPromise()
+        .then (function (res) {
+
+          that.getReviews().then (function (reviews:Review[]) {
+            resolve(reviews);
+          }).catch (function (err) {
+            reject(err);
+          })
+
+        }).catch (function (err) {
+          reject(err);
+        })
+
+    })
+
+    return reviews_promise;
+
+    //return ReviewDatabase.addReview(review);
+
   }
 
 }
