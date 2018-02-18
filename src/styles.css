@@ -17,9 +17,14 @@ h1
 #cardSuperHeader
 {
   color: white;
-  background-color: #993333;
+  background-color: #CC3333;
 }
-#cardSuperHeader:hover
+#cardSuperHeaderdull
+{
+  color: white;
+  background-color: #773333;
+}
+#cardSuperHeader:hover, #cardSuperHeaderdull:hover
 {
   transition: all .2s ease-in;
   background-color: #EEE;
@@ -27,6 +32,7 @@ h1
 }
 #cardItemHeader
 {
+
   color: white;
   background-color: #333;
   padding-bottom: 0px;
@@ -37,6 +43,12 @@ h1
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
+}
+#special:hover
+{
+  transition: all .1s ease-in;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 #coolbutton
 {
