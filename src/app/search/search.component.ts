@@ -60,7 +60,6 @@ export class SearchComponent implements OnInit {
     for (var course_idx in this.courses) {
 
       var course:Course = <Course>this.courses[course_idx]
-
       if (fuzzysearch(search_string.toLowerCase(), course.name.toLowerCase()) == true) {
 
         var course_result:Result = Result.createCourseResult(course);
@@ -77,9 +76,49 @@ export class SearchComponent implements OnInit {
           search_results.push(teacher_result);
         }
     }
+    //return search_results;
+    return this.mySort(search_results, search_string);
 
-    return search_results;
-
+  }
+  mySort(search_results, search_string)
+  {
+    let sorted_results:Result[] = [];
+    //First pass
+    for (let result of search_results)
+    {
+      if (result.result.name.toLowerCase().indexOf(search_string.toLowerCase()) > -1)
+      {
+        sorted_results.push(result);
+        search_results[search_results.indexOf(result)] = null;
+      }
+    }
+    //Second Pass
+    if (search_string.search(" ") === true)
+    {
+      var arr = search_string.split(" ");
+      for (let result of search_results)
+      {
+        for (let part of arr)
+        {
+          if (result !== null && result.result.name.toLowerCase().indexOf(part.toLowerCase()) > -1)
+          {
+            sorted_results.push(result);
+            search_results[search_results.indexOf(result)] = null;
+            break;
+          }
+        }
+      }
+    }
+    //Last Pass
+    for (let result of search_results)
+    {
+      if (result !== null)
+      {
+        sorted_results.push(result);
+        search_results[search_results.indexOf(result)] = null;
+      }
+    }
+    return sorted_results
   }
 
   viewCourse(id:number) {
@@ -102,6 +141,16 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/profile'], navigationExtras)
     window.location.reload();
 
+  }
+  view(type: string, id:number) {
+    if (type === 'Teacher')
+    {
+      this.viewTeacher(id);
+    }
+    if (type === 'Course')
+    {
+      this.viewCourse(id);
+    }
   }
 
   performSearch() { //Perform the search query

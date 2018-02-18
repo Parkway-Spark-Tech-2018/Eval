@@ -77,7 +77,8 @@
         <div class = "card-body" id = "cardItem">
           <div class = "row">
             <div class = "col">
-              <h4>{{result.result.name}}</h4>
+              <span *ngIf = "result.result.name.includes('(Sem')"><h4>{{result.result.name.split("(Sem")[0]}}</h4><p><em>(Sem{{result.result.name.split("(Sem")[1]}}</em></p></span>
+              <h4 *ngIf = "!result.result.name.includes('(Sem')">{{result.result.name}}</h4>
               <!--<br><br>
               <!-- Return button if is a teacher
               <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">

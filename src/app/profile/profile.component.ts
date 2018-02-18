@@ -11,6 +11,7 @@ import {Session} from '../../models/Session';
 
 /** Import the api **/
 import {EvalApi} from '../../api/EvalApi';
+import {Department} from '../../models/Department';
 
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,8 @@ export class ProfileComponent implements OnInit {
   public courses:Course[] = [];
   public sessions:Session[] = [];
 
+  public departments:Department[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -33,9 +36,19 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  getDepartment(department_id:number) {
+
+    var department = this.departments.find(function (department:Department) {
+      return department.id == department_id;
+    })
+
+    return department.name;
+  }
+
   ngOnInit() {
 
     let that = this;
+
 
 
     this.getTeacher().then (function (teacher:Teacher) {
@@ -53,12 +66,19 @@ export class ProfileComponent implements OnInit {
       that.courses = courses;
     })
 
+    this.api.getDepartments().then (function (departments:Department[]) {
+      that.departments = departments
+    });
+
+
+
   }
 
 
   backToSearch()
   {
-    this.router.navigate(['/search'])
+    //this.router.navigate(['/search'])
+    history.back();
   }
 
 

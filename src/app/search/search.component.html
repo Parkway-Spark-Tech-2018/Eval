@@ -49,23 +49,24 @@
 </div>-->
 
 <br>
-<div id ="special" *ngFor = "let result of selected_results">
+<div id ="special" *ngFor = "let result of selected_results" (click) = "view(result.type, result.result.id)">
   <div class = "card-header" id = "cardItemHeader">
     <p>{{result.type}}</p>
   </div>
   <div class = "card-body" id = "cardItem">
     <div class = "row">
       <div class = "col">
-        {{result.result.name}}
-        <br><br>
-        <!-- Return button if is a teacher -->
+        <span *ngIf = "result.result.name.includes('(Sem')"><h4>{{result.result.name.split("(Sem")[0]}}</h4><p><em>(Sem{{result.result.name.split("(Sem")[1]}}</em></p></span>
+        <h4 *ngIf = "!result.result.name.includes('(Sem')">{{result.result.name}}</h4>
+        <!--<br><br>
+        <!-- Return button if is a teacher
         <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
           View
         </button>
-        <!-- Return button if is a course -->
+        <!-- Return button if is a course
         <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
           View
-        </button>
+        </button>-->
       </div>
       <div class = "col">
         <div *ngIf = "result.type === 'Course'">

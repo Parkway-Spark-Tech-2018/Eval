@@ -10,7 +10,7 @@
     <br/>
     <h4>A<span *ngIf="course.entry_grade == 11">n</span> {{course.entry_grade}}th
     <span *ngIf = "course.entry_grade !== course.exit_grade">to {{course.exit_grade}}th </span>
-    grade course. <br/><em>({{course.credit}} credit<span *ngIf="course.credit != 1">s</span>)</em></h4>
+    grade {{getDepartment(course.department_id)}} course. <br/><em>({{course.credit}} credit<span *ngIf="course.credit != 1">s</span>)</em></h4>
 
     <br/>
     <h3>Taught by</h3>
