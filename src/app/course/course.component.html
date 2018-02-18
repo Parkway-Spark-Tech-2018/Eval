@@ -6,8 +6,9 @@
     <img style = "border-radius: 100%; min-width: 250px; max-width: 300px;" src = "../../assets/course.jpg" align = "center" width = "80%" alt = "profile img here">
   </div>
   <div class = "col">
-    <h1 style = "text-align: center;">{{course.name}}</h1> <!--REFERENCE NAME OF TEACHER-->
-    <br/>
+    <span style = "text-align: center;" *ngIf = "course.name.includes('(Sem')"><h1>{{course.name.split("(Sem")[0]}}</h1><p><em>(Sem{{course.name.split("(Sem")[1]}}</em></p></span>
+    <h1 style = "text-align: center;" *ngIf = "!course.name.includes('(Sem')">{{course.name}}</h1>
+    <!--<h1 style = "text-align: center;">{{course.name}}</h1> <!--REFERENCE NAME OF TEACHER-->
     <h4>A<span *ngIf="course.entry_grade == 11">n</span> {{course.entry_grade}}th
     <span *ngIf = "course.entry_grade !== course.exit_grade">to {{course.exit_grade}}th </span>
     grade {{getDepartment(course.department_id)}} course. <br/><em>({{course.credit}} credit<span *ngIf="course.credit != 1">s</span>)</em></h4>

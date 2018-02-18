@@ -44,6 +44,10 @@ h1
   border-width: 1px;
   border-radius: 5px;
 }
+#special
+{
+
+}
 #special:hover
 {
   transition: all .1s ease-in;

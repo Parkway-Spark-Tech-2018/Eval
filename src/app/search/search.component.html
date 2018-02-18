@@ -49,7 +49,7 @@
 </div>-->
 
 <br>
-<div id ="special" *ngFor = "let result of selected_results" (click) = "view(result.type, result.result.id)">
+<div style = "margin-bottom: 10px" id ="special" *ngFor = "let result of selected_results" (click) = "view(result.type, result.result.id)">
   <div class = "card-header" id = "cardItemHeader">
     <p>{{result.type}}</p>
   </div>
