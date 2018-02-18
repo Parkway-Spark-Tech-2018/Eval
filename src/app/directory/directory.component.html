@@ -70,7 +70,7 @@
     <div *ngFor = "let result of selected_results">
       <div style = "margin-bottom: -21px" *ngIf = "initial.id !== result.result.department_id">
       </div>
-      <div id = "special" *ngIf = "initial.id === result.result.department_id">
+      <div id = "special" *ngIf = "initial.id === result.result.department_id" (click) = "view(result.type, result.result.id)">
         <div class = "card-header" id = "cardItemHeader">
           <p>{{result.type}}</p>
         </div>
@@ -78,15 +78,15 @@
           <div class = "row">
             <div class = "col">
               {{result.result.name}}
-              <br><br>
-              <!-- Return button if is a teacher -->
+              <!--<br><br>
+              <!-- Return button if is a teacher
               <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
                 View
               </button>
-              <!-- Return button if is a course -->
+              <!-- Return button if is a course
               <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
                 View
-              </button>
+              </button>-->
             </div>
             <div class = "col">
               <div *ngIf = "result.type === 'Course'">

@@ -49,6 +49,10 @@ h1
   transition: all .1s ease-in;
   margin-left: -20px;
   margin-right: -20px;
+
+  background-color: #EEEEFF;
+  border-radius: 5px;
+  font-color: white;
 }
 #coolbutton
 {
