@@ -57,7 +57,8 @@ export class CourseComponent implements OnInit {
 
   backToSearch()
   {
-    this.router.navigate(['/search'])
+    //this.router.navigate(['/search'])
+    history.back();
   }
 
   leave_review() {
