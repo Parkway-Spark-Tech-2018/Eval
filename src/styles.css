@@ -22,7 +22,7 @@ h1
 #cardSuperHeaderdull
 {
   color: white;
-  background-color: #773333;
+  background-color: #e89086;
 }
 #cardSuperHeader:hover, #cardSuperHeaderdull:hover
 {
@@ -47,6 +47,11 @@ h1
 #special
 {
 
+}
+#pkfoot
+{
+  max-width: 300px;
+  min-width: 150px;
 }
 #special:hover
 {
