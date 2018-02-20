@@ -19,7 +19,7 @@ export class AdminStatsComponent implements OnInit {
 
 
   /** Chart stuff **/
-  public pieChartLabels:string[] = ['Likes', 'Dislikes'];
+  public pieChartLabels:string[] = ['Dislikes', 'Likes' ];
   public pieChartData:number[] = [0, 0];
   public pieChartType:string = 'pie';
   public chartOptions = {
@@ -172,7 +172,7 @@ export class AdminStatsComponent implements OnInit {
       }
     })
 
-    this.pieChartData = [likes, dislikes]
+    this.pieChartData = [dislikes, likes]
 
   }
 
