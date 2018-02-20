@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       }else {
         that.user = user;
         that.logged_in = true;
+
       }
 
     })
@@ -63,7 +64,14 @@ export class LoginComponent implements OnInit {
 
         //For TESTING PURPOSES ONLY
         if (this.user.email == "mikipux7@gmail.com") {
-          this.redirect_test_teacher();
+          this.user.type = 3;
+          this.auth.setUser(this.user);
+
+          that.redirect_test_teacher();
+
+          /** update the local_db of the user for other pages **/
+
+
         }
 
         //Peter added this code
