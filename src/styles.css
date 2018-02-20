@@ -76,6 +76,13 @@ h1
   border-color: white;
   background: white;
 }
+#coolbutton:active
+{
+  color: white;
+  border-width: 2px;
+  border-color: white;
+  background: #ffa826;
+}
 .black
 {
   margin: -19px;
@@ -93,7 +100,8 @@ h1
 .grayspace
 {
   margin-top: -20px;
-  background: #FFF;
+  background: #ffffff;
+  background: linear-gradient(to right, white, #ffa826, white);
 }
 .main
 {
@@ -101,6 +109,10 @@ h1
   margin-left: 10%;
   margin-right: 10%;
   background: white;
+  /*border-style: solid;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-color: #ffa826*/
 }
 
 
