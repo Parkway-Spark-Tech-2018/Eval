@@ -1,49 +1,24 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="text-center"><b>Statistics for Teacher/Course Name</b></h1>
+    <h1 class="text-center"><b>Statistics for the {{subject_type}}, {{subject.name}}</b></h1>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-md-6 student-ratings">
     <h1 class="text-center">Student Ratings</h1>
-    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
 
   </div>
   <div class="col-md-6">
     <h1 class="text-center">Reviews</h1>
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <a class = "list-group-item" *ngFor = "let review of reviews">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Keith Ross</h5>
-          <small>2 days ago</small>
+            <h3 class="mb-1">{{review.comment}}</h3>
         </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Disliked</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Richard Stewart</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Liked</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Katherine Brown</h5>
-          <small class="text-muted">4 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Liked</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Evelyn Moore</h5>
-          <small class="text-muted">5 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Liked</small>
+        <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
+        <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
       </a>
     </div>
   </div>
