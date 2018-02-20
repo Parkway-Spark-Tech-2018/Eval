@@ -2,7 +2,7 @@
 
 <div class = "row">
   <div class = "col" style = "text-align: center">
-    <h3><strong>View Teachers</strong></h3>
+    <h4><strong>View Teachers</strong></h4>
     <!--Reminder: ng-checked = "true"-->
     <div class="checkbox">
       <label class = "switch">
@@ -49,26 +49,34 @@
 </div>-->
 
 <br>
-<div *ngFor = "let result of selected_results">
+<div style = "margin-bottom: 10px" id ="special" *ngFor = "let result of selected_results" (click) = "view(result.type, result.result.id)">
   <div class = "card-header" id = "cardItemHeader">
     <p>{{result.type}}</p>
   </div>
   <div class = "card-body" id = "cardItem">
     <div class = "row">
       <div class = "col">
-        {{result.result.name}}
-        <br><br>
-        <!-- Return button if is a teacher -->
+        <span *ngIf = "result.result.name.includes('(Sem')"><h4>{{result.result.name.split("(Sem")[0]}}</h4><p><em>(Sem{{result.result.name.split("(Sem")[1]}}</em></p></span>
+        <h4 *ngIf = "!result.result.name.includes('(Sem')">{{result.result.name}}</h4>
+        <!--<br><br>
+        <!-- Return button if is a teacher
         <button (click) = "viewTeacher(result.result.id)" *ngIf = "result.type == 'Teacher'" class = "btn btn-primary">
           View
         </button>
-        <!-- Return button if is a course -->
+        <!-- Return button if is a course
         <button (click) = "viewCourse(result.result.id)" *ngIf = "result.type == 'Course'" class = "btn btn-primary">
           View
-        </button>
+        </button>-->
       </div>
       <div class = "col">
-        <p>This should fetch information about the course/teacher from the server.</p>
+        <div *ngIf = "result.type === 'Course'">
+          A<span *ngIf="result.result.entry_grade == 11">n</span> {{result.result.entry_grade}}th
+          <span *ngIf = "result.result.entry_grade !== result.result.exit_grade">to {{result.result.exit_grade}}th </span>
+          grade {{getDepartment(result.result.department_id)}} course. <br/><em>({{result.result.credit}} credit<span *ngIf="result.result.credit != 1">s</span>)</em>
+        </div>
+        <div *ngIf = "result.type === 'Teacher'">
+          {{result.result.prefix}} {{result.result.last_name}}, {{getDepartment(result.result.department_id)}} teacher.<br/><em>{{result.result.email}}</em>
+        </div>
       </div>
       <div class = "col">
         <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">

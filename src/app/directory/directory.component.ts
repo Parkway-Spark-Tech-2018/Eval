@@ -104,6 +104,16 @@ export class DirectoryComponent implements OnInit {
     window.location.reload();
 
   }
+  view(type: string, id:number) {
+    if (type === 'Teacher')
+    {
+      this.viewTeacher(id);
+    }
+    if (type === 'Course')
+    {
+      this.viewCourse(id);
+    }
+  }
 
   performSearch() { //Perform the search query
     let query_promise = this.route
