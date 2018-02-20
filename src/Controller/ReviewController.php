@@ -21,7 +21,7 @@ class ReviewController extends Controller
 
       $conn = $this->getDoctrine()->getEntityManager()->getConnection();
 
-      $sql = 'SELECT * FROM GenReview';
+      $sql = 'SELECT * FROM Review';
 
       $stmt = $conn->prepare($sql);
       $stmt->execute();
@@ -52,7 +52,10 @@ class ReviewController extends Controller
 
         ## TODO Implement Review Creation here pls
 
-        if (isset($form_data["approval"]) && isset($form_data["explanation"]) && isset($form_data["review_type"]) && isset($form_data["Subject_Id"])){
+        if (isset($form_data["approval"]) &&
+            isset($form_data["explanation"]) &&
+            isset($form_data["review_type"]) &&
+            isset($form_data["Subject_Id"])){
           $approval = $form_data["approval"];
           $explanation = $form_data["explanation"];
           $review_type = $form_data["review_type"];
