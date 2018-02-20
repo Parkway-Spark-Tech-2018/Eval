@@ -222,3 +222,4 @@ export class AdminStatsComponent implements OnInit {
     return subject_promise;
 
   }
+}
