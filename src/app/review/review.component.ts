@@ -110,15 +110,17 @@ export class ReviewComponent implements OnInit {
   }
 
   goBack() {
+    //I ADDED THIS CODE
+    history.back();
 
-    switch (this.review_type){
+    /*switch (this.review_type){
       case "Course":
         this.goCourseBack();
         break;
       case "Teacher":
         this.goTeacherBack();
         break;
-    }
+    }*/
 
   }
 

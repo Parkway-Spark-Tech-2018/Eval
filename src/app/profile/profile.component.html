@@ -1,14 +1,19 @@
-<button (click) = "backToSearch()" class = "btn btn-primary">
+<button (click) = "backToSearch()" class = "btn btn-default btn-sm">
   <- Back
 </button>
 <br/>
 <div class = "row">
-  <div class = "col">
-    <img src = "../../assets/profile.jpg" align = "center" width = "80%" alt = "profile img here">
+  <div style ="text-align: center;" class = "col">
+    <img style = "border-radius: 100%; min-width: 250px; max-width: 300px;" src = "../../assets/profile.jpg" align = "center" width = "80%" alt = "profile img here">
   </div>
   <div class = "col">
-    <h2 style = "text-align: center;">{{teacher.name}}</h2> <!--REFERENCE NAME OF TEACHER-->
-    <h3>Teachs:</h3>
+    <h1 style = "text-align: center;">{{teacher.name}}</h1> <!--REFERENCE NAME OF TEACHER-->
+    <p style = "text-align: center;"><em><a href = "mailto:{{teacher.email}}">{{teacher.email}}</a></em></p>
+
+    <h4>{{teacher.prefix}} {{teacher.last_name}} is a teacher in the {{getDepartment(teacher.department_id)}} department.</h4>
+
+    <br/>
+    <h3>Teaches:</h3>
     <ul>
       <li *ngFor = "let course of courses">{{course.name}}</li>
     </ul>
@@ -31,14 +36,12 @@
     -->
 
   </div>
-
 </div>
-<br>
-
-<button (click) = "leave_review()" class = "btn btn-primary btn-block">Review</button>
 <br/>
-<h3>Student Reviews</h3>
-
+<br/>
+<br/>
+<div class = "col">
+  <h3 style = "text-align: center;">Student Reviews <button (click) = "leave_review()" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Add a review  </button></h3>
+</div>
 <app-rating [reviews] = "reviews"></app-rating>
-
-<br>
+<br/>

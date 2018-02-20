@@ -26,6 +26,10 @@ import 'rxjs/add/operator/toPromise';
 })
 export class SearchComponent implements OnInit {
 
+  //aded
+  public teacherchecked:boolean = true;
+  public courseschecked:boolean = true;
+
   public show:boolean[] = [];
 
   public search_query:string;
@@ -56,7 +60,6 @@ export class SearchComponent implements OnInit {
     for (var course_idx in this.courses) {
 
       var course:Course = <Course>this.courses[course_idx]
-
       if (fuzzysearch(search_string.toLowerCase(), course.name.toLowerCase()) == true) {
 
         var course_result:Result = Result.createCourseResult(course);
@@ -73,9 +76,49 @@ export class SearchComponent implements OnInit {
           search_results.push(teacher_result);
         }
     }
+    //return search_results;
+    return this.mySort(search_results, search_string);
 
-    return search_results;
-
+  }
+  mySort(search_results, search_string)
+  {
+    let sorted_results:Result[] = [];
+    //First pass
+    for (let result of search_results)
+    {
+      if (result.result.name.toLowerCase().indexOf(search_string.toLowerCase()) > -1)
+      {
+        sorted_results.push(result);
+        search_results[search_results.indexOf(result)] = null;
+      }
+    }
+    //Second Pass
+    if (search_string.search(" ") === true)
+    {
+      var arr = search_string.split(" ");
+      for (let result of search_results)
+      {
+        for (let part of arr)
+        {
+          if (result !== null && result.result.name.toLowerCase().indexOf(part.toLowerCase()) > -1)
+          {
+            sorted_results.push(result);
+            search_results[search_results.indexOf(result)] = null;
+            break;
+          }
+        }
+      }
+    }
+    //Last Pass
+    for (let result of search_results)
+    {
+      if (result !== null)
+      {
+        sorted_results.push(result);
+        search_results[search_results.indexOf(result)] = null;
+      }
+    }
+    return sorted_results
   }
 
   viewCourse(id:number) {
@@ -98,6 +141,16 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/profile'], navigationExtras)
     window.location.reload();
 
+  }
+  view(type: string, id:number) {
+    if (type === 'Teacher')
+    {
+      this.viewTeacher(id);
+    }
+    if (type === 'Course')
+    {
+      this.viewCourse(id);
+    }
   }
 
   performSearch() { //Perform the search query
@@ -123,6 +176,9 @@ export class SearchComponent implements OnInit {
         /** Selected Results **/
 
         this.selected_results = this.results;
+
+        //OOOH I ADDED THIS TOO
+        this.updateFilter();
 
 
       })
@@ -160,6 +216,86 @@ export class SearchComponent implements OnInit {
     }
 
   }
+  //PETER ADDED THIS CODE
+
+  filterAddTeachers() {
+    if (this.filter_mode === "courses")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "teachers";
+    }
+    this.updateFilter();
+  }
+  filterRemoveTeachers() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "courses";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+
+  filterAddCourses() {
+    if (this.filter_mode === "teachers")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "courses";
+    }
+    this.updateFilter();
+  }
+  filterRemoveCourses() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "teachers";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+  updateTeacher()
+  {
+    this.teacherchecked = !this.teacherchecked;
+    if (this.teacherchecked === true)
+    {
+      this.filterAddTeachers();
+    }
+    else
+    {
+      this.filterRemoveTeachers();
+      if (this.courseschecked == false)
+      {
+        this.updateCourses();
+      }
+    }
+  }
+  updateCourses()
+  {
+    this.courseschecked = !this.courseschecked;
+    if (this.courseschecked === true)
+    {
+      this.filterAddCourses();
+    }
+    else
+    {
+      this.filterRemoveCourses();
+      if (this.teacherchecked == false)
+      {
+        this.updateTeacher();
+      }
+    }
+  }
+  //END OF ADDED CODE
 
   getDepartment(department_id:number) {
 

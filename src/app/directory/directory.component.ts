@@ -26,6 +26,11 @@ import 'rxjs/add/operator/toPromise';
 })
 export class DirectoryComponent implements OnInit {
 
+  //I just added this code as well
+  public teacherchecked: boolean = true;
+  public courseschecked: boolean = true;
+  //End of added code
+
   public show:boolean[] = [];
 
   public search_query:string;
@@ -99,6 +104,16 @@ export class DirectoryComponent implements OnInit {
     window.location.reload();
 
   }
+  view(type: string, id:number) {
+    if (type === 'Teacher')
+    {
+      this.viewTeacher(id);
+    }
+    if (type === 'Course')
+    {
+      this.viewCourse(id);
+    }
+  }
 
   performSearch() { //Perform the search query
     let query_promise = this.route
@@ -144,6 +159,86 @@ export class DirectoryComponent implements OnInit {
     this.updateFilter();
   }
 
+  //PETER ADDED THIS CODE
+
+  filterAddTeachers() {
+    if (this.filter_mode === "courses")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "teachers";
+    }
+    this.updateFilter();
+  }
+  filterRemoveTeachers() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "courses";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+
+  filterAddCourses() {
+    if (this.filter_mode === "teachers")
+    {
+      this.filter_mode = "all";
+    }
+    else
+    {
+      this.filter_mode = "courses";
+    }
+    this.updateFilter();
+  }
+  filterRemoveCourses() {
+    if (this.filter_mode === "all")
+    {
+      this.filter_mode = "teachers";
+    }
+    else
+    {
+      this.filter_mode = "none";
+    }
+    this.updateFilter();
+  }
+  updateTeacher()
+  {
+    this.teacherchecked = !this.teacherchecked;
+    if (this.teacherchecked === true)
+    {
+      this.filterAddTeachers();
+    }
+    else
+    {
+      this.filterRemoveTeachers();
+      if (this.courseschecked == false)
+      {
+        this.updateCourses();
+      }
+    }
+  }
+  updateCourses()
+  {
+    this.courseschecked = !this.courseschecked;
+    if (this.courseschecked === true)
+    {
+      this.filterAddCourses();
+    }
+    else
+    {
+      this.filterRemoveCourses();
+      if (this.teacherchecked == false)
+      {
+        this.updateTeacher();
+      }
+    }
+  }
+  //END OF ADDED CODE
   /** Updating the results **/
   updateFilter() {
 
@@ -157,6 +252,8 @@ export class DirectoryComponent implements OnInit {
       case "courses":
         this.selected_results = this.course_results;
         break;
+      case "none":
+        this.selected_results = [];
     }
 
   }
@@ -191,9 +288,8 @@ export class DirectoryComponent implements OnInit {
 
     for (const dep of this.departments)
     {
-      this.show.push(false);
+      this.show.push(true);
     }
 
   }
-
 }

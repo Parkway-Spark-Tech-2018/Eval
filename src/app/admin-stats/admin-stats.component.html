@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center"><b>Statistics for the {{subject_type}}, {{subject.name}}</b></h1>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-6 student-ratings">
+    <h1 class="text-center">Student Ratings</h1>
+    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+
+  </div>
+  <div class="col-md-6">
+    <h1 class="text-center">Reviews</h1>
+    <div class="list-group">
+      <a class = "list-group-item" *ngFor = "let review of reviews">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">{{review.comment}}</h3>
+        </div>
+        <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
+        <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+      </a>
+    </div>
+  </div>
+</div>
