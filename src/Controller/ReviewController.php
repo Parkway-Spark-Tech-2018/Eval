@@ -51,6 +51,13 @@ class ReviewController extends Controller
 
 
         ## TODO Implement Review Creation here pls
+#        | Review_Id   | int(11)      | NO   | PRI | NULL    | auto_increment |
+#        | Schedule_Id | int(11)      | NO   |     | NULL    |                |
+#        | Session_Id  | int(11)      | NO   |     | NULL    |                |
+#        | Approval    | tinyint(1)   | NO   |     | NULL    |                |
+#        | Explanation | varchar(500) | YES  |     | NULL    |                |
+#        | Student_Id  | int(11)      | NO   | MUL | NULL
+
 
         if (isset($form_data["approval"]) &&
             isset($form_data["explanation"]) &&
