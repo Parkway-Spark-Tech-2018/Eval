@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminStatsComponent implements OnInit {
 
+  public pieChartLabels:string[] = ['Likes', 'Dislikes'];
+  public pieChartData:number[] = [300, 500];
+  public pieChartType:string = 'pie';
+  public chartOptions = {
+    responsive: true
+  }
+
   constructor() { }
 
   ngOnInit() {
