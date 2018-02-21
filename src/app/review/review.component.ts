@@ -42,7 +42,7 @@ export class ReviewComponent implements OnInit {
       schedule_id = id;
       return that.getStudentId()
     }).then (function (id:number) {
-      student_id = id;
+      session_id = id;
       that.new_review = Review.createEmptySessionReview(session_id, schedule_id, student_id);
     })
 
@@ -58,14 +58,13 @@ export class ReviewComponent implements OnInit {
 
       let that = this;
 
-      /** FIXME
       this.eval_api.createReview(this.new_review).then (function (reviews:Review[]) {
         alert("review created");
         that.goBack();
 
       }).catch (function (err) {
         alert("unable to create review");
-      })**/
+      })
 
     }
 
@@ -109,6 +108,8 @@ export class ReviewComponent implements OnInit {
   }
 
   getSessionId() {
+    let that = this;
+
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
