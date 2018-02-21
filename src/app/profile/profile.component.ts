@@ -53,9 +53,9 @@ export class ProfileComponent implements OnInit {
 
     this.getTeacher().then (function (teacher:Teacher) {
         that.teacher = teacher;
-        return that.api.getReviews();
+        return that.api.getReviewsByTeacherId(that.teacher.id);
     }).then (function (reviews:Review[]) {
-      that.reviews = that.filterTeacherReviews(<Review[]> reviews);
+      that.reviews = reviews;
       console.log(that.reviews);
       return that.api.getSessionsByTeacher(that.teacher.id);
     }).then (function (sessions:Session[]) {
@@ -79,25 +79,6 @@ export class ProfileComponent implements OnInit {
   {
     //this.router.navigate(['/search'])
     history.back();
-  }
-
-
-  filterTeacherReviews(reviews: Review[]) {
-
-    let that = this;
-
-    return [];
-
-    /** FIXME
-    return reviews.filter(function (review:Review) {
-        if (review.subject == undefined || review.type == undefined) {
-          return false;
-        }
-
-        return (review.type == "Teacher" && review.subject.id == that.teacher.id)
-    })
-    **/
-
   }
 
   getTeacherId() {
@@ -139,19 +120,5 @@ export class ProfileComponent implements OnInit {
     return teacher_promise;
 
   }
-
-  /** UNNEEDED CODE DELETE IN PRODUCTION
-  leave_review() {
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {'id': this.teacher.id,
-                    'type': 'Teacher'
-                    }
-    }
-
-    this.router.navigate(['/review'], navigationExtras);
-
-  }
-  **/
 
 }
