@@ -14,15 +14,31 @@ h1
   @import url('https://fonts.googleapis.com/css?family=Roboto');
   font-size: 2em;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#cnav
+{
+  background-color: black;
+}
+.cnav
+{
+  background-color: black;
+}
 #cardSuperHeader
 {
   color: white;
-  background-color: #CC3333;
+  //background-color: #CC3333;
+  background-color: #ed6521;
+  font-weight: bold;
 }
 #cardSuperHeaderdull
 {
   color: white;
-  background-color: #e89086;
+  //background-color: #e89086;
+  background-color: #e08d45;
 }
 #cardSuperHeader:hover, #cardSuperHeaderdull:hover
 {
@@ -101,9 +117,22 @@ h1
 {
   margin-top: -20px;
   background: #ffffff;
-  background: linear-gradient(to right, white, #ffa826, white);
+  //background: linear-gradient(to right, #161616, #ed6521, #ed6521, #ed6521, #161616);
+  background: linear-gradient(to right, #f9a545, white, white, white, #f9a545);
 }
 .main
+{
+  padding: 2% 5% 2% 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: white;
+  min-height: 800px;
+  /*border-style: solid;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-color: #ffa826*/
+}
+.main2
 {
   padding: 2% 5% 2% 5%;
   margin-left: 10%;

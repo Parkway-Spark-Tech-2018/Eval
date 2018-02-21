@@ -1,4 +1,5 @@
-<h1>Directory for teachers and courses to review!</h1>
+<h1>All Teachers and Courses!</h1>
+<h4>Always from concentrate.</h4>
 
 <!--OLD CODE
 <div class = "row">
@@ -52,14 +53,35 @@
 <div *ngFor = "let initial of departments">
   <div class = "card">
     <div class = "card-header" (click)="show[initial.id] = !show[initial.id]" *ngIf = "show[initial.id]" id = "cardSuperHeader">
-      <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+      <div class = "row">
+        <div style = "text-align: left" class = "col">
+          <p>-</p>
+        </div>
+        <div class = "col">
+          <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+        </div>
+        <div style = "text-align: right" class = "col">
+          <p>-</p>
+        </div>
+      </div>
+
         <!--<div style = "text-align: right;" class = "col" style = "color: black;">
           <p *ngIf = "show[initial.id]">Click to collapse!</p>
           <p *ngIf = "!show[initial.id]">Click to expand!</p>
         </div>-->
     </div>
     <div class = "card-header" (click)="show[initial.id] = !show[initial.id]" *ngIf = "!show[initial.id]" id = "cardSuperHeaderdull">
-      <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+      <div class = "row">
+        <div style = "text-align: left" class = "col">
+          <p>+</p>
+        </div>
+        <div class = "col">
+          <p style = "text-align: center;"><strong>{{getDepartment(initial.id)}}</strong></p>
+        </div>
+        <div style = "text-align: right" class = "col">
+          <p>+</p>
+        </div>
+      </div>
       <!--<div style = "text-align: right;" class = "col" style = "color: black;">
         <p *ngIf = "show[initial.id]">Click to collapse!</p>
         <p *ngIf = "!show[initial.id]">Click to expand!</p>
@@ -68,7 +90,7 @@
   </div>
   <div *ngIf = "show[initial.id]">
     <div *ngFor = "let result of selected_results">
-      <div style = "margin-bottom: -21px" *ngIf = "initial.id !== result.result.department_id">
+      <div *ngIf = "initial.id !== result.result.department_id">
       </div>
       <div id = "special" *ngIf = "initial.id === result.result.department_id" (click) = "view(result.type, result.result.id)">
         <div class = "card-header" id = "cardItemHeader">
@@ -107,4 +129,3 @@
         </div>
       </div>
 
-      <br>
