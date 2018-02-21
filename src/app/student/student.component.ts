@@ -83,20 +83,42 @@ export class StudentComponent implements OnInit {
 
   }
 
-  getSessionCourse(session:Session) {
-    console.log(session);
-  }
-
-  getSessionTeacher(session:Session) {
-    console.log(session);
-  }
-
-  ngOnInit() {
-  }
-
+  //Helper function
   update_teacher_courses (teachers:Teacher[], courses:Course[]){
     this.teachers = teachers;
     this.courses = courses;
+  }
+
+
+  //Get the session course info
+  getSessionCourse(session:Session) {
+
+    var course_id:number = session.course_id;
+
+    var course:Course = this.courses.find(function (course:Course) {
+      return course.id == course_id;
+    })
+
+    return course;
+
+  }
+
+  //Get the session teacher info
+  getSessionTeacher(session:Session) {
+    var teacher_id:number = session.staff_id;
+
+    var teacher:Teacher = this.teachers.find(function (teacher:Teacher) {
+      return teacher.id == teacher_id;
+    })
+
+    return teacher;
+  }
+
+  reviewSession(session:Session) {
+    alert(session);
+  }
+
+  ngOnInit() {
   }
 
 }
