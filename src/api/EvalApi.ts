@@ -308,7 +308,6 @@ export class EvalApi {
 
   }
 
-  //FIXME
   getReviews() {
 
     let that = this;
@@ -353,7 +352,7 @@ export class EvalApi {
 
   }
 
-  //FIXME
+  /** FIXME
   getReviewsByTeacherId(id:number) {
 
     let that = this;
@@ -378,9 +377,9 @@ export class EvalApi {
 
     return review_promise;
 
-  }
+  }**/
 
-  //FIXME
+  /** FIXME
   getReviewsByCourseId(id:number) {
 
     let that = this;
@@ -404,9 +403,8 @@ export class EvalApi {
     return review_promise;
 
   }
+  **/
 
-
-  //FIXME
   createReview(review:Review) {
 
     let that = this;
