@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../providers/auth.service';
-import { Router} from '@angular/router';
+import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
 import {AngularFireAuth} from 'angularfire2/auth';
 
 //Models
@@ -115,7 +115,14 @@ export class StudentComponent implements OnInit {
   }
 
   reviewSession(session:Session) {
-    alert(session);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {'session_id': session.id,
+                    'schedule_id': this.schedule.id,
+                    'student_id': this.student.id
+                    }
+    }
+
+    this.router.navigate(['/review'], navigationExtras);
   }
 
   ngOnInit() {
