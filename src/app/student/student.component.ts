@@ -83,6 +83,14 @@ export class StudentComponent implements OnInit {
 
   }
 
+  getSessionCourse(session:Session) {
+    console.log(session);
+  }
+
+  getSessionTeacher(session:Session) {
+    console.log(session);
+  }
+
   ngOnInit() {
   }
 
