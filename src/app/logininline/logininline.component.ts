@@ -7,6 +7,7 @@ import {NgZone} from '@angular/core';
 
 import {EvalUser} from '../../models/EvalUser';
 import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class LogininlineComponent implements OnInit {
   public logged_in: boolean;
   public tryAgain: boolean;
 
-  constructor(public auth: AuthService,
+  constructor(public location: Location,
+              public auth: AuthService,
               private afAuth: AngularFireAuth,
               private zone: NgZone,
               private route: ActivatedRoute,
@@ -112,6 +114,7 @@ export class LogininlineComponent implements OnInit {
         {
           this.user.type = 2;
         }
+
         console.log("Usertype: " + this.user.type)
         // End of code by Peter^^^
       }
@@ -130,7 +133,9 @@ export class LogininlineComponent implements OnInit {
   }
 
   google_login() {
-    var login = this.auth.loginWithGoogle();
+    var login = this.auth.loginWithGoogle().then(()=>{
+      location.reload();}
+    );
   }
 
   logout() {
@@ -138,6 +143,11 @@ export class LogininlineComponent implements OnInit {
     if (this.tryAgain)
     {
       this.router.navigate(['/login'], {queryParams: {'l': 'o'}});
+    }
+
+    if (this.router.url.indexOf('/student') > -1 || this.router.url.indexOf('/teacher-user') > -1 || this.router.url.indexOf('/admin-stats') > -1)
+    {
+      this.router.navigate(['/home']);
     }
     location.reload();
   }

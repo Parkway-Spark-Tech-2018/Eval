@@ -112,6 +112,11 @@ export class LoginComponent implements OnInit {
         {
           this.user.type = 2;
         }
+        if (!this.tryAgain &&this.user.type !== 0 && this.user.type !== null)
+        {
+          this.router.navigate(['/redirector']);
+          location.reload();
+        }
         console.log("Usertype: " + this.user.type)
         // End of code by Peter^^^
       }

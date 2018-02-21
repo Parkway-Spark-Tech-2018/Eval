@@ -32,6 +32,7 @@ import {AngularFireModule} from 'angularfire2';
 // Chart module
 import {ChartsModule} from 'ng2-charts';
 import { LogininlineComponent } from './logininline/logininline.component';
+import { RedirectorComponent } from './redirector/redirector.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
   {path: 'review', component: ReviewComponent},
   {path: 'course', component: CourseComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'redirector', component: RedirectorComponent},
   {path: 'student', component: StudentComponent},
   {path: 'directory', component: DirectoryComponent},
   {path: 'user/teacher/:id', component: TeacherUserComponent},
@@ -79,7 +81,8 @@ const firebaseConfig = {
     StudentComponent,
     DirectoryComponent,
     AdminStatsComponent,
-    LogininlineComponent
+    LogininlineComponent,
+    RedirectorComponent
   ],
   imports: [
     BrowserModule,
