@@ -50,15 +50,16 @@ export class CourseComponent implements OnInit {
     this.getCourse().then (function (course:Course) {
       that.course = course;
 
-      return that.api.getReviews();
-    }).then (function (reviews) {
-      that.reviews = that.filterCourseReviews(<Review[]> reviews);
+      return that.api.getReviewsByCourseId(that.course.id);
+    }).then (function (reviews:Review[]) {
+      that.reviews = reviews
       console.log(that.reviews);
 
       return that.api.getSessionsByCourse(that.course.id);
 
     }).then (function (sessions:Session[]) {
       console.log(sessions);
+
       return that.api.getTeachersFromSessions(sessions);
     }).then (function (teachers: Teacher[]) {
       console.log(teachers);
@@ -76,21 +77,6 @@ export class CourseComponent implements OnInit {
     //this.router.navigate(['/search'])
     history.back();
   }
-
-  /** UNNEEDED DELETE
-  leave_review() {
-
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {'id': this.course.id,
-                    'type': 'Course'
-                    }
-    }
-
-    this.router.navigate(['/review'], navigationExtras);
-
-  }
-  **/
 
   getCourseId() {
     var that = this;
@@ -129,23 +115,5 @@ export class CourseComponent implements OnInit {
     return course_promise;
   }
 
-  filterCourseReviews(reviews: Review[]) {
-
-    let that = this;
-
-    //FIXME
-
-    return [];
-    /**
-    return reviews.filter(function (review:Review) {
-      if (review.subject == undefined || review.type == undefined) {
-        return false;
-      }
-
-      return (review.type == "Course" && review.subject.id == that.course.id)
-    })
-    **/
-
-  }
 
 }

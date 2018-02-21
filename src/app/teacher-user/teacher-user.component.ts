@@ -72,19 +72,20 @@ export class TeacherUserComponent implements OnInit {
         that.display_prefix = false;
       }
 
+      that.eval_api.getDepartmentById(that.user_teacher.department_id).then (function (department: Department) {
+        that.department = department;
+      }).catch (function (err) {
+        console.log (err);
+      })
 
-      return that.eval_api.getDepartmentById(that.user_teacher.department_id);
+      that.eval_api.getReviewsByTeacherId(that.user_teacher.id).then (function (reviews: Review[]) {
+        that.reviews = reviews;
+        console.log (that.reviews);
+      })
 
-    }).then (function (department: Department) {
-      that.department = department;
-    }).catch (function (err) {
-      console.log (err);
+    }).catch(function (err) {
+      console.log(err);
     })
-
-    /** FIXME return that.eval_api.getReviewsByTeacherId(that.teacher_id);
-    })**//**.then (function (reviews: Review[]) {
-      that.reviews = reviews;
-    })**/
 
   }
 
