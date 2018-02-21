@@ -1,5 +1,5 @@
 <!-- The main navbar -->
-<div style = "padding: 0% 10% 0% 10%"class = "nav-wrapper" >
+<div class = "nav-wrapper" >
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <!--<img src = "../../favicon.ico" alt = "logo" height = "30px"/><a class="navbar-brand" href="#">OJ</a>-->
     <img src = "../../assets/logo.png" alt = "logo" height = "30px"/><a class="navbar-brand" href="#">OJ</a>
@@ -12,9 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a class="nav-link" href="/about">About</a>
-        </li>
+        </li-->
         <li class="nav-item">
           <a class="nav-link" href="/directory">Directory</a>
         </li>
@@ -24,6 +24,9 @@
 
       </ul>
     </div>
-    <app-search-bar></app-search-bar>
+    <div style = "min-width: 20%;">
+    <app-search-bar style = "display:inline-block; float: left; text-align: left;"></app-search-bar>
+    <app-logininline style = "display:inline-block; float: right; margin-left: 0px; text-align: right;"></app-logininline>
+    </div>
   </nav>
 </div>
