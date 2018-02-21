@@ -3,33 +3,26 @@ import {Course} from './Course';
 
 export class Review {
 
-  public type:string;
-  public subject: Teacher | Course;
+
+  public session_id:number;
+  public schedule_id:number;
+  public student_id:number;
 
   public thumbs:boolean;
   public comment:string;
 
   constructor() {}
 
-  static createTeacherReview(subject:Teacher, thumbs: boolean, comment:string) {
+
+  static createEmptySessionReview(session_id:number, schedule_id:number, student_id:number){
 
     return <Review> {
-      type: "Teacher",
-      subject: subject,
-      thumbs: thumbs,
-      comment: comment
-    };
-
-  }
-
-  static createCourseReview(subject: Course, thumbs:boolean, comment:string) {
-
-    return <Review> {
-      type: "Course",
-      subject: subject,
-      thumbs: thumbs,
-      comment: comment
-    };
+      session_id: session_id,
+      schedule_id: schedule_id,
+      student_id: student_id,
+      thumbs: null,
+      comment: ""
+    }
 
   }
 

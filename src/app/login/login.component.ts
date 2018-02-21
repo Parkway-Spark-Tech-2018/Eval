@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       if (user == null) {
         that.logged_in = false
         that.user = new EvalUser();
-      }else {
+      } else {
         that.user = user;
         that.logged_in = true;
 
@@ -50,31 +50,42 @@ export class LoginComponent implements OnInit {
     })
 
     this.logged_in = false;
-    this.tryAgain = false;
+
+    let query_promise = this.route.queryParams.subscribe(params => {
+      var query = params['l'] || "";
+      if (query === 'o')
+      {
+        this.tryAgain = true;
+      }
+      else
+      {
+        this.tryAgain = false;
+      }
+    });
 
     this.auth.afAuth.authState.subscribe((auth) => {
       if (auth == null) {
         this.logged_in = false;
         this.user = null;
+
+
+        let query_promise = this.route.queryParams.subscribe(params => {
+          var query = params['l'] || "";
+          if (query === 't')
+          {
+            this.google_login();
+          }
+        });
+
+
       }else {
         this.logged_in = true;
         this.user.user_name = auth.displayName;
         this.user.email = auth.email;
         this.user.id = auth.uid;
 
-        //For TESTING PURPOSES ONLY
-        if (this.user.email == "mikipux7@gmail.com") {
-          this.user.type = 3;
-          this.auth.setUser(this.user);
-
-          that.redirect_test_teacher();
-
-          /** update the local_db of the user for other pages **/
-
-
-        }
-
         //Peter added this code
+
         if (!this.user.email.endsWith('@parkwayschools.net'))
         {
           this.tryAgain = true;
@@ -83,6 +94,7 @@ export class LoginComponent implements OnInit {
           this.user.user_name = "";
           this.user.email = "";
           this.user.id = "";
+
         }
         else
         {
@@ -107,7 +119,6 @@ export class LoginComponent implements OnInit {
 
       /** update the local_db of the user for other pages **/
       this.auth.setUser(this.user);
-
     });
 
 
@@ -124,7 +135,17 @@ export class LoginComponent implements OnInit {
 
   logout() {
     var logout = this.auth.logout();
+    if (this.tryAgain)
+    {
+      this.router.navigate(['/login'], {queryParams: {'l': 'o'}});
+    }
+    else {
+      this.router.navigate(['/login']);
+    }
+    location.reload();
 
   }
+
+
 
 }

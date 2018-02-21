@@ -86,6 +86,9 @@ export class ProfileComponent implements OnInit {
 
     let that = this;
 
+    return [];
+
+    /** FIXME
     return reviews.filter(function (review:Review) {
         if (review.subject == undefined || review.type == undefined) {
           return false;
@@ -93,6 +96,7 @@ export class ProfileComponent implements OnInit {
 
         return (review.type == "Teacher" && review.subject.id == that.teacher.id)
     })
+    **/
 
   }
 
@@ -136,6 +140,7 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  /** UNNEEDED CODE DELETE IN PRODUCTION
   leave_review() {
 
     let navigationExtras: NavigationExtras = {
@@ -147,5 +152,6 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/review'], navigationExtras);
 
   }
+  **/
 
 }

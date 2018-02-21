@@ -10,6 +10,8 @@ import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
 import {Department} from '../models/Department';
 import {Session} from '../models/Session';
+import {Student} from '../models/Student';
+import {StudentSchedule} from '../models/StudentSchedule';
 
 /** Review Stuff **/
 import {Review} from '../models/Review';
@@ -315,78 +317,42 @@ export class EvalApi {
         .toPromise()
         .then (
           res => {
+            let reviews: Review[] = (<any>res).map(function(item) {
+              let approval: boolean = null;
 
-            let rev_courses:Course[] = [];
-            let rev_teachers:Teacher[] = [];
+              switch (Number(item["Approval"])) {
+                case 1:
+                  approval = true;
+                  break;
+                case 0:
+                  approval = false;
+                  break;
+                default:
+                  approval = null;
+                  break;
+              }
 
-            that.getCourses().then (function (courses: Course[]) {
-              rev_courses = courses;
-              return that.getTeachers();
-            }).then (function (teachers: Teacher[]) {
-              rev_teachers = teachers;
-            }).then (function () {
-              let reviews:Review[] = (<any>res).map (function (item) {
+              return <Review>{
+                thumbs: approval,
+                comment: item["Explanation"],
+                session_id: Number(item["Session_Id"]),
+                schedule_id: Number(item["Schedule_Id"]),
+                student_id: Number(item["Student_Id"])
+              };
 
-                let approval:boolean = null;
-                let subject: Teacher | Course = null;
-                let subject_id:number = Number(item["Subject_Id"]);
+            });
 
-                switch (item["review_type"]){
-                  case "Teacher":
-
-                    let teacher:Teacher = rev_teachers.find(function (teacher:Teacher) {
-                      return teacher.id == subject_id;
-                    });
-
-                    subject = teacher;
-
-                    break;
-                  case "Course":
-
-                    let course:Course = rev_courses.find(function (course:Course) {
-                      return course.id == subject_id;
-                    });
-
-                    subject = course;
-
-                    break;
-                  default:
-                    subject = null;
-                    break;
-                }
-
-                switch (Number(item["Approval"])){
-                  case 1:
-                    approval = true;
-                    break;
-                  case 0:
-                    approval = false;
-                    break;
-                  default:
-                    approval = null;
-                    break;
-                }
-
-                return <Review>{type: item["review_type"], thumbs: approval, comment: item["Explanation"], subject: subject};
-
-              })
-
-              resolve(reviews);
-            }).catch (function (err) {
-              reject(err);
-            })
-
-          }
-        ).catch (function (err) {
+            resolve(reviews);
+          }).catch (function (err) {
           reject (err);
         })
-    })
-
+    });
 
     return reviews_promise;
 
   }
 
+  /** FIXME
   getReviewsByTeacherId(id:number) {
 
     let that = this;
@@ -411,8 +377,9 @@ export class EvalApi {
 
     return review_promise;
 
-  }
+  }**/
 
+  /** FIXME
   getReviewsByCourseId(id:number) {
 
     let that = this;
@@ -436,9 +403,8 @@ export class EvalApi {
     return review_promise;
 
   }
+  **/
 
-
-  //TODO Replace with API Call
   createReview(review:Review) {
 
     let that = this;
@@ -452,7 +418,7 @@ export class EvalApi {
       }
 
       var approval:number = null;
-      var subject_id:number = review.subject.id;
+
       switch (review.thumbs.toString()) {
         case "true":
           approval = 1;
@@ -468,15 +434,17 @@ export class EvalApi {
       var payload:any = {
         "approval": approval,
         "explanation": review.comment,
-        "Subject_Id": subject_id,
-        "review_type": review.type
+        "student_id": review.student_id,
+        "session_id": review.session_id,
+        "schedule_id": review.schedule_id
       };
 
-      console.log (payload);
+      console.log("PAYLOAD");
 
       that.http.post(endpoint + '/newReview', payload, httpOptions)
         .toPromise()
         .then (function (res) {
+          console.log("success");
           resolve({"status": "success"})
         }).catch (function (err) {
           reject(err);
@@ -486,7 +454,129 @@ export class EvalApi {
 
     return reviews_promise;
 
-    //return ReviewDatabase.addReview(review);
+  }
+
+  getStudents() {
+
+    let that = this;
+
+    var students_promise = new Promise(function (resolve, reject ) {
+
+      that.http.get(endpoint + '/showStudents')
+        .toPromise()
+        .then (function (res) {
+
+          var students:Student[] = [];
+
+          (<any[]>res).forEach(function (item) {
+            var student:Student = <Student> {
+              id: Number(item["Student_Id"]),
+              first_name: item["First_Name"],
+              last_name: item["Last_Name"],
+              email: item["Email"],
+              full_name: item["First_Name"] + " " + item["Last_Name"]
+            };
+
+            students.push(student);
+          })
+
+          resolve(students);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+
+    })
+
+    return students_promise;
+
+  }
+
+  getStudentByEmail(email:string) {
+
+    let that = this;
+
+    var student_promise = new Promise (function (resolve, reject) {
+
+      that.getStudents().then (function (students:Student[]) {
+
+        var student:Student = students.find(function (student:Student) {
+          return student.email == email;
+        })
+
+        resolve(student);
+
+      }).catch (function (err) {
+        reject(err);
+      })
+
+    })
+
+    return student_promise;
+
+  }
+
+  //TODO
+  getSchedules() {
+
+    let that = this;
+
+    var schedules_promise = new Promise (function (resolve, reject) {
+
+      that.http.get(endpoint + '/showSchedules')
+        .toPromise()
+        .then (function (res) {
+
+          var schedules:StudentSchedule[] = [];
+
+          (<any[]>res).forEach(function (item) {
+            var schedule:StudentSchedule = <StudentSchedule> {
+              id: Number(item["Schedule_Id"]),
+              student_id: Number(item["Student_Id"]),
+              session_id1: Number(item["Session_Id1"]),
+              session_id2: Number(item["Session_Id2"]),
+              session_id3: Number(item["Session_Id3"]),
+              session_id4: Number(item["Session_Id4"]),
+              session_id5: Number(item["Session_Id5"]),
+              session_id6: Number(item["Session_Id6"]),
+              session_id7: Number(item["Session_Id7"]),
+              session_id8: Number(item["Session_Id8"]),
+            };
+
+            schedules.push(schedule);
+          })
+
+          resolve(schedules);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+    })
+
+    return schedules_promise;
+
+  }
+
+  //TODO
+  getScheduleByStudentId(id:number) {
+
+    let that = this;
+
+    var schedule_promise = new Promise (function (resolve, reject) {
+
+      that.getSchedules().then (function (schedules:StudentSchedule[]) {
+        var schedule:StudentSchedule = schedules.find (function (schedule:StudentSchedule) {
+          return schedule.student_id == id;
+        })
+
+        resolve (schedule);
+      }).catch (function (err) {
+        reject (err);
+      });
+
+    });
+
+    return schedule_promise;
 
   }
 
