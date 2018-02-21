@@ -62,6 +62,7 @@ export class TeacherUserComponent implements OnInit {
 
     let that = this;
 
+
     this.eval_api.getTeacherById(teacher_id).then (function (teacher:Teacher) {
       that.user_teacher = teacher;
 
@@ -76,12 +77,14 @@ export class TeacherUserComponent implements OnInit {
 
     }).then (function (department: Department) {
       that.department = department;
-      return that.eval_api.getReviewsByTeacherId(that.teacher_id);
-    }).then (function (reviews: Review[]) {
-      that.reviews = reviews;
     }).catch (function (err) {
       console.log (err);
     })
+
+    /** FIXME return that.eval_api.getReviewsByTeacherId(that.teacher_id);
+    })**//**.then (function (reviews: Review[]) {
+      that.reviews = reviews;
+    })**/
 
   }
 

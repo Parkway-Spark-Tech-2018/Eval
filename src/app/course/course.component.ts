@@ -77,6 +77,7 @@ export class CourseComponent implements OnInit {
     history.back();
   }
 
+  /** UNNEEDED DELETE
   leave_review() {
 
 
@@ -89,6 +90,7 @@ export class CourseComponent implements OnInit {
     this.router.navigate(['/review'], navigationExtras);
 
   }
+  **/
 
   getCourseId() {
     var that = this;
@@ -131,6 +133,10 @@ export class CourseComponent implements OnInit {
 
     let that = this;
 
+    //FIXME
+
+    return [];
+    /**
     return reviews.filter(function (review:Review) {
       if (review.subject == undefined || review.type == undefined) {
         return false;
@@ -138,6 +144,7 @@ export class CourseComponent implements OnInit {
 
       return (review.type == "Course" && review.subject.id == that.course.id)
     })
+    **/
 
   }
 

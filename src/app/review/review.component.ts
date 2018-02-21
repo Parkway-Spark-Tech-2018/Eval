@@ -19,13 +19,7 @@ import {ReviewDatabase} from '../../database/ReviewDatabase';
 })
 export class ReviewComponent implements OnInit {
 
-  subject_id: number;
-  subject: Course | Teacher;
-
-  review_type:string;
-  new_review:Review = new Review();
-
-  thumbs:boolean = null;
+  new_review:Review = null;
 
   constructor(
     private eval_api: EvalApi,
@@ -33,61 +27,25 @@ export class ReviewComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  getSubject(type:string, subject_id:number) {
-
-    let that = this;
-
-    var subject_promise = new Promise(function (resolve, reject) {
-      if (type == "Course") {
-
-        that.eval_api.getCourseById(subject_id).then (function (course:Course) {
-
-          resolve(course);
-
-        }).catch (function (err) {
-          reject(err);
-        })
-
-      }else if (type == "Teacher") {
-
-        that.eval_api.getTeacherById(subject_id).then (function (teacher:Teacher) {
-
-          resolve(teacher);
-
-        }).catch (function (err) {
-          reject(err);
-        })
-      }
-    });
-
-    return subject_promise;
-
-  }
-
   ngOnInit() {
 
     let that = this;
 
-    this.getSubjectId().then (function (id:number) {
-      that.subject_id = id;
-      return that.getType();
-    }).then (function (type:string) {
-      that.review_type = type;
-      return that.getSubject(that.review_type, that.subject_id);
-    }).then (function (subject: Course | Teacher) {
-      that.subject = subject;
-    }).then (function (){
-      switch (that.review_type) {
-        case "Course":
-          that.new_review = Review.createCourseReview(<Course>that.subject, null, "")
-          break;
-        case "Teacher":
-          that.new_review = Review.createTeacherReview(<Teacher>that.subject, null, "")
-          break;
-      }
+    var session_id:number;
+    var schedule_id:number;
+    var student_id:number;
 
-
+    that.getStudentId().then (function (id:number) {
+      student_id = id;
+      return that.getScheduleId()
+    }).then (function (id:number) {
+      schedule_id = id;
+      return that.getStudentId()
+    }).then (function (id:number) {
+      session_id = id;
+      that.new_review = Review.createEmptySessionReview(session_id, schedule_id, student_id);
     })
+
 
   }
 
@@ -101,10 +59,13 @@ export class ReviewComponent implements OnInit {
       let that = this;
 
       this.eval_api.createReview(this.new_review).then (function (reviews:Review[]) {
-
+        alert("review created");
         that.goBack();
 
+      }).catch (function (err) {
+        alert("unable to create review");
       })
+
     }
 
   }
@@ -113,66 +74,52 @@ export class ReviewComponent implements OnInit {
     //I ADDED THIS CODE
     history.back();
 
-    /*switch (this.review_type){
-      case "Course":
-        this.goCourseBack();
-        break;
-      case "Teacher":
-        this.goTeacherBack();
-        break;
-    }*/
 
   }
 
-  goTeacherBack() {
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {'teacher_id': this.subject_id}
-    }
-
-    this.router.navigate(['/profile'], navigationExtras)
-
-
-  }
-
-  goCourseBack() {
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {'course_id': this.subject_id}
-    }
-
-    this.router.navigate(['/course'], navigationExtras)
-
-
-  }
-
-  getSubjectId() {
+  getStudentId() {
     let that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        var id = <number>params['id'] || null;
-        resolve(id)
+        var session_id = <number>params['student_id'] || null;
+        resolve(session_id);
       })
     });
 
-    return query_promise
+    return query_promise;
   }
 
-  getType() {
+  getScheduleId() {
     let that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
       that.route
       .queryParams
       .subscribe(params => {
-        var type = <string>params['type'] || null;
-        resolve(type)
+        var schedule_id = <number>params['schedule_id'] || null;
+        resolve(schedule_id);
       })
     });
 
-    return query_promise
+    return query_promise;
   }
+
+  getSessionId() {
+    let that = this;
+
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        var session_id = <number>params['session_id'] || null;
+        resolve(session_id);
+      })
+    });
+
+    return query_promise;
+  }
+
 }

@@ -35,8 +35,6 @@ export class AdminStatsComponent implements OnInit {
   }
 
   /** Stat Params **/
-  public subject_type:string = null;
-  public subject: Course | Teacher = null;
   public reviews: Review[] = [];
 
   constructor(
@@ -56,6 +54,7 @@ export class AdminStatsComponent implements OnInit {
 
     this.checkAdmin();
 
+    /** FIXME
     that.getSubjectId().then (function (id:number) { // Get the Course/Teacher id
       sid = id;
       return that.getSubjectType();
@@ -73,6 +72,7 @@ export class AdminStatsComponent implements OnInit {
 
     })
 
+    **/
 
   }
 
@@ -107,11 +107,13 @@ export class AdminStatsComponent implements OnInit {
 
   }
 
+  //FIXME
   getReviews(type:string, subject: Course | Teacher) {
 
     let that = this;
 
     var reviews_promise = new Promise (function (resolve, reject ) {
+      /** FIXME
       that.api.getReviews().then (function (reviews: Review[]) {
         switch (type){
           case "course":
@@ -126,12 +128,16 @@ export class AdminStatsComponent implements OnInit {
       }).catch (function (err) {
         reject(err)
       })
+
+      **/
+      resolve ([])
     })
 
     return reviews_promise;
 
   }
 
+  /** DEAD CODE
   filterCourseReviews(reviews: Review[], course: Course) { //Get Course Reviews
 
     let that = this;
@@ -160,6 +166,10 @@ export class AdminStatsComponent implements OnInit {
 
   }
 
+  **/
+
+  /** DEAD CODE
+
   getSubjectId() { // Get the course/teacher id
     var that = this;
 
@@ -176,6 +186,9 @@ export class AdminStatsComponent implements OnInit {
 
   }
 
+  **/
+
+  /** DEAD CODE
   getSubjectType() { // Get the type (i.e Course or Teacher)
     var that = this;
 
@@ -191,7 +204,10 @@ export class AdminStatsComponent implements OnInit {
     return query_promise;
   }
 
+  **/
+
   //Get the subject (i.e Course or Teacher)
+  /** DEAD CODE
   getSubject(type:string, id:number) {
 
     let that = this;
@@ -222,4 +238,6 @@ export class AdminStatsComponent implements OnInit {
     return subject_promise;
 
   }
+
+  **/
 }
