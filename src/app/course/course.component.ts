@@ -11,6 +11,7 @@ import {Teacher} from '../../models/Teacher';
 
 /** Import the api **/
 import {EvalApi} from '../../api/EvalApi';
+import {Department} from '../../models/Department';
 
 @Component({
   selector: 'app-course',
@@ -26,15 +27,20 @@ export class CourseComponent implements OnInit {
   public teachers:Teacher[] = [];
   public reviews:Review[] = [];
 
-  constructor(private route: ActivatedRoute,@Component({
-      selector: 'app-course',
-      templateUrl: './course.component.html',
-      styleUrls: ['./course.component.css'],
-      providers: [EvalApi]
+  public departments:Department[] = [];
 
+  constructor(private route: ActivatedRoute,
       private router: Router,
-  private api: EvalApi) {
+      private api: EvalApi) {
+  }
 
+  getDepartment(department_id:number) {
+
+    var department = this.departments.find(function (department:Department) {
+      return department.id == department_id;
+    })
+
+    return department.name;
   }
 
   ngOnInit() {
@@ -59,14 +65,20 @@ export class CourseComponent implements OnInit {
       that.teachers = teachers;
     });
 
+    this.api.getDepartments().then (function (departments:Department[]) {
+      that.departments = departments
+    });
+
   }
 
   backToSearch()
   {
-    this.router.navigate(['/search'])
+    //this.router.navigate(['/search'])
+    history.back();
   }
 
   leave_review() {
+
 
     let navigationExtras: NavigationExtras = {
       queryParams: {'id': this.course.id,

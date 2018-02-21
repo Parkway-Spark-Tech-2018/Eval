@@ -1,25 +1,28 @@
 <app-navbar></app-navbar>
 <br>
 <!--The content below is only a placeholder and can be replaced.-->
-<div class = "grayspace">
-  <div *ngIf = "show_style" class = "main">
+<div *ngIf = "show_style" class = "grayspace">
+  <div  class = "main">
     <app-heading></app-heading>
     <router-outlet></router-outlet>
     <div class = "row">
       <div class = "col">
-        <img src = "../assets/parkwayschoolslogo.png" alt = "district logo" width = 40% style = "float: right;" align = "right"/>
+        <br/>
+        <img id = "pkfoot" src = "../assets/parkwayschoolslogo.png" alt = "district logo" width = 40% style = "float: right;" align = "right"/>
       </div>
-    </div>
-  </div>
-
-  <div *ngIf = "!show_style" class = "">
-    <router-outlet></router-outlet>
-    <div class = "main">
-    <div class = "row">
-      <div class = "col">
-        <img src = "../assets/parkwayschoolslogo.png" alt = "district logo" width = 40% style = "float: right;" align = "right"/>
-      </div>
-    </div>
     </div>
   </div>
 </div>
+
+<div *ngIf = "!show_style" style = "margin-top: -21.5px;">
+<router-outlet></router-outlet>
+<div class = "main2">
+    <div class = "row">
+      <div class = "col">
+        <br/>
+        <img id = "pkfoot" src = "../assets/parkwayschoolslogo.png" alt = "district logo" width = 40% style = "float: right;" align = "right"/>
+      </div>
+    </div>
+    </div>
+  </div>
+

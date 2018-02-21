@@ -10,12 +10,12 @@ import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/route
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-logininline',
+  templateUrl: './logininline.component.html',
+  styleUrls: ['./logininline.component.css'],
   providers: [AuthService, AngularFireAuth]
 })
-export class LoginComponent implements OnInit {
+export class LogininlineComponent implements OnInit {
 
   public user:EvalUser = new EvalUser();
 
@@ -151,12 +151,9 @@ export class LoginComponent implements OnInit {
     {
       this.router.navigate(['/login'], {queryParams: {'l': 'o'}});
     }
-    else {
-      this.router.navigate(['/login'];
-    }
     location.reload();)
 
-  }
+
 
 
 

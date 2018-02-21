@@ -14,6 +14,69 @@ h1
   @import url('https://fonts.googleapis.com/css?family=Roboto');
   font-size: 2em;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#cardSuperHeader
+{
+  color: white;
+  //background-color: #CC3333;
+  //background-color: #4286f4;
+  //background-color: #ff7f00;
+  background-color: #ffbb00;
+  //background-color: #ff6e07;
+  font-weight: bold;
+}
+#cardSuperHeaderdull
+{
+  color: white;
+  //background-color: #e89086;
+  //background-color: #e08d45;
+  //background-color: #ed6521;
+  background-color: #ff8b26;
+  //background-color: #ff6e07
+}
+#cardSuperHeader:hover, #cardSuperHeaderdull:hover
+{
+  transition: all .2s ease-in;
+  background-color: #EEE;
+  color: black;
+}
+#cardItemHeader
+{
+
+  color: white;
+  background-color: #333;
+  padding-bottom: 0px;
+}
+#cardItem
+{
+  border-color: #DDD;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+#special
+{
+
+}
+#pkfoot
+{
+  max-width: 300px;
+  min-width: 150px;
+}
+#special:hover
+{
+  transition: all .1s ease-in;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  background-color: #EEEEFF;
+  border-radius: 5px;
+  font-color: white;
+}
 #coolbutton
 {
   color: white;
@@ -26,6 +89,13 @@ h1
   color: black;
   border-color: white;
   background: white;
+}
+#coolbutton:active
+{
+  color: white;
+  border-width: 2px;
+  border-color: white;
+  background: #ffa826;
 }
 .black
 {
@@ -43,8 +113,12 @@ h1
 }
 .grayspace
 {
-  margin-top: -20px;
-  background: #FFF;
+  margin-top: -21.5px;
+  background: #ffffff;
+  //background: linear-gradient(to right, #161616, #ed6521, #ed6521, #ed6521, #161616);
+  //background: linear-gradient(to right, #f9a545, black, black, black, #f9a545);
+  //background: linear-gradient(to right, #007fe0, black, white, black, #007fe0);
+  background: linear-gradient(to right, #3e3f3a, #007fe0, #ff7f00, #007fe0, #3e3f3a);
 }
 .main
 {
@@ -52,5 +126,84 @@ h1
   margin-left: 10%;
   margin-right: 10%;
   background: white;
+  min-height: 800px;
+  /*border-style: solid;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-color: #ffa826*/
+}
+.main2
+{
+  padding: 2% 5% 2% 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: white;
+  /*border-style: solid;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-color: #ffa826*/
 }
 
+
+/*THE FOLLOWING IS COPY PASTED DIRECTLY FROM W3 SCHOOLS
+//source: https://www.w3schools.com/howto/howto_css_switch.asp
+
+
+/ The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 260px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ff7600;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(225px);
+  transform: translateX(225px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

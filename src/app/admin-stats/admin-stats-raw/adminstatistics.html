@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="theme.css" type="text/css">
+	<title>Admin Statistics Page</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md bg-secondary navbar-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">EVAL</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">HOME</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">ABOUT</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">DIRECTORY</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">LOGIN</a>
+					</li>
+				</ul>
+				<form class="form-inline m-0">
+					<div class="input-group">
+						<input class="form-control" type="text" placeholder="Search teachers..." id="inlineFormInputGroupUsername2">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button">
+								<i class="fa fa-search" style="line-height: inherit"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<div class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center display-4">Statistics for Teacher/Course Name</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 student-ratings">
+					<h1 class="">Student Ratings</h1>
+					<canvas id="pieChart"></canvas>
+				</div>
+				<div class="col-md-6">
+					<h1 class="">Reviews</h1>
+					<div class="list-group">
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Keith Ross</h5>
+								<small>2 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small>Disliked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Richard Stewart</h5>
+								<small class="text-muted">3 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Katherine Brown</h5>
+								<small class="text-muted">4 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Evelyn Moore</h5>
+								<small class="text-muted">5 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-3">
+		<div class="container">
+			<hr>
+		</div>
+	</div>
+	<div class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 student-ratings">
+					<h1 class="">Student Ratings</h1>
+					<canvas id="doughnutChart"></canvas>
+				</div>
+				<div class="col-md-6">
+					<h1 class="">Reviews</h1>
+					<div class="list-group">
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Keith Ross</h5>
+								<small>2 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small>Disliked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Richard Stewart</h5>
+								<small class="text-muted">3 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Katherine Brown</h5>
+								<small class="text-muted">4 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Evelyn Moore</h5>
+								<small class="text-muted">5 days ago</small>
+							</div>
+							<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<small class="text-muted">Liked</small>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-white bg-secondary">
+		<div class="container">
+			<div class="row">
+				<div class="p-4 col-md-3">
+					<h2 class="mb-4">EVAL</h2>
+					<p class="text-white">A better system for teacher and course feedback.</p>
+				</div>
+				<div class="p-4 col-md-3">
+					<h2 class="mb-4">Mapsite</h2>
+					<ul class="list-unstyled">
+						<a href="#" class="text-white">Home</a>
+						<br>
+						<a href="#" class="text-white">About</a>
+						<br>
+						<a href="#" class="text-white">Directory</a>
+						<br>
+						<a href="#" class="text-white">Login</a>
+					</ul>
+				</div>
+				<div class="p-4 col-md-3">
+					<h2 class="mb-4">Contact</h2>
+					<p>
+						<a href="tel:314-415-8100" class="text-white">
+							<i class="fa d-inline mr-3 fa-phone"></i>314-415-8100</a>
+					</p>
+					<p>
+						<a href="mailto:eval@parkwayschools.net" class="text-white">
+							<i class="fa d-inline mr-3 fa-envelope-o"></i>eval@parkwayschools.net</a>
+					</p>
+					<p>
+						<a href="https://goo.gl/maps/pph3zw5yAr42" class="text-white" target="_blank">
+							<i class="fa d-inline mr-3 fa-map-marker"></i>455 N. Woods Mill Road, Chesterfield, MO 63017</a>
+					</p>
+				</div>
+				<div class="p-4 col-md-3">
+					<img class="img-fluid d-block mx-auto" src="img/parkwayLogo.png"> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 mt-3">
+					<p class="text-center text-white">© Copyright 2018 Parkway Schools - All rights reserved. </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+
+	<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="popper.min.js" type="text/javascript"></script>
+	<script src="mdb.js" type="text/javascript"></script>
+	<script src="piechart.js" type="text/javascript"></script>
+	<script src="doughnutchart.js" type="text/javascript"></script>
+</body>
+
+</html>

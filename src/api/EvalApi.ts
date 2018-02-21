@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -305,9 +306,85 @@ export class EvalApi {
 
   }
 
-  // TODO Replace with API Call
   getReviews() {
-    return ReviewDatabase.getReviews();
+
+    let that = this;
+
+    let reviews_promise = new Promise((resolve, reject) => {
+      this.http.get(endpoint + '/showReviews')
+        .toPromise()
+        .then (
+          res => {
+
+            let rev_courses:Course[] = [];
+            let rev_teachers:Teacher[] = [];
+
+            that.getCourses().then (function (courses: Course[]) {
+              rev_courses = courses;
+              return that.getTeachers();
+            }).then (function (teachers: Teacher[]) {
+              rev_teachers = teachers;
+            }).then (function () {
+              let reviews:Review[] = (<any>res).map (function (item) {
+
+                let approval:boolean = null;
+                let subject: Teacher | Course = null;
+                let subject_id:number = Number(item["Subject_Id"]);
+
+                switch (item["review_type"]){
+                  case "Teacher":
+
+                    let teacher:Teacher = rev_teachers.find(function (teacher:Teacher) {
+                      return teacher.id == subject_id;
+                    });
+
+                    subject = teacher;
+
+                    break;
+                  case "Course":
+
+                    let course:Course = rev_courses.find(function (course:Course) {
+                      return course.id == subject_id;
+                    });
+
+                    subject = course;
+
+                    break;
+                  default:
+                    subject = null;
+                    break;
+                }
+
+                switch (Number(item["Approval"])){
+                  case 1:
+                    approval = true;
+                    break;
+                  case 0:
+                    approval = false;
+                    break;
+                  default:
+                    approval = null;
+                    break;
+                }
+
+                return <Review>{type: item["review_type"], thumbs: approval, comment: item["Explanation"], subject: subject};
+
+              })
+
+              resolve(reviews);
+            }).catch (function (err) {
+              reject(err);
+            })
+
+          }
+        ).catch (function (err) {
+          reject (err);
+        })
+    })
+
+
+    return reviews_promise;
+
   }
 
   getReviewsByTeacherId(id:number) {
@@ -363,7 +440,54 @@ export class EvalApi {
 
   //TODO Replace with API Call
   createReview(review:Review) {
-    return ReviewDatabase.addReview(review);
+
+    let that = this;
+
+    var reviews_promise = new Promise(function (resolve, reject) {
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      }
+
+      var approval:number = null;
+      var subject_id:number = review.subject.id;
+      switch (review.thumbs.toString()) {
+        case "true":
+          approval = 1;
+          break;
+        case "false":
+          approval = 0;
+          break;
+        default:
+          approval = null;
+          break;
+      }
+
+      var payload:any = {
+        "approval": approval,
+        "explanation": review.comment,
+        "Subject_Id": subject_id,
+        "review_type": review.type
+      };
+
+      console.log (payload);
+
+      that.http.post(endpoint + '/newReview', payload, httpOptions)
+        .toPromise()
+        .then (function (res) {
+          resolve({"status": "success"})
+        }).catch (function (err) {
+          reject(err);
+        })
+
+    })
+
+    return reviews_promise;
+
+    //return ReviewDatabase.addReview(review);
+
   }
 
 }

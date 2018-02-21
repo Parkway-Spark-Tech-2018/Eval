@@ -29,8 +29,8 @@
             <div class="d-flex w-100 justify-content-between">
                 <h3 class="mb-1">{{review.comment}}</h3>
             </div>
-            <small *ngIf = "review.thumbs == 'true'"><b>liked</b></small>
-            <small *ngIf = "review.thumbs != 'true'"><b>disliked</b></small>
+            <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
+            <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
           </a>
         </div>
       </div>
