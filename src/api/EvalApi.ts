@@ -306,6 +306,7 @@ export class EvalApi {
 
   }
 
+  //FIXME
   getReviews() {
 
     let that = this;
@@ -387,6 +388,7 @@ export class EvalApi {
 
   }
 
+  //FIXME
   getReviewsByTeacherId(id:number) {
 
     let that = this;
@@ -413,6 +415,7 @@ export class EvalApi {
 
   }
 
+  //FIXME
   getReviewsByCourseId(id:number) {
 
     let that = this;
@@ -438,7 +441,7 @@ export class EvalApi {
   }
 
 
-  //TODO Replace with API Call
+  //FIXME
   createReview(review:Review) {
 
     let that = this;
@@ -485,8 +488,6 @@ export class EvalApi {
     })
 
     return reviews_promise;
-
-    //return ReviewDatabase.addReview(review);
 
   }
 
