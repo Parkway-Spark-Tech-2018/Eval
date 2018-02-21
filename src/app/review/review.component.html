@@ -1,5 +1,5 @@
 <label>Reviewing <strong>{{subject.name}}</strong></label>
-<form *ngIf = "" name = "review-form">
+<form name = "review-form">
   <label>Did you like or dislike this {{review_type.toLowerCase()}}?</label>
   <div class="form-group">
     <select [(ngModel)] = "new_review.thumbs" name = "boolean-select" class="form-control" required>

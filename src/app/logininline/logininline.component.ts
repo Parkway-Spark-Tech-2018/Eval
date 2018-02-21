@@ -84,18 +84,6 @@ export class LogininlineComponent implements OnInit {
         this.user.email = auth.email;
         this.user.id = auth.uid;
 
-        //For TESTING PURPOSES ONLY
-        if (this.user.email == "mikipux7@gmail.com") {
-          this.user.type = 3;
-          this.auth.setUser(this.user);
-
-          that.redirect_test_teacher();
-
-          /** update the local_db of the user for other pages **/
-
-
-        }
-
         //Peter added this code
 
         if (!this.user.email.endsWith('@parkwayschools.net'))
@@ -151,10 +139,6 @@ export class LogininlineComponent implements OnInit {
     {
       this.router.navigate(['/login'], {queryParams: {'l': 'o'}});
     }
-    location.reload();)
-
-
-
-
-
+    location.reload();
+  }
 }

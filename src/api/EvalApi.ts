@@ -352,58 +352,72 @@ export class EvalApi {
 
   }
 
-  /** FIXME
+  getReviewsBySessions(sessions:Session[]) {
+
+    let that = this;
+
+    var review_promise = new Promise (function (resolve, reject) {
+
+      var session_id_list:Number[] = sessions.map(function (session:Session) {
+        return Number(session.id);
+      })
+
+      that.getReviews().then (function (reviews:Review[]) {
+        var filtered_reviews:Review[] = reviews.filter(function (review:Review) {
+          return session_id_list.includes(Number(review.session_id));
+        })
+
+        resolve(filtered_reviews);
+      }).catch (function (err) {
+        reject(err);
+      })
+
+    })
+
+    return review_promise;
+
+  }
+
   getReviewsByTeacherId(id:number) {
 
     let that = this;
 
     var review_promise = new Promise (function (resolve, reject) {
 
-      that.getReviews().then (function (reviews:Review[]) {
 
-        var filtered_reviews = reviews.filter(function (review:Review) {
-          if (review.type == "Teacher" && review.subject != undefined) {
-            return review.subject.id == id;
-          }else {
-            return false;
-          }
-        })
-        resolve(filtered_reviews);
+      that.getSessionsByTeacher(id).then (function (sessions:Session[]) {
+        return that.getReviewsBySessions(sessions);
+      }).then (function (reviews:Review[]) {
+        resolve(reviews);
       }).catch (function (err) {
         reject(err);
       })
 
-    })
-
-    return review_promise;
-
-  }**/
-
-  /** FIXME
-  getReviewsByCourseId(id:number) {
-
-    let that = this;
-
-    var review_promise = new Promise (function (resolve, reject) {
-      that.getReviews().then (function (reviews:Review[]) {
-        var filtered_reviews = reviews.filter(function (review:Review) {
-          if (review.type == "Course" && review.subject != undefined) {
-            return review.subject.id == id;
-          }else {
-            return false;
-          }
-        });
-
-        resolve(filtered_reviews);
-      }).catch (function (err) {
-        reject(err);
-      })
     })
 
     return review_promise;
 
   }
-  **/
+
+  getReviewsByCourseId(id:number) {
+
+    let that = this;
+
+    var review_promise = new Promise (function (resolve, reject) {
+
+      that.getSessionsByCourse(id).then (function (sessions:Session[]) {
+        return that.getReviewsBySessions(sessions);
+      }).then (function (reviews:Review[]) {
+        resolve(reviews);
+      }).catch (function (err) {
+        reject (err);
+      })
+
+    })
+
+    return review_promise;
+
+  }
 
   createReview(review:Review) {
 
