@@ -1,4 +1,9 @@
 
+import {EvalApi} from '../api/EvalApi';
+
+import {Teacher} from './Teacher';
+import {Course} from './Course';
+
 export class Session {
 
   id:number;

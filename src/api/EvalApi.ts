@@ -493,7 +493,6 @@ export class EvalApi {
 
   }
 
-  //TODO
   getStudents() {
 
     let that = this;
@@ -530,7 +529,6 @@ export class EvalApi {
 
   }
 
-  //TODO
   getStudentByEmail(email:string) {
 
     let that = this;
@@ -558,12 +556,64 @@ export class EvalApi {
   //TODO
   getSchedules() {
 
-    
+    let that = this;
+
+    var schedules_promise = new Promise (function (resolve, reject) {
+
+      that.http.get(endpoint + '/showSchedules')
+        .toPromise()
+        .then (function (res) {
+
+          var schedules:StudentSchedule[] = [];
+
+          (<any[]>res).forEach(function (item) {
+            var schedule:StudentSchedule = <StudentSchedule> {
+              id: Number(item["Schedule_Id"]),
+              student_id: Number(item["Student_Id"]),
+              session_id1: Number(item["Session_Id1"]),
+              session_id2: Number(item["Session_Id2"]),
+              session_id3: Number(item["Session_Id3"]),
+              session_id4: Number(item["Session_Id4"]),
+              session_id5: Number(item["Session_Id5"]),
+              session_id6: Number(item["Session_Id6"]),
+              session_id7: Number(item["Session_Id7"]),
+              session_id8: Number(item["Session_Id8"]),
+            };
+
+            schedules.push(schedule);
+          })
+
+          resolve(schedules);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+    })
+
+    return schedules_promise;
 
   }
 
   //TODO
   getScheduleByStudentId(id:number) {
+
+    let that = this;
+
+    var schedule_promise = new Promise (function (resolve, reject) {
+
+      that.getSchedules().then (function (schedules:StudentSchedule[]) {
+        var schedule:StudentSchedule = schedules.find (function (schedule:StudentSchedule) {
+          return schedule.student_id == id;
+        })
+
+        resolve (schedule);
+      }).catch (function (err) {
+        reject (err);
+      });
+
+    });
+
+    return schedule_promise;
 
   }
 
