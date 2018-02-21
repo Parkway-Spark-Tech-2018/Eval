@@ -10,6 +10,8 @@ import {Teacher} from '../models/Teacher';
 import {Course} from '../models/Course';
 import {Department} from '../models/Department';
 import {Session} from '../models/Session';
+import {Student} from '../models/Student';
+import {StudentSchedule} from '../models/StudentSchedule';
 
 /** Review Stuff **/
 import {Review} from '../models/Review';
@@ -488,6 +490,80 @@ export class EvalApi {
     })
 
     return reviews_promise;
+
+  }
+
+  //TODO
+  getStudents() {
+
+    let that = this;
+
+    var students_promise = new Promise(function (resolve, reject ) {
+
+      that.http.get(endpoint + '/showStudents')
+        .toPromise()
+        .then (function (res) {
+
+          var students:Student[] = [];
+
+          (<any[]>res).forEach(function (item) {
+            var student:Student = <Student> {
+              id: Number(item["Student_Id"]),
+              first_name: item["First_Name"],
+              last_name: item["Last_Name"],
+              email: item["Email"],
+              full_name: item["First_Name"] + " " + item["Last_Name"]
+            };
+
+            students.push(student);
+          })
+
+          resolve(students);
+
+        }).catch (function (err) {
+          reject(err);
+        })
+
+    })
+
+    return students_promise;
+
+  }
+
+  //TODO
+  getStudentByEmail(email:string) {
+
+    let that = this;
+
+    var student_promise = new Promise (function (resolve, reject) {
+
+      that.getStudents().then (function (students:Student[]) {
+
+        var student:Student = students.find(function (student:Student) {
+          return student.email == email;
+        })
+
+        resolve(student);
+
+      }).catch (function (err) {
+        reject(err);
+      })
+
+    })
+
+    return student_promise;
+
+  }
+
+  //TODO
+  getSchedules() {
+
+    
+
+  }
+
+  //TODO
+  getScheduleByStudentId(id:number) {
 
   }
 
