@@ -145,8 +145,9 @@ export class DirectoryComponent implements OnInit {
 
   /** Filtering results **/
   resetFilter() {
-    this.filter_mode = "all"
-    this.updateFilter();
+    /*this.filter_mode = "all"
+    this.updateFilter();*/
+    this.filterCourses();
   }
 
   filterCourses() {
@@ -222,6 +223,18 @@ export class DirectoryComponent implements OnInit {
       }
     }
   }
+  alternateTC()
+  {
+    console.log('Hello');
+    if (this.filter_mode === "teachers")
+    {
+      this.filterCourses();
+    }
+    else //if (this.filter_mode === "courses")
+    {
+      this.filterTeachers();
+    }
+  }
   updateCourses()
   {
     this.courseschecked = !this.courseschecked;
@@ -290,6 +303,8 @@ export class DirectoryComponent implements OnInit {
     {
       this.show.push(true);
     }
+
+    this.filterCourses();
 
   }
 }

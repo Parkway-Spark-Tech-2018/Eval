@@ -295,6 +295,18 @@ export class SearchComponent implements OnInit {
       }
     }
   }
+  alternateTC()
+  {
+    console.log('Hello');
+    if (this.filter_mode === "teachers")
+    {
+      this.filterCourses();
+    }
+    else //if (this.filter_mode === "courses")
+    {
+      this.filterTeachers();
+    }
+  }
   //END OF ADDED CODE
 
   getDepartment(department_id:number) {
@@ -329,6 +341,8 @@ export class SearchComponent implements OnInit {
     {
       this.show.push(false);
     }
+
+    this.filterCourses();
 
   }
 

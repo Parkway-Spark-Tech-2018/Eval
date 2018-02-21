@@ -1,30 +1,16 @@
-<h1>Drink the orange juice, not the Kool Aid!</h1>
+<h1>Searching...</h1>
+<h4>...for the sweet sensation of orange juice!</h4>
 
-<div class = "row">
-  <div class = "col" style = "text-align: center">
-    <h4><strong>View Teachers</strong></h4>
-    <!--Reminder: ng-checked = "true"-->
-    <div class="checkbox">
-      <label class = "switch">
-        <input type="checkbox" value = "teacherchecked" checked data-toggle="toggle"
-               [checked]="teacherchecked"
-               (click)="updateTeacher()">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </div>
-  <div class = "col" style = "text-align: center">
-    <h3><strong>View Courses</strong></h3>
-    <div class="checkbox">
-      <label class = "switch">
-        <input type="checkbox" value = "coureseschecked" checked data-toggle="toggle"
-               [checked]="courseschecked"
-               (click)="updateCourses()">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </div>
-</div>
+<label style = "float: right; margin-bottom: -40px;" class="switch">
+  <input type="checkbox" (click)="alternateTC()" class="switch-input">
+  <span class="switch-label" data-on="Teachers" data-off="Courses"></span>
+  <span class="switch-handle"></span>
+</label>
+<span style = "clear: both; margin-bottom: -40px;"></span>
+<h4 style = "text-align: center" *ngIf = "filter_mode==='teachers'"><strong>View Teachers</strong></h4>
+<h4 style = "text-align: center" *ngIf = "filter_mode==='courses'"><strong>View Courses</strong></h4>
+
+
 <!--Michael's Ugly old code
 <div class = "row">
 

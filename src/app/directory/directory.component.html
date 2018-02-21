@@ -1,34 +1,21 @@
 <h1>Every teacher and course from Parkway Central!</h1>
 <h4>All from concentrate.</h4>
 
-<!--OLD CODE
-<div class = "row">
-  <div class = "col-md-6" *ngIf= "filter_mode != 'all'">
-    <button (click) = "resetFilter()" class = "btn btn-block btn-dark">
-      All
-    </button>
-  </div>
-
-  <div class = "col-md-6" *ngIf= "filter_mode != 'teachers'">
-    <button (click) = "filterTeachers()" class = "btn btn-block btn-warning">
-      Teachers
-    </button>
-  </div>
-
-  <div class = "col-md-6" *ngIf= "filter_mode != 'courses'">
-    <button (click) = "filterCourses()" class = "btn btn-block btn-danger">
-      Courses
-    </button>
-  </div>
-</div>
--->
-
+  <label style = "float: right; margin-bottom: -40px;" class="switch">
+    <input type="checkbox" (click)="alternateTC()" class="switch-input">
+    <span class="switch-label" data-on="Teachers" data-off="Courses"></span>
+    <span class="switch-handle"></span>
+  </label>
+<span style = "clear: both; margin-bottom: -40px;"></span>
+<h4 style = "text-align: center" *ngIf = "filter_mode==='teachers'"><strong>View Teachers</strong></h4>
+<h4 style = "text-align: center" *ngIf = "filter_mode==='courses'"><strong>View Courses</strong></h4>
 <div class = "row">
   <div class = "col" style = "text-align: center">
-    <h4><strong>View Teachers</strong></h4>
+
     <!--Reminder: ng-checked = "true"-->
 
-    <div class="checkbox">
+
+    <!--div class="checkbox">
       <label class = "switch">
         <input type="checkbox" value = "teacherchecked" checked data-toggle="toggle"
                [checked]="teacherchecked"
@@ -49,7 +36,7 @@
       </label>
     </div>
   </div>
-</div>
+</div-->
 
 <br>
 <div *ngFor = "let initial of departments">
