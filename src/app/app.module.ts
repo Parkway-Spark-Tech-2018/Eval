@@ -31,6 +31,7 @@ import {AngularFireModule} from 'angularfire2';
 
 // Chart module
 import {ChartsModule} from 'ng2-charts';
+import { LogininlineComponent } from './logininline/logininline.component';
 
 //List of Pages for Web App
 const appRoutes: Routes = [
@@ -77,7 +78,8 @@ const firebaseConfig = {
     TeacherUserComponent,
     StudentComponent,
     DirectoryComponent,
-    AdminStatsComponent
+    AdminStatsComponent,
+    LogininlineComponent
   ],
   imports: [
     BrowserModule,

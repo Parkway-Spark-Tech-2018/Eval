@@ -1,0 +1,2 @@
+<button *ngIf = "logged_in" (click) = "logout()" type="button" class="btn btn-default btn-sm">Sign out</button>
+<button *ngIf = "!logged_in" (click) = "google_login()" type="button" class="btn btn-default btn-sm">Sign in</button>

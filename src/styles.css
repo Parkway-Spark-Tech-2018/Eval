@@ -19,26 +19,24 @@ h1
   margin-left: auto;
   margin-right: auto;
 }
-#cnav
-{
-  background-color: black;
-}
-.cnav
-{
-  background-color: black;
-}
 #cardSuperHeader
 {
   color: white;
   //background-color: #CC3333;
-  background-color: #ed6521;
+  //background-color: #4286f4;
+  //background-color: #ff7f00;
+  background-color: #ffbb00;
+  //background-color: #ff6e07;
   font-weight: bold;
 }
 #cardSuperHeaderdull
 {
   color: white;
   //background-color: #e89086;
-  background-color: #e08d45;
+  //background-color: #e08d45;
+  //background-color: #ed6521;
+  background-color: #ff8b26;
+  //background-color: #ff6e07
 }
 #cardSuperHeader:hover, #cardSuperHeaderdull:hover
 {
@@ -115,10 +113,12 @@ h1
 }
 .grayspace
 {
-  margin-top: -20px;
+  margin-top: -21.5px;
   background: #ffffff;
   //background: linear-gradient(to right, #161616, #ed6521, #ed6521, #ed6521, #161616);
-  background: linear-gradient(to right, #f9a545, white, white, white, #f9a545);
+  //background: linear-gradient(to right, #f9a545, black, black, black, #f9a545);
+  //background: linear-gradient(to right, #007fe0, black, white, black, #007fe0);
+  background: linear-gradient(to right, #3e3f3a, #007fe0, #ff7f00, #007fe0, #3e3f3a);
 }
 .main
 {
@@ -145,15 +145,15 @@ h1
 }
 
 
-/*THE FOLLOWING IS COPY PASTED DIRECTLY FROM W3 SCHOOLS*/
-/*source: https://www.w3schools.com/howto/howto_css_switch.asp*/
+/*THE FOLLOWING IS COPY PASTED DIRECTLY FROM W3 SCHOOLS
+//source: https://www.w3schools.com/howto/howto_css_switch.asp
 
 
-/* The switch - the box around the slider */
+/ The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 260px;
   height: 34px;
 }
 
@@ -186,7 +186,7 @@ h1
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #ff7600;
 }
 
 input:focus + .slider {
@@ -195,8 +195,8 @@ input:focus + .slider {
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -ms-transform: translateX(225px);
+  transform: translateX(225px);
 }
 
 /* Rounded sliders */
