@@ -120,6 +120,7 @@ h1
   //background: linear-gradient(to right, #f9a545, black, black, black, #f9a545);
   //background: linear-gradient(to right, #007fe0, black, white, black, #007fe0);
   background: linear-gradient(to right, #3e3f3a, #ef5b00, #ef5b00, #ef5b00, #3e3f3a);
+  min-height: 100%;
 }
 .main
 {
@@ -127,7 +128,7 @@ h1
   margin-left: 10%;
   margin-right: 10%;
   background: white;
-  min-height: 800px;
+  min-height: 900px;
   /*border-style: solid;
   border-left-width: 10px;
   border-right-width: 10px;
