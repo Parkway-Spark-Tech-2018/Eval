@@ -83,10 +83,10 @@
       </div>
       <div id = "special" *ngIf = "initial.id === result.result.department_id" (click) = "view(result.type, result.result.id)">
         <div class = "card-header" id = "cardItemHeader">
-          <p>{{result.type}}</p>
+          <p style = "text-align: left">{{result.type}}</p>
         </div>
         <div class = "card-body" id = "cardItem">
-          <div class = "row">
+          <div style = "text-align: left" class = "row">
             <div class = "col">
               <span *ngIf = "result.result.name.includes('(Sem')"><h4>{{result.result.name.split("(Sem")[0]}}</h4><p><em>(Sem{{result.result.name.split("(Sem")[1]}}</em></p></span>
               <h4 *ngIf = "!result.result.name.includes('(Sem')">{{result.result.name}}</h4>
