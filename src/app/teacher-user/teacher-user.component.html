@@ -31,6 +31,8 @@
             </div>
             <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
             <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+
+            from course, {{getCourseBySession(review.session_id).name}}
           </a>
         </div>
       </div>

@@ -89,4 +89,16 @@ export class TeacherUserComponent implements OnInit {
 
   }
 
+  getCourseBySession(session_id:number) {
+    let that = this;
+
+    return this.courses.find (function (course:Course) {
+      var session:Session = that.sessions.find(function (session:Session) {
+        return session.id == session_id;
+      })
+
+      return course.id == session.course_id;
+    })
+  }
+
 }
