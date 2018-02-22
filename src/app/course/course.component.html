@@ -16,7 +16,7 @@
     <br/>
     <h3>Taught by</h3>
     <ul>
-      <li style = "font-size: 1.5em" *ngFor = "let teacher of teachers"><a style = "text-decoration:underline;" href = "/profile?teacher_id={{teacher.id}}">{{teacher.name}}</a> <em><a href = "mailto:{{teacher.email}}">{{teacher.email}}</a></em></li>
+      <li style = "font-size: 1.5em" *ngFor = "let teacher of teachers"><a style = "color:darkgreen;" href = "/profile?teacher_id={{teacher.id}}">{{teacher.name}}</a> <em><a href = "mailto:{{teacher.email}}">{{teacher.email}}</a></em></li>
     </ul>
 
     <div class = "row" style = "padding: 0% 10% 0% 10%">
