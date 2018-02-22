@@ -346,6 +346,8 @@ export class DirectoryComponent implements OnInit {
       that.courses = <Course[]> data;
     }).then (function () {
       that.performSearch(); //Perform the search;
+      that.alternateTC()
+      that.alternateTC()
     })
 
 
@@ -359,6 +361,5 @@ export class DirectoryComponent implements OnInit {
     }
 
     this.filterCourses();
-
   }
 }
