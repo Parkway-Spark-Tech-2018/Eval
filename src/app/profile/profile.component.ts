@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import {Router, ActivatedRoute, ParamMap, NavigationExtras} from '@angular/router';
-
 import {ReviewDatabase} from '../../database/ReviewDatabase';
 import {Review} from '../../models/Review';
 
@@ -9,6 +7,10 @@ import {Teacher} from '../../models/Teacher';
 import {Course} from '../../models/Course';
 import {Session} from '../../models/Session';
 
+
+import { AuthService } from '../providers/auth.service';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {EvalUser} from '../../models/EvalUser';
 /** Import the api **/
 import {EvalApi} from '../../api/EvalApi';
 import {Department} from '../../models/Department';
@@ -17,7 +19,7 @@ import {Department} from '../../models/Department';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  providers: [EvalApi]
+  providers: [EvalApi, AuthService, AngularFireAuth]
 })
 export class ProfileComponent implements OnInit {
 
@@ -25,16 +27,41 @@ export class ProfileComponent implements OnInit {
   public reviews:Review[] = [];
   public courses:Course[] = [];
   public sessions:Session[] = [];
-
+  public user:EvalUser;
+  public usertype:number = 0;
   public departments:Department[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private api: EvalApi
+    private api: EvalApi,
+    private auth: AuthService
   ) {
+      let that = this;
+
+      this.auth.getUser().then (function (user:EvalUser) {
+        if (user == null) {
+          that.user = null;
+          that.usertype = 0;
+        }else {
+
+          that.user = user;
+          console.log('User: '+that.user.user_name)
+          if (that.user.type === null)
+            that.usertype = 0;
+          else
+            that.usertype = that.user.type;
+        }
+
+
+        console.log('User:'+that.user);
+
+      })
+      this.usertype = that.usertype;
+
 
   }
+
 
   getDepartment(department_id:number) {
 

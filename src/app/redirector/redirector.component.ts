@@ -48,12 +48,12 @@ export class RedirectorComponent implements OnInit {
         else if (that.user.type == 2) //Teacher
         {
           //console.log('Well you are a sudent, so, going to search page.')
-          that.router.navigate(['/teacher-user.component.ts']);
+          that.router.navigate(['/teacher-user']);
         }
         else if (that.user.type == 3) //Admin
         {
           //console.log('Well you are a sudent, so, going to search page.')
-          that.router.navigate(['/teacher-user.component.ts']);
+          that.router.navigate(['/directory']);
         }
         else
         {

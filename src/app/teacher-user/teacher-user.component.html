@@ -29,8 +29,8 @@
             <div class="d-flex w-100 justify-content-between">
                 <h3 class="mb-1">{{review.comment}}</h3>
             </div>
-            <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
-            <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+            <small *ngIf = "review.thumbs.toString() == 'true'" style = "color: #27a521"><b>Would reccomend</b></small>
+            <small *ngIf = "review.thumbs.toString() != 'true'" style = "color: #d12f2f"><b>Would not reccomend</b></small>
 
             from course, <a style = "color:darkgreen" href = "/course?course_id={{getCourseBySession(review.session_id).id}}"> {{getCourseBySession(review.session_id).name}}</a>
           </a>

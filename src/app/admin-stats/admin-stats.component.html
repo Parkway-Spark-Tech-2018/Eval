@@ -8,7 +8,7 @@
 
   <div class="col-md-6 student-ratings">
     <h1 class="text-center">Student Ratings</h1>
-    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [colors] = "pieChartColors" [chartType]="pieChartType"></canvas>
   </div>
   <div class="col-md-6">
     <h1 class="text-center">Reviews</h1>
@@ -17,8 +17,8 @@
         <div class="d-flex w-100 justify-content-between">
             <h3 class="mb-1">{{review.comment}}</h3>
         </div>
-        <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
-        <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+        <small *ngIf = "review.thumbs.toString() == 'true'" style = "color: #27a521"><b>Would reccomend</b></small>
+        <small *ngIf = "review.thumbs.toString() != 'true'" style = "color: #d12f2f"><b>Would not reccomend</b></small>
 
         <div *ngIf = "subject_type == 'course' && teachers.length > 0">
           From teacher, {{getTeacherBySession(review.session_id).name}}
