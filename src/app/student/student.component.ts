@@ -77,6 +77,10 @@ export class StudentComponent implements OnInit {
         });
 
       }
+      if (that.user == null)
+      {
+        that.router.navigate(['/']);
+      }
 
     });
 

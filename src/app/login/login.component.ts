@@ -126,6 +126,11 @@ export class LoginComponent implements OnInit {
       this.auth.setUser(this.user);
     });
 
+    if (this.logged_in && this.tryAgain)
+    {
+      location.reload();
+    }
+
 
   }
 

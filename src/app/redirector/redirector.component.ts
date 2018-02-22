@@ -28,14 +28,15 @@ export class RedirectorComponent implements OnInit {
       if (user == null) {
         that.user = null;
         that.usertype = 0;
-        that.router.navigate(['/home']);
+        console.log('Got here!')
+        that.router.navigate(['/']);
       }else {
 
         that.user = user;
         console.log('User: ' + that.user.user_name)
         if (that.user.type == 0) {
-        that.usertype = 0;
-        that.router.navigate(['/home']);
+          that.usertype = 0;
+          that.router.navigate(['/']);
         }
         else
           that.usertype = that.user.type;
@@ -44,15 +45,19 @@ export class RedirectorComponent implements OnInit {
           //console.log('Well you are a sudent, so, going to search page.')
           that.router.navigate(['/student']);
         }
-        if (that.user.type == 2) //Teacher
+        else if (that.user.type == 2) //Teacher
         {
           //console.log('Well you are a sudent, so, going to search page.')
           that.router.navigate(['/teacher-user.component.ts']);
         }
-        if (that.user.type == 3) //Admin
+        else if (that.user.type == 3) //Admin
         {
           //console.log('Well you are a sudent, so, going to search page.')
           that.router.navigate(['/teacher-user.component.ts']);
+        }
+        else
+        {
+          that.router.navigate(['/home']);
         }
         location.reload();
       }
