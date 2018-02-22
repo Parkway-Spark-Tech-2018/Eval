@@ -329,7 +329,9 @@ export class SearchComponent implements OnInit {
     }).then (function (data) {
       that.courses = <Course[]> data;
     }).then (function () {
-      that.performSearch(); //Perform the search;
+      that.performSearch();
+      that.alternateTC()
+      that.alternateTC() //Perform the search;
     })
 
 
