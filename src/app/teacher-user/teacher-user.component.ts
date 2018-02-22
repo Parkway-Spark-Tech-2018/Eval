@@ -19,6 +19,14 @@ import 'rxjs/add/operator/switchMap';
 })
 export class TeacherUserComponent implements OnInit {
 
+  /** Chart stuff **/
+  public pieChartLabels:string[] = ['Dislikes', 'Likes' ];
+  public pieChartData:number[] = [0, 0];
+  public pieChartType:string = 'pie';
+  public chartOptions = {
+    responsive: true
+  }
+
   public teacher_id:number;
   public user_teacher:Teacher;
   public department:Department;
@@ -58,6 +66,27 @@ export class TeacherUserComponent implements OnInit {
 
   }
 
+  renderChart(reviews: Review[]) {
+    var likes:number = 0;
+    var dislikes:number = 0;
+
+    reviews.forEach(function (review:Review) {
+      switch (review.thumbs.toString()) {
+        case "true":
+          likes += 1;
+          break;
+        case "false":
+          dislikes += 1;
+          break;
+        default:
+          break;
+      }
+    })
+
+    this.pieChartData = [dislikes, likes]
+
+  }
+
   retrieveInfo(teacher_id:number) {
 
     let that = this;
@@ -80,6 +109,7 @@ export class TeacherUserComponent implements OnInit {
 
       that.eval_api.getReviewsByTeacherId(that.user_teacher.id).then (function (reviews: Review[]) {
         that.reviews = reviews;
+        that.renderChart(that.reviews);
         console.log (that.reviews);
       })
 
@@ -87,6 +117,18 @@ export class TeacherUserComponent implements OnInit {
       console.log(err);
     })
 
+  }
+
+  getCourseBySession(session_id:number) {
+    let that = this;
+
+    return this.courses.find (function (course:Course) {
+      var session:Session = that.sessions.find(function (session:Session) {
+        return session.id == session_id;
+      })
+
+      return course.id == session.course_id;
+    })
   }
 
 }

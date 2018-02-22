@@ -109,12 +109,17 @@
               <div *ngIf = "result.type === 'Teacher'">
                 {{result.result.prefix}} {{result.result.last_name}}, {{getDepartment(result.result.department_id)}} teacher.<br/><em>{{result.result.email}}</em>
               </div>
+              <br>
+              <div *ngIf = "admin == true">
+                <button (click) = "viewAdminStats(result)" class = "btn btn-block btn-danger">View Stats</button>
+              </div>
+
             </div>
             <div class = "col">
               <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
               <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
             </div>
           </div>
+
         </div>
       </div>
-
