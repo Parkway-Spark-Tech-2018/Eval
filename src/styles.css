@@ -119,9 +119,10 @@ h1
   //background: linear-gradient(to right, #161616, #ed6521, #ed6521, #ed6521, #161616);
   //background: linear-gradient(to right, #f9a545, black, black, black, #f9a545);
   //background: linear-gradient(to right, #007fe0, black, white, black, #007fe0);
-  //THIS background: linear-gradient(to right, #3e3f3a, #ef5b00, #ef5b00, #ef5b00, #3e3f3a);
-  background-image: url("assets/oranges.jpg");
+  //background: linear-gradient(to right, #8e8c85, #ef5b00, #ef5b00, #ef5b00, #8e8c85);
+  background-color: #ffa826;/*background-image: url("assets/oranges.gif");
   background-size: 300px 300px;
+  background-color: #ffb45e;*/
   min-height: 100%;
 }
 .main
