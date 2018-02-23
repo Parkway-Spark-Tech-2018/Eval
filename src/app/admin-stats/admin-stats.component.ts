@@ -37,6 +37,13 @@ export class AdminStatsComponent implements OnInit {
   /** Stat Params **/
   public reviews: Review[] = [];
 
+  public subject_type:string;
+  public subject: Course | Teacher;
+
+  public teachers:Teacher[] = [];
+  public courses:Course[] = [];
+  public sessions:Session[] = [];
+
   constructor(
       private route: ActivatedRoute,
       private router: Router,
@@ -52,9 +59,8 @@ export class AdminStatsComponent implements OnInit {
 
     let that = this;
 
-    this.checkAdmin();
+    //this.checkAdmin();
 
-    /** FIXME
     that.getSubjectId().then (function (id:number) { // Get the Course/Teacher id
       sid = id;
       return that.getSubjectType();
@@ -63,16 +69,62 @@ export class AdminStatsComponent implements OnInit {
       return that.getSubject(that.subject_type, sid); // Get the Course/Teacher Object
     }).then (function (subject: Course | Teacher) {
       that.subject = subject
-      return that.getReviews(that.subject_type, that.subject);
+      return that.getSessions(that.subject_type, that.subject);
+
+    }).then (function (sessions: Session[]){
+
+      console.log(sessions);
+
+      that.sessions = sessions;
+
+      that.api.getCoursesFromSessions(sessions).then (function (courses:Course[]) {
+        that.courses = courses;
+      })
+
+      that.api.getTeachersFromSessions(sessions).then (function (teachers:Teacher[]) {
+        that.teachers = teachers;
+      })
+
+      return that.api.getReviewsBySessions(sessions);
+
     }).then (function (reviews: Review[]) {
       that.reviews = reviews;
-      console.log(that.reviews);
-
+      console.log(reviews);
       that.renderChart(that.reviews);
+
 
     })
 
-    **/
+  }
+
+  getSessions(subject_type:string, subject: Course | Teacher) {
+
+    let that = this;
+
+    var sessions_promise = new Promise(function (resolve, reject) {
+
+      var sessions_filter_promise = null;
+
+      switch (subject_type) {
+        case "course":
+          sessions_filter_promise = that.api.getSessionsByCourse((<Course>subject).id);
+          break;
+        case "teacher":
+          sessions_filter_promise = that.api.getSessionsByTeacher((<Teacher>subject).id);
+          break;
+        default:
+          resolve([]);
+      }
+
+      sessions_filter_promise.then (function (sessions: Session[]) {
+        resolve(sessions)
+      }).catch (function (err) {
+        reject (err);
+      })
+
+    })
+
+    return sessions_promise;
 
   }
 
@@ -107,70 +159,24 @@ export class AdminStatsComponent implements OnInit {
 
   }
 
-  //FIXME
-  getReviews(type:string, subject: Course | Teacher) {
+  getSubjectType() { // Get the type (i.e Course or Teacher)
+    var that = this;
 
-    let that = this;
-
-    var reviews_promise = new Promise (function (resolve, reject ) {
-      /** FIXME
-      that.api.getReviews().then (function (reviews: Review[]) {
-        switch (type){
-          case "course":
-            resolve (that.filterCourseReviews(reviews, <Course>subject));
-            break;
-          case "teacher":
-            resolve (that.filterTeacherReviews(reviews, <Teacher>subject));
-            break;
-          default:
-            resolve (null)
-        }
-      }).catch (function (err) {
-        reject(err)
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        let subject_type = params["subject_type"] || null;
+        resolve(subject_type);
       })
+    });
 
-      **/
-      resolve ([])
-    })
-
-    return reviews_promise;
-
+    return query_promise;
   }
 
-  /** DEAD CODE
-  filterCourseReviews(reviews: Review[], course: Course) { //Get Course Reviews
+  getSubjectId() {
+    var that = this;
 
-    let that = this;
-
-    return reviews.filter(function (review:Review) {
-      if (review.subject == undefined || review.type == undefined) {
-        return false;
-      }
-
-      return (review.type == "Course" && review.subject.id == course.id)
-    })
-
-  }
-
-  filterTeacherReviews(reviews: Review[], teacher: Teacher) { //Get Teacher Reviews
-
-    let that = this;
-
-    return reviews.filter(function (review:Review) {
-        if (review.subject == undefined || review.type == undefined) {
-          return false;
-        }
-
-        return (review.type == "Teacher" && review.subject.id == teacher.id)
-    })
-
-  }
-
-  **/
-
-  /** DEAD CODE
-
-  getSubjectId() { // Get the course/teacher id
     var that = this;
 
     let query_promise = new Promise (function (resolve, reject) {
@@ -183,32 +189,38 @@ export class AdminStatsComponent implements OnInit {
     });
 
     return query_promise;
-
   }
 
-  **/
+  getCourseBySession(session_id:number) {
+    let that = this;
 
-  /** DEAD CODE
-  getSubjectType() { // Get the type (i.e Course or Teacher)
-    var that = this;
-
-    let query_promise = new Promise (function (resolve, reject) {
-      that.route
-      .queryParams
-      .subscribe(params => {
-        let subject_id = params["subject_type"] || null;
-        resolve(subject_id);
+    return this.courses.find (function (course:Course) {
+      var session:Session = that.sessions.find(function (session:Session) {
+        return session.id == session_id;
       })
-    });
 
-    return query_promise;
+      return course.id == session.course_id;
+    })
   }
 
-  **/
+  getTeacherBySession(session_id:number) {
 
-  //Get the subject (i.e Course or Teacher)
-  /** DEAD CODE
-  getSubject(type:string, id:number) {
+    let that = this;
+
+    return this.teachers.find (function (teacher:Teacher) {
+
+      var session:Session = that.sessions.find(function (session:Session) {
+        return session.id == session_id;
+      })
+
+      return teacher.id == session.staff_id;
+
+    })
+
+
+  }
+
+  getSubject(subject_type:string, subject_id:number) {
 
     let that = this;
 
@@ -216,28 +228,27 @@ export class AdminStatsComponent implements OnInit {
 
       var s_promise = null;
 
-      switch (type) {
+      switch (subject_type) {
         case "course":
-          s_promise = that.api.getCourseById(id);
+          s_promise = that.api.getCourseById(subject_id);
           break;
         case "teacher":
-          s_promise = that.api.getTeacherById(id);
+          s_promise = that.api.getTeacherById(subject_id);
           break;
         default:
-          resolve(null)
+          reject("Bad!")
       }
 
-      s_promise.then (function (subject: Course | Teacher) {
-        resolve (subject)
+      s_promise.then (function (subject) {
+        resolve(subject);
       }).catch (function (err) {
-        reject(err)
+        reject(err);
       })
 
-    })
+    });
 
     return subject_promise;
 
   }
 
-  **/
 }

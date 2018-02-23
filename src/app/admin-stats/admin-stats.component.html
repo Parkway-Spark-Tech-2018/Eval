@@ -4,7 +4,8 @@
   </div>
 </div>
 <br>
-<div class="row">
+<div *ngIf = "reviews.length > 0" class="row">
+
   <div class="col-md-6 student-ratings">
     <h1 class="text-center">Student Ratings</h1>
     <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
@@ -19,7 +20,19 @@
         </div>
         <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
         <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+
+        <div *ngIf = "subject_type == 'course' && teachers.length > 0">
+          From teacher, {{getTeacherBySession(review.session_id).name}}
+        </div>
+
+        <div *ngIf = "subject_type == 'teacher' && courses.length > 0">
+          From course, {{getCourseBySession(review.session_id).name}}
+        </div>
+
       </a>
     </div>
   </div>
+</div>
+<div *ngIf = "!reviews.length > 0">
+  <h1>Sorry no stats to show for this {{subject_type}}</h1>
 </div>
