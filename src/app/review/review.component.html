@@ -1,11 +1,11 @@
-<label>Reviewing <strong>{{subject.name}}</strong></label>
+<h1><label>Reviewing <strong>{{subject.name}}</strong></label></h1>
 <form name = "review-form">
-  <label>Did you like or dislike this {{review_type.toLowerCase()}}?</label>
+  <label>Would you reccomend this course to a friend?{{review_type.toLowerCase()}}?</label>
   <div class="form-group">
     <select [(ngModel)] = "new_review.thumbs" name = "boolean-select" class="form-control" required>
       <option value="null" [selected]="isSelected"> Please choose one </option>
-      <option value="true">liked</option>
-      <option value="false">disliked</option>
+      <option value="true">yes</option>
+      <option value="false">no</option>
     </select>
   </div>
 

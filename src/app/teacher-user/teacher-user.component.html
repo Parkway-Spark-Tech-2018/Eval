@@ -18,7 +18,7 @@
       <div class="col-md-6 teacher-courses">
         <h1 class="">You Teach</h1>
         <ul class="list-group">
-          <li *ngFor = "let course of courses;" class="list-group-item d-flex justify-content-between align-items-center"> {{course.name}}
+          <li *ngFor = "let course of courses;" class="list-group-item d-flex justify-content-between align-items-center"> <a style = "color: darkgreen" href = "/course?course_id={{course.id}}">{{course.name}}</a>
           </li>
         </ul>
       </div>
@@ -29,8 +29,10 @@
             <div class="d-flex w-100 justify-content-between">
                 <h3 class="mb-1">{{review.comment}}</h3>
             </div>
-            <small *ngIf = "review.thumbs.toString() == 'true'"><b>liked</b></small>
-            <small *ngIf = "review.thumbs.toString() != 'true'"><b>disliked</b></small>
+            <small *ngIf = "review.thumbs.toString() == 'true'" style = "color: #27a521"><b>Would reccomend</b></small>
+            <small *ngIf = "review.thumbs.toString() != 'true'" style = "color: #d12f2f"><b>Would not reccomend</b></small>
+
+            from course, <a style = "color:darkgreen" href = "/course?course_id={{getCourseBySession(review.session_id).id}}"> {{getCourseBySession(review.session_id).name}}</a>
           </a>
         </div>
       </div>

@@ -58,43 +58,7 @@ export class HomeComponent implements OnInit {
     console.log(this.usertype)
 
   }
-  getUserType()
-  {
 
-    let that = this;
-
-    this.auth.getUser().then (function (user:EvalUser) {
-      if (user == null) {
-        that.user = null;
-        that.usertype = 0;
-      }else {
-
-        that.user = user;
-        console.log('User: '+that.user.user_name)
-        if (that.user.type === null)
-          that.usertype = 0;
-        else
-          that.usertype = that.user.type;
-        if (that.user.type == 1) //Student
-        {
-          //console.log('Well you are a sudent, so, going to search page.')
-          //that.router.navigate(['/student']);
-        }
-        if (that.user.type == 2) //Teacher
-        {
-          //console.log('Well you are a sudent, so, going to search page.')
-          //that.router.navigate(['/about']);
-        }
-      }
-
-
-      console.log('User:'+that.user);
-
-    })
-    this.usertype = that.usertype;
-    console.log(this.usertype)
-
-  }
 
   ngOnInit() {
 

@@ -27,9 +27,13 @@ export class AdminStatsComponent implements OnInit {
 
 
   /** Chart stuff **/
-  public pieChartLabels:string[] = ['Dislikes', 'Likes' ];
+  public pieChartLabels:string[] = ['Would Not Reccomend', 'Would Reccomend' ];
   public pieChartData:number[] = [0, 0];
   public pieChartType:string = 'pie';
+  public pieChartColors:string[] = [
+    {
+      backgroundColor:["#d85252", "#83cc63"]
+    }];
   public chartOptions = {
     responsive: true
   }

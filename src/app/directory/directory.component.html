@@ -83,10 +83,10 @@
       </div>
       <div id = "special" *ngIf = "initial.id === result.result.department_id" (click) = "view(result.type, result.result.id)">
         <div class = "card-header" id = "cardItemHeader">
-          <p>{{result.type}}</p>
+          <p style = "text-align: left">{{result.type}}</p>
         </div>
         <div class = "card-body" id = "cardItem">
-          <div class = "row">
+          <div style = "text-align: left" class = "row">
             <div class = "col">
               <span *ngIf = "result.result.name.includes('(Sem')"><h4>{{result.result.name.split("(Sem")[0]}}</h4><p><em>(Sem{{result.result.name.split("(Sem")[1]}}</em></p></span>
               <h4 *ngIf = "!result.result.name.includes('(Sem')">{{result.result.name}}</h4>
@@ -109,12 +109,17 @@
               <div *ngIf = "result.type === 'Teacher'">
                 {{result.result.prefix}} {{result.result.last_name}}, {{getDepartment(result.result.department_id)}} teacher.<br/><em>{{result.result.email}}</em>
               </div>
+              <br>
+              <div *ngIf = "admin == true">
+                <button (click) = "viewAdminStats(result)" class = "btn btn-block btn-danger">View Stats</button>
+              </div>
+
             </div>
             <div class = "col">
               <img *ngIf = "result.type == 'Teacher'" src = "../../assets/profile.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
               <img *ngIf = "result.type == 'Course'" src = "../../assets/course.jpg" align = "right" width = 80px; style = "border-radius: 100%" alt = "profile img here">
             </div>
           </div>
+
         </div>
       </div>
-

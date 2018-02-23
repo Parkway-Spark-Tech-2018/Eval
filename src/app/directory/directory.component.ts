@@ -31,6 +31,8 @@ export class DirectoryComponent implements OnInit {
   public courseschecked: boolean = true;
   //End of added code
 
+  public admin:boolean = false
+
   public show:boolean[] = [];
 
   public search_query:string;
@@ -52,6 +54,56 @@ export class DirectoryComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private eval_api: EvalApi) {
 
+  }
+
+  getAdmin() {
+    var that = this;
+
+    that.route
+    .queryParams
+    .subscribe(params => {
+      let admin = params["a"] || null;
+
+      if (admin != null) {
+        if (Number(admin) == 1) {
+          that.admin = true;
+        }
+      }
+
+    })
+  }
+
+  viewAdminStats(result:Result) {
+
+    var navigationExtras:NavigationExtras;
+
+    switch (result.type) {
+      case "Course":
+
+        var course:Course = <Course>result.result;
+
+        navigationExtras = {
+          queryParams: {'subject_type': 'course',
+                        'subject_id': course.id}
+        }
+
+        this.router.navigate(['/admin-stats'], navigationExtras)
+
+        break;
+      case "Teacher":
+
+        var teacher:Teacher = <Teacher>result.result;
+
+        navigationExtras = {
+          queryParams: {'subject_type': 'teacher',
+                        'subject_id': teacher.id}
+        }
+
+        this.router.navigate(['/admin-stats'], navigationExtras)
+
+
+        break;
+    }
   }
 
   search(search_string) { //Search algorithm
@@ -284,6 +336,8 @@ export class DirectoryComponent implements OnInit {
 
     let that = this;
 
+    this.getAdmin()
+
     //Get the teacher and courses
     this.eval_api.getTeachers().then (function (data) {
       that.teachers = <Teacher[]> data;
@@ -292,6 +346,8 @@ export class DirectoryComponent implements OnInit {
       that.courses = <Course[]> data;
     }).then (function () {
       that.performSearch(); //Perform the search;
+      that.alternateTC()
+      that.alternateTC()
     })
 
 
@@ -305,6 +361,5 @@ export class DirectoryComponent implements OnInit {
     }
 
     this.filterCourses();
-
   }
 }

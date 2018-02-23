@@ -15,7 +15,7 @@
     <br/>
     <h3>Teaches:</h3>
     <ul>
-      <li *ngFor = "let course of courses">{{course.name}}</li>
+      <li *ngFor = "let course of courses"><a style = "color:darkgreen" href = "/course?course_id={{course.id}}">{{course.name}}</a></li>
     </ul>
 
 
@@ -43,5 +43,6 @@
 <div class = "col">
   <h3 style = "text-align: center;">Student Reviews <!-- should not be able to leave review <button (click) = "leave_review()" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Add a review  </button>--></h3>
 </div>
-<app-rating [reviews] = "reviews"></app-rating>
+<p style = "text-align: center" *ngIf = "usertype !== 3"> <br/>Student reviews for teachers are only available for administrators.</p>
+<app-rating *ngIf = "usertype == 3" [reviews] = "reviews"></app-rating>
 <br/>
