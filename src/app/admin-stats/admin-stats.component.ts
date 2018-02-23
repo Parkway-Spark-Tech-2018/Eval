@@ -30,7 +30,7 @@ export class AdminStatsComponent implements OnInit {
   public pieChartLabels:string[] = ['Would Not Reccomend', 'Would Reccomend' ];
   public pieChartData:number[] = [0, 0];
   public pieChartType:string = 'pie';
-  public pieChartColors:string[] = [
+  public pieChartColors= [
     {
       backgroundColor:["#d85252", "#83cc63"]
     }];

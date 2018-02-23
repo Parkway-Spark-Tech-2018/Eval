@@ -119,7 +119,9 @@ h1
   //background: linear-gradient(to right, #161616, #ed6521, #ed6521, #ed6521, #161616);
   //background: linear-gradient(to right, #f9a545, black, black, black, #f9a545);
   //background: linear-gradient(to right, #007fe0, black, white, black, #007fe0);
-  background: linear-gradient(to right, #3e3f3a, #ef5b00, #ef5b00, #ef5b00, #3e3f3a);
+  //THIS background: linear-gradient(to right, #3e3f3a, #ef5b00, #ef5b00, #ef5b00, #3e3f3a);
+  background-image: url("assets/oranges.jpg");
+  background-size: 300px 300px;
   min-height: 100%;
 }
 .main
@@ -137,8 +139,8 @@ h1
 .main2
 {
   padding: 2% 5% 2% 5%;
-  margin-left: 10%;
-  margin-right: 10%;
+  //margin-left: 10%;
+  //margin-right: 10%;
   background: white;
   /*border-style: solid;
   border-left-width: 10px;
@@ -312,7 +314,7 @@ input:checked + .slider:before {
   -o-transition: left 0.15s ease-out;
   transition: left 0.15s ease-out;
 }
-.switch-handle:before {
+/*.switch-handle:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -327,7 +329,7 @@ input:checked + .slider:before {
   background-image: -moz-linear-gradient(top, #eeeeee, white);
   background-image: -o-linear-gradient(top, #eeeeee, white);
   background-image: linear-gradient(to bottom, #eeeeee, white);
-}
+}*/
 .switch-input:checked ~ .switch-handle {
   left: 70px;
   box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
