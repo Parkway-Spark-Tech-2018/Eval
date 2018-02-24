@@ -1,14 +1,69 @@
 <div class="row">
   <div class="col-md-12">
     <h1 class="text-center"><b>Statistics for the {{subject_type}}, {{subject.name}}</b></h1>
+    <br>
+    <div *ngIf = "all == false">
+      <a class = "btn btn-danger" href = "/admin-stats?subject_type={{subject_type}}&subject_id={{subject.id}}">Back</a>
+    </div>
   </div>
 </div>
 <br>
 <div *ngIf = "reviews.length > 0" class="row">
 
   <div class="col-md-6 student-ratings">
-    <h1 class="text-center">Student Ratings</h1>
-    <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [colors] = "pieChartColors" [chartType]="pieChartType"></canvas>
+
+    <div>
+      <h1 class="text-center">Student Ratings</h1>
+      <canvas id="ratings-chart" width = "400" height = "400" baseChart [data]="pieChartData" [options]="chartOptions" [labels]="pieChartLabels" [colors] = "pieChartColors" [chartType]="pieChartType"></canvas>
+
+    </div>
+
+    <div *ngIf = "subject_type == 'teacher' && all == true">
+      <h1 class = "text-center">Teachers</h1>
+
+      <ul class="list-group">
+        <li *ngFor = "let session of sessions;" class="list-group-item d-flex justify-content-between align-items-center"> <a style = "color: darkgreen" href = "/admin-stats?subject_type={{subject_type}}&subject_id={{subject.id}}&session_id={{session.id}}">{{renderCourseBySession(session).name}}</a>
+          <div *ngIf = "session.hour == 3">
+            Hour: {{session.hour}}rd hour
+          </div>
+          <div *ngIf = "session.hour == 1">
+            Hour: {{session.hour}}st hour
+          </div>
+          <div *ngIf = "session.hour == 2">
+            Hour: {{session.hour}}nd hour
+          </div>
+          <div *ngIf = "session.hour > 3">
+            Hour: {{session.hour}}th hour
+          </div>
+
+        </li>
+      </ul>
+
+    </div>
+
+    <div *ngIf = "subject_type == 'course' && all == true">
+      <h1 class = "text-center">Taught By</h1>
+
+      <ul class="list-group">
+        <li *ngFor = "let session of sessions;" class="list-group-item d-flex justify-content-between align-items-center"> <a style = "color: darkgreen" href = "admin-stats?subject_type={{subject_type}}&subject_id={{subject.id}}&session_id={{session.id}}">{{renderTeacherBySession(session).name}}</a>
+          <div *ngIf = "session.hour == 3">
+            Hour: {{session.hour}}rd hour
+          </div>
+          <div *ngIf = "session.hour == 1">
+            Hour: {{session.hour}}st hour
+          </div>
+          <div *ngIf = "session.hour == 2">
+            Hour: {{session.hour}}nd hour
+          </div>
+          <div *ngIf = "session.hour > 3">
+            Hour: {{session.hour}}th hour
+          </div>
+
+        </li>
+      </ul>
+
+    </div>
+
   </div>
   <div class="col-md-6">
     <h1 class="text-center">Reviews</h1>

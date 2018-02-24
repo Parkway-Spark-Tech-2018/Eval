@@ -49,6 +49,8 @@ export class AdminStatsComponent implements OnInit {
   public teachers:Teacher[] = [];
   public courses:Course[] = [];
   public sessions:Session[] = [];
+  public all_sessions:Session[] = [];
+  public all:boolean = true;
   public students:Student[] = [];
 
   constructor(
@@ -149,7 +151,29 @@ export class AdminStatsComponent implements OnInit {
       }
 
       sessions_filter_promise.then (function (sessions: Session[]) {
-        resolve(sessions)
+
+
+        that.getSessionId().then (function (session_id:Number) {
+
+            if (session_id == null) {
+              that.all = true;
+            }else {
+              that.all = false;
+            }
+            
+            if (session_id != null) {
+              var specific_sessions:Session[] = sessions.filter(function (session:Session) {
+                return session.id == session_id;
+              })
+
+              resolve(specific_sessions);
+            }else {
+              resolve(sessions)
+            }
+
+        })
+
+
       }).catch (function (err) {
         reject (err);
       })
@@ -159,6 +183,27 @@ export class AdminStatsComponent implements OnInit {
     return sessions_promise;
 
   }
+
+  renderCourseBySession(session:Session) {
+
+    return this.courses.find(function (course:Course) {
+
+      return course.id == session.course_id;
+
+    })
+
+  }
+
+  renderTeacherBySession(session:Session) {
+
+    return this.teachers.find(function (teacher:Teacher) {
+
+      return teacher.id == session.staff_id;
+
+    })
+
+  }
+
 
   getStudent(student_id) {
 
@@ -196,6 +241,22 @@ export class AdminStatsComponent implements OnInit {
     })
 
     this.pieChartData = [dislikes, likes]
+
+  }
+
+  getSessionId() {
+    var that = this;
+
+    let query_promise = new Promise (function (resolve, reject) {
+      that.route
+      .queryParams
+      .subscribe(params => {
+        let session_id:Number = params["session_id"] || null;
+        resolve(session_id);
+      })
+    });
+
+    return query_promise;
 
   }
 
