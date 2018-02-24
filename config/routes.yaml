@@ -26,6 +26,10 @@ show_schedules:
   path: /api/showSchedules
   controller: App\Controller\ScheduleController::show
 
+show_students:
+  path: /api/showStudents
+  controller: App\Controller\StudentController::show
+
 show_reviews:
   path: /api/showReviews
   controller: App\Controller\ReviewController::show
