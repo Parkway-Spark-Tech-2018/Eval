@@ -40,7 +40,7 @@ export class ReviewComponent implements OnInit {
       return that.getScheduleId()
     }).then (function (id:number) {
       schedule_id = id;
-      return that.getStudentId()
+      return that.getSessionId()
     }).then (function (id:number) {
       session_id = id;
       that.new_review = Review.createEmptySessionReview(session_id, schedule_id, student_id);
