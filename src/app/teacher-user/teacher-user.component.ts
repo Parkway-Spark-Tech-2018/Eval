@@ -8,6 +8,7 @@ import {Department} from '../../models/Department';
 import {Review} from '../../models/Review';
 import {Session} from '../../models/Session';
 import {Course} from '../../models/Course';
+import {Student} from '../../models/Student';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -33,7 +34,7 @@ export class TeacherUserComponent implements OnInit {
   public display_prefix:boolean = false;
   public sessions:Session[] = [];
   public courses:Course[] = [];
-
+  public students:Student[] = [];
   public reviews:Review[] = [];
 
   constructor(
@@ -45,6 +46,13 @@ export class TeacherUserComponent implements OnInit {
 
 
     this.teacher_id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.eval_api.getStudents().then (function (students:Student[]) {
+      that.students = students;
+    }).catch (function (err) {
+      console.log(err);
+    })
+
 
     this.retrieveInfo(this.teacher_id)
 
@@ -62,6 +70,14 @@ export class TeacherUserComponent implements OnInit {
     }).then (function (courses:Course[]) {
       console.log("Courses");
       that.courses = courses;
+    })
+
+  }
+
+  getStudent(student_id) {
+
+    return this.students.find(function (student:Student) {
+      return student.id == student_id;
     })
 
   }
