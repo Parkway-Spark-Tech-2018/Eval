@@ -33,6 +33,19 @@
           From course, {{getCourseBySession(review.session_id).name}}
         </div>
 
+        <div *ngIf = "renderSessionByReview(review).hour == 3">
+          Hour: {{renderSessionByReview(review).hour}}rd hour
+        </div>
+        <div *ngIf = "renderSessionByReview(review).hour == 1">
+          Hour: {{renderSessionByReview(review).hour}}st hour
+        </div>
+        <div *ngIf = "renderSessionByReview(review).hour == 2">
+          Hour: {{renderSessionByReview(review).hour}}nd hour
+        </div>
+        <div *ngIf = "renderSessionByReview(review).hour > 3">
+          Hour: {{renderSessionByReview(review).hour}}th hour
+        </div>
+
       </a>
     </div>
   </div>

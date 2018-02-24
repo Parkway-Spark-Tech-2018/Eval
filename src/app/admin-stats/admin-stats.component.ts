@@ -111,6 +111,24 @@ export class AdminStatsComponent implements OnInit {
 
   }
 
+  sortBySessionHour(sessions:Session[]) {
+
+    var sessions_sorted:Session[] = sessions.sort(function (session_a:Session, session_b:Session) {
+      return session_a.hour - session_b.hour;
+    })
+
+    return sessions_sorted;
+
+  }
+
+  renderSessionByReview(review:Review) {
+    return this.sessions.find (function (session:Session) {
+
+      return review.session_id == session.id;
+
+    })
+  }
+
   getSessions(subject_type:string, subject: Course | Teacher) {
 
     let that = this;
