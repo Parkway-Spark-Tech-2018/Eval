@@ -25,19 +25,22 @@ h1
   //background-color: #CC3333;
   //background-color: #4286f4;
   //background-color: #ff7f00;
-  background-color: #ef5b00;
+  //THIS background-color: #ef5b00;
   //background-color: #ff6e07;
+  background-color: #DD0000;
   font-weight: bold;
 }
 #cardSuperHeaderdull
 {
   color: white;
-  //background-color: #e89086;
+  //background-color: #e99086;
   //background-color: #e08d45;
   //background-color: #ed6521;
   //background-color: #ff8b26;
-  background-color: #ef9056;
-  //background-color: #ff6e07
+  //THISbackground-color: #ef9056;
+  //background-color: #3e3f3a;
+  //background-color: #ff6e07;
+  background-color: #8e8d8d;
 }
 #cardSuperHeader:hover, #cardSuperHeaderdull:hover
 {
