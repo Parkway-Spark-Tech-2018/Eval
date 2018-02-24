@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
--- Host: 192.168.1.234    Database: Eval
+-- Host: 108.201.44.180    Database: Eval
 -- ------------------------------------------------------
 -- Server version	5.7.21
 
@@ -146,7 +146,7 @@ CREATE TABLE `Review` (
   PRIMARY KEY (`Review_Id`),
   KEY `Student_Id` (`Student_Id`),
   CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`Student_Id`) REFERENCES `Student_Schedule` (`Student_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +155,7 @@ CREATE TABLE `Review` (
 
 LOCK TABLES `Review` WRITE;
 /*!40000 ALTER TABLE `Review` DISABLE KEYS */;
-INSERT INTO `Review` VALUES (3,1,0,0,'it was meh',1),(4,2,0,0,'it was meh',1),(5,3,2,0,'I didn\'t think it was useful.',2),(6,3,2,1,'No body.',2),(7,4,3,1,'Just generally a wonderful experience',3),(8,4,3,1,'Just cause it was good',3),(9,4,3,0,'My experience was not positive.',3),(10,4,3,1,'wabham wabham',3),(11,3,2,1,'It was cool and I liked it.',2),(12,3,2,1,'IT was fun\n',2),(13,4,3,1,'asdfgh',3),(14,4,3,1,'Just because',3),(15,4,3,1,'postive experience',3),(16,1,1,1,'Excellent course, remarkable coverage on conics.',1),(17,1,1,0,'',1);
+INSERT INTO `Review` VALUES (4,2,0,0,'it was meh',1),(5,3,2,0,'I didn\'t think it was useful.',2),(7,4,3,1,'Just generally a wonderful experience',3),(8,4,3,1,'Just cause it was good',3),(9,4,3,0,'My experience was not positive.',3),(11,3,2,1,'It was cool and I liked it.',2),(13,4,3,1,'asdfgh',3),(14,4,3,1,'Just because',3),(15,4,3,1,'postive experience',3),(16,1,1,1,'Excellent course, remarkable coverage on conics.',1),(17,1,1,0,'',1),(18,4,3,1,'Computer science opened my eyes to the wonderful world of technology.',3);
 /*!40000 ALTER TABLE `Review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,4 +345,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-23 23:57:53
+-- Dump completed on 2018-02-24  8:46:24
