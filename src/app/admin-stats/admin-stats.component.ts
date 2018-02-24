@@ -16,6 +16,8 @@ import {Review} from '../../models/Review';
 import {Session} from '../../models/Session';
 import {Course} from '../../models/Course';
 import {EvalUser} from '../../models/EvalUser';
+import {Student} from '../../models/Student';
+
 
 @Component({
   selector: 'app-admin-stats',
@@ -47,6 +49,7 @@ export class AdminStatsComponent implements OnInit {
   public teachers:Teacher[] = [];
   public courses:Course[] = [];
   public sessions:Session[] = [];
+  public students:Student[] = [];
 
   constructor(
       private route: ActivatedRoute,
@@ -64,6 +67,13 @@ export class AdminStatsComponent implements OnInit {
     let that = this;
 
     //this.checkAdmin();
+
+    that.api.getStudents().then (function (students:Student[]) {
+      that.students = students;
+    }).catch (function (err) {
+      console.log(err);
+    })
+
 
     that.getSubjectId().then (function (id:number) { // Get the Course/Teacher id
       sid = id;
@@ -129,6 +139,14 @@ export class AdminStatsComponent implements OnInit {
     })
 
     return sessions_promise;
+
+  }
+
+  getStudent(student_id) {
+
+    return this.students.find(function (student:Student) {
+      return student.id == student_id;
+    })
 
   }
 

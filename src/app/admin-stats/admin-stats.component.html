@@ -20,6 +20,8 @@
         <small *ngIf = "review.thumbs.toString() == 'true'" style = "color: #27a521"><b>Would reccomend</b></small>
         <small *ngIf = "review.thumbs.toString() != 'true'" style = "color: #d12f2f"><b>Would not reccomend</b></small>
 
+        <!-- By Student {{getStudent(review.student_id).full_name}} -->
+
         <div *ngIf = "subject_type == 'course' && teachers.length > 0">
           From teacher, {{getTeacherBySession(review.session_id).name}}
         </div>
