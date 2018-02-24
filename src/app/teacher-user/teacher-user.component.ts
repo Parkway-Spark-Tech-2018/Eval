@@ -56,12 +56,36 @@ export class TeacherUserComponent implements OnInit {
     })
 
     this.eval_api.getSessionsByTeacher(this.teacher_id).then (function (sessions:Session[]) {
-      that.sessions = sessions;
+      that.sessions = that.sortBySessionHour(sessions);
 
       return that.eval_api.getCoursesFromSessions(that.sessions);
     }).then (function (courses:Course[]) {
       console.log("Courses");
       that.courses = courses;
+    })
+
+  }
+
+  sortBySessionHour(sessions:Session[]) {
+
+    var sessions_sorted:Session[] = sessions.sort(function (session_a:Session, session_b:Session) {
+      return session_a.hour - session_b.hour;
+    })
+
+    return sessions_sorted;
+
+  }
+
+  renderReviewBySession(session:Session) {
+
+  }
+
+  renderCourseBySession(session:Session) {
+
+    return this.courses.find(function (course:Course) {
+
+      return course.id == session.course_id;
+
     })
 
   }

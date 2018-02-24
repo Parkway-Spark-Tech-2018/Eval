@@ -18,7 +18,8 @@
       <div class="col-md-6 teacher-courses">
         <h1 class="">You Teach</h1>
         <ul class="list-group">
-          <li *ngFor = "let course of courses;" class="list-group-item d-flex justify-content-between align-items-center"> <a style = "color: darkgreen" href = "/course?course_id={{course.id}}">{{course.name}}</a>
+          <li *ngFor = "let session of sessions;" class="list-group-item d-flex justify-content-between align-items-center"> <a style = "color: darkgreen" href = "/course?course_id={{renderCourseBySession(session).id}}">{{renderCourseBySession(session).name}}</a>
+            Hour: {{session.hour}}st hour
           </li>
         </ul>
       </div>
