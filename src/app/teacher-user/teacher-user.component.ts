@@ -86,6 +86,20 @@ export class TeacherUserComponent implements OnInit {
 
   renderReviewBySession(session:Session) {
 
+    return this.reviews.find(function (review:Review) {
+
+      return review.session_id == session.id;
+
+    })
+
+  }
+
+  renderSessionByReview(review:Review) {
+    return this.sessions.find (function (session:Session) {
+
+      return review.session_id == session.id;
+
+    })
   }
 
   renderCourseBySession(session:Session) {
